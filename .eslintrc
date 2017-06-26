@@ -1,0 +1,24 @@
+---
+extends: airbnb
+parser: babel-eslint
+plugins:
+ - react
+env:
+  browser: true
+rules:
+  react/prefer-stateless-function:
+    - 0
+  react/forbid-prop-types:
+    - 0
+  import/no-unresolved:
+    - 2
+    - ignore:
+      - "^[~]"
+  max-len:
+    - error
+    - 128
+  import/extensions:
+    - off
+    - never
+  class-methods-use-this:
+    - 0

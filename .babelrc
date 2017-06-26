@@ -1,0 +1,30 @@
+{
+  "presets": [
+    "react",
+    ["env", {
+      "targets": {
+        "uglify": false,
+        "browsers": [
+          "last 2 versions",
+          "safari >= 8",
+          "ie >= 10",
+          "ios >= 8"
+        ]
+      },
+      "modules": false,
+      "useBuiltIns": true
+    }]
+  ],
+  "compact" : false,
+  "plugins": [
+    ["babel-root-import", { "rootPathSuffix": "src" }],
+    "react-hot-loader/babel",
+    "transform-object-rest-spread",
+    "transform-class-properties"
+  ],
+  "env": {
+    "production": {
+      "presets": ["react-optimize"]
+    }
+  }
+}

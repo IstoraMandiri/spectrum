@@ -1,0 +1,99 @@
+// TODO refactor into proper theme
+html {
+  background: #CCC;
+}
+body {
+  background-image: linear-gradient(180deg, #EEE 0%, #CCC 100%);
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.ui.button.hidden {
+  position: absolute;
+  visibility: hidden;
+}
+
+.ui.dragbox {
+  cursor: pointer;
+  &.active {
+    box-shadow: inset 0 0 20px rgba(0,0,0,.4);
+  }
+}
+
+.pusher {
+  display: flex;
+  min-height: 100vh;
+  flex-direction: column;
+}
+
+.pusher > .content {
+  flex: 1;
+}
+.pusher > .footer {
+  height: auto;
+  margin-top: 2em;
+}
+
+.ui.button.padded, .ui.label.padded {
+  margin-bottom: 3px;
+}
+
+span.padded {
+  display:inline-block;
+  margin-right: 3px;
+  margin-bottom: 3px;
+}
+
+.qr-video-container video, .qr-container canvas {
+  max-width: 100%;
+}
+.qr-container canvas {
+  height: auto !important;
+}
+
+.qr-video-container {
+  & { position: relative; }
+  ::before {
+    content: '';
+    z-index: 10;
+    background-image: url('../assets/qr-overlay.png');
+    background-size: contain;
+    background-position: center center;
+    background-repeat: no-repeat;
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+  }
+}
+
+.ui.labeled.input > .ui.image.label.image-only.label:not(.corner) {
+  margin: 0;
+  padding: 0;
+  img {
+    height: 2.7em !important;
+    margin: 0;
+    vertical-align: bottom;
+  }
+}
+.ui.search.dropdown > .text {
+  max-width: 10em;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+.truncated {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 100%;
+  display: inline-block;
+}
+
+.wrapping {
+  max-width: 100%;
+  word-break: break-all;
+}
