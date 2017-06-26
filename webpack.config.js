@@ -50,7 +50,6 @@ const baseConfig = {
         // TODO auto detect es6 modules?
         path.resolve('./src'),
         fs.realpathSync(`${__dirname}/node_modules/web3-redux`),
-        fs.realpathSync(`${__dirname}/node_modules/@digix/core2`),
         fs.realpathSync(`${__dirname}/node_modules/@digix/etc-redemption`),
         fs.realpathSync(`${__dirname}/node_modules/@digix/redux-crypto-prices`),
         fs.realpathSync(`${__dirname}/node_modules/@digix/truffle-gnosis-multisig`),
