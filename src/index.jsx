@@ -6,7 +6,7 @@ import { Provider } from 'react-redux';
 
 import 'semantic-ui-less/semantic.less';
 
-import './offlinePlugin';
+import './helpers/offlinePlugin';
 
 import App from './components/app';
 import store from './store';
