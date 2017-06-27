@@ -2,9 +2,9 @@
 
 ### Full Gamut Ethereum Lightsuite
 
-Spectrum is an open source react-redux application for developing dapp UIs.
+Spectrum is an open source react-redux application for developing dapp UIs. dapp development quick, easy and accessible to end users.
 
-It includes a range of useful components and tools to make dapp development quick, easy and accessible.
+## 👉 [Spectrum Contribution Bounty Program](https://github.com/spectrum/spectrum/wiki/Spectrum-Contribution-Bounty-Program)
 
 ## Features (test checklist)
 
@@ -28,47 +28,6 @@ It includes a range of useful components and tools to make dapp development quic
 * QR code reading & writing (android/desktop)
 * Optimized bundles
 * Modular Architecture
-
-## Spectrum Dev Bounties Program
-
-* Issue Creation Bounty ($)
-* Issue Completion Bounty ($$)
-* Bug Bounty ($$$)
-* USD peg for each issue being tracked
-* Queue system for accepting and implementing features or solving issues
-* Choice of DGD or SUT (w/ +50% premine) for dev rewards
-* SUT whitepaper (to be announced);
-  * SUT are backed and minted by (un)wrapping DGD/DGX (once live)
-  * Auto-adjusting demurrage fee on SUT, for access to premium services;
-    * Multi-network private node cluster with auto-scaling
-    * One-click automatic token detection for all ERC20 tokens / networks
-    * Push notifications on receiving transactions
-    * Premium technical support
-    * "Time Machine" Mode
-    * TBA future benefits and services within Spectrum
-
-## TODOs
-
-Upcoming major features; earn Spectrum Dev Rewards!
-
-* Routing
-* Address Book
-* Transaction History
-* Internationalization (i18n)
-* ENS Integration
-* Encrypted BIP 32 wallet
-* Trezor Keystore
-* Time Machine Mode
-* Mass Tx Processing
-* Configurable Persistence w/ Plugins
-* Unit Test Suite
-* Decentralized Dapplet Registry;
-  * Transaction Sniper
-  * ENS registration
-  * IPFS Uploader / Explorer
-  * More!
-
-Join the #spectrum-dev Digix Slack channel for more information.
 
 ## Developing
 
