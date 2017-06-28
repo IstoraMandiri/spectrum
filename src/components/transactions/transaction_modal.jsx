@@ -1,27 +1,23 @@
 import React, { PropTypes, Component } from 'react';
 import EZModal from 'sui-react-ezmodal';
-import { connect } from 'react-redux';
 
 import Web3Connect from '~/helpers/web3/connect';
-import { getNetworks } from '~/selectors';
-import DropdownSelector from '~/components/common/dropdown_selector';
 
 import TransactionTracker from './transaction_tracker';
 import TransactionModalForm from './transaction_modal_form';
 
-const defaultState = { error: false, loading: false, txHash: false, network: null };
+const defaultState = { error: false, loading: false, txHash: false, networkId: null };
 
 class TransactionModal extends Component {
   static propTypes = {
     handleTransaction: PropTypes.func.isRequired,
-    data: PropTypes.object.isRequired,
+    data: PropTypes.object,
     trigger: PropTypes.object.isRequired,
     web3Redux: PropTypes.object.isRequired,
     onMined: PropTypes.func,
     onBroadcast: PropTypes.func,
     renderConfirmation: PropTypes.func,
     onClose: PropTypes.func,
-    network: PropTypes.object,
     header: PropTypes.string,
     size: PropTypes.string,
     web3: PropTypes.object,
@@ -29,14 +25,12 @@ class TransactionModal extends Component {
     form: PropTypes.func,
     networks: PropTypes.array,
     renderForm: PropTypes.func,
-    formChange: PropTypes.func,
   }
   static defaultProps = {
     onMined: undefined,
     onBroadcast: undefined,
     renderConfirmation: undefined,
     onClose: undefined,
-    network: undefined,
     header: undefined,
     size: undefined,
     web3: undefined,
@@ -44,7 +38,7 @@ class TransactionModal extends Component {
     form: undefined,
     networks: undefined,
     renderForm: undefined,
-    formChange: undefined,
+    data: {},
   }
   constructor(props) {
     super(props);
@@ -53,18 +47,31 @@ class TransactionModal extends Component {
     this.handleClose = this.handleClose.bind(this);
   }
   getWeb3() {
-    return this.props.web3 || (this.props.web3Redux.networks[(this.state.network || {}).id] || {}).web3;
+    // if web3 is not set, use the networkId passed from formData
+    return this.props.web3 || (this.props.web3Redux.networks[this.state.networkId] || {}).web3;
   }
   handleClose() {
     if (this.props.onClose) { this.props.onClose(this.state); }
     this.setState(defaultState);
   }
   handleSubmit(formData) {
+    // set the networkId
     const { handleTransaction, onMined, onBroadcast } = this.props;
-    const web3 = this.getWeb3();
-    this.setState({ loading: true, error: false, txHash: null });
+    const { networkId } = formData;
+    if (!this.props.web3 && !networkId) {
+      throw new Error('Network ID not set');
+    }
+    if (this.props.web3 && formData.networkId && this.props.web3.networkId !== formData.networkId) {
+      throw new Error('Network ID mismatch');
+    }
+    // set the network ID, in case web3 was not passed
+    this.setState({ loading: true, error: false, txHash: null, networkId: formData.networkId });
+    // scoping
+    let web3;
+    // do the transaction
     new Promise(resolve => setTimeout(resolve, 10)) // time for UI update
-    .then(() => handleTransaction(formData, web3))
+    .then(() => { web3 = this.getWeb3(); }) // setState has resoled by now, we can get web3
+    .then(() => handleTransaction(formData, web3)) // pass web3 to handler for convenience
     .then((txHash) => {
       this.setState({ txHash, loading: false, broadcast: new Date() });
       if (onBroadcast) { onBroadcast({ formData, txHash }); }
@@ -77,46 +84,22 @@ class TransactionModal extends Component {
   renderTracker() {
     const { renderConfirmation } = this.props;
     const { txHash, broadcast } = this.state;
-    const network = this.props.network || this.state.network;
-    return <TransactionTracker {...{ broadcast, txHash, web3: this.getWeb3(), network, renderConfirmation }} />;
+    return <TransactionTracker {...{ broadcast, txHash, web3: this.getWeb3(), renderConfirmation }} />;
   }
   renderForm(props) {
     return <TransactionModalForm {...this.props} {...props} web3={this.getWeb3()} />;
   }
-  renderNetworksSelector() {
-    const { networks, formChange } = this.props;
-    if ((networks || []).length === 0) { return <p>No Networks Available</p>; }
-    return (
-      <DropdownSelector
-        defaultText="Select Network"
-        items={networks.filter(n => n.enabled)}
-        onChange={(network) => {
-          this.setState({ network });
-          if (formChange) { formChange({ target: { name: 'networks', value: [network.id] } }); }
-        }}
-      />
-    );
-  }
   render() {
-    // controlled EZModal where you optionally pass a form, automatically shows txTracker
     const { data, header, trigger, size, handleTransaction, submitButtonText, renderForm, form } = this.props;
-    const web3 = this.getWeb3();
-    if (!web3) {
-      return this.renderNetworksSelector();
-    }
-    if (!web3 || !web3.isConnected()) {
-      return null;
-    }
-    const { loading, txHash, network, error } = this.state;
+    const { loading, txHash, error } = this.state;
     const autoSubmit = !renderForm && !form;
     if (!error && autoSubmit && !txHash) {
       return <span tabIndex={0} role="button" onClick={() => this.handleSubmit(data)}>{trigger}</span>;
     }
-    // TODO globally configurable gas price
     return (
       <EZModal
         {...{ data: { ...data, gasPrice: data.gasPrice || 20e9 }, header, trigger, submitButtonText }}
-        initiallyOpen={!!network || (autoSubmit && (txHash || error))}
+        initiallyOpen={autoSubmit && (txHash || error)}
         size={(txHash && 'small') || size || undefined}
         loading={loading}
         error={error}
@@ -125,7 +108,6 @@ class TransactionModal extends Component {
         closeButtonText={!txHash ? 'Cancel' : 'Done'}
         handleSubmit={handleTransaction && this.handleSubmit}
         content={(props) => {
-          if (!web3) { return null; }
           if (txHash) { return this.renderTracker(); }
           return this.renderForm(props);
         }}
@@ -134,4 +116,4 @@ class TransactionModal extends Component {
   }
 }
 
-export default Web3Connect(connect(s => ({ networks: getNetworks(s) }))(TransactionModal));
+export default Web3Connect(TransactionModal);

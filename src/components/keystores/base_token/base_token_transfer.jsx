@@ -39,7 +39,7 @@ export default class BaseTokenTransfer extends Component {
         handleTransaction={this.handleTransaction}
         onMined={this.handleMined}
         form={BaseTokenTransferForm}
-        {...{ data, trigger, web3, network }}
+        {...{ data, trigger, web3, network }} // passed to form
       />
     );
   }

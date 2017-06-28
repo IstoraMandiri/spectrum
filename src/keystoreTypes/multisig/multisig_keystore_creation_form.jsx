@@ -4,6 +4,7 @@ import { abi, unlinked_binary as binary } from '@digix/truffle-gnosis-multisig/b
 
 import AddressInput from '~/components/common/address_input';
 import NetworkTokensSelector from '~/components/common/network_tokens_selector';
+import NetworkSelector from '~/components/common/network_selector';
 
 import FormField from '~/components/common/form_field';
 import TransactionModal from '~/components/transactions/transaction_modal';
@@ -23,9 +24,6 @@ class MultisigKeystoreCreationForm extends Component {
     this.handleMined = this.handleMined.bind(this);
   }
   handleTransaction({ owners, required, count }, web3) {
-    // TODO validate owners etc
-    // set the network
-    this.props.formChange({ name: 'networks', value: [web3.networkId] });
     return web3.eth.contract(abi).new(owners.slice(0, count), required, { data: binary });
   }
   handleMined({ txData: { contractAddress } }) {
@@ -42,15 +40,20 @@ class MultisigKeystoreCreationForm extends Component {
             Deploy New Contract
             <Header.Subheader content="Create a new contract and configure owners" />
           </Header>
-          <TransactionModal
-            {...this.props}
-            size="small"
-            trigger={<Button color="blue" fluid content="Configure Deployment" onClick={e => e.preventDefault()} />}
-            header="Deploy New Multisig Wallet"
-            handleTransaction={this.handleTransaction}
-            onMined={this.handleMined}
-            form={MultisigKeystoreDeployForm}
-          />
+          {!formData.networks ?
+            <NetworkSelector onChange={({ id }) => formChange({ name: 'networks', value: [id] })} />
+          :
+            <TransactionModal
+              {...this.props}
+              size="small"
+              data={{ networkId: formData.networks[0] }}
+              trigger={<Button color="blue" fluid content="Configure Deployment" onClick={e => e.preventDefault()} />}
+              header="Deploy New Multisig Wallet"
+              handleTransaction={this.handleTransaction}
+              onMined={this.handleMined}
+              form={MultisigKeystoreDeployForm}
+            />
+          }
         </Grid.Column>
         <Grid.Column width={8}>
           <Header as="h3" icon>

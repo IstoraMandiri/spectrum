@@ -5,14 +5,13 @@ import { toBigNumber } from '~/helpers/stringUtils';
 
 import TokenTransactionForm from './token_transfer_form';
 
-export default class BaseTokenTransfer extends Component {
+export default class TokenTransfer extends Component {
   static propTypes = {
     web3: PropTypes.object.isRequired,
     data: PropTypes.object,
     trigger: PropTypes.node.isRequired,
     contract: PropTypes.object.isRequired,
     token: PropTypes.object.isRequired,
-    network: PropTypes.object.isRequired,
   }
   static defaultProps = {
     data: undefined,
@@ -35,14 +34,14 @@ export default class BaseTokenTransfer extends Component {
     contract.balanceOf.call(formData.from);
   }
   render() {
-    const { data, web3, trigger, network, token, contract } = this.props;
+    const { data, web3, trigger, token, contract } = this.props;
     return (
       <TransactionModal
         header={`Send ${token.name} Tokens`}
         handleTransaction={this.handleTransaction}
         onMined={this.handleMined}
         form={TokenTransactionForm}
-        {...{ data, trigger, web3, network, token, contract }}
+        {...{ data, trigger, web3, token, contract }}
       />
     );
   }

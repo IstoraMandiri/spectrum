@@ -30,7 +30,7 @@ export default class BaseTokenButton extends Component {
       <TokenTransfer
         trigger={<span className="padded"><TokenBalance {...{ contract, token, web3, address }} /></span>}
         data={{ from: address.address, gas: 4000000 }}
-        {...{ contract, web3, network, token }}
+        {...{ contract, web3, token }}
       />
     );
   }

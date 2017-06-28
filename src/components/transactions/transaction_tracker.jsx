@@ -1,10 +1,13 @@
 import React, { PropTypes, Component } from 'react';
+import { connect } from 'react-redux';
 import { Divider, Header, Label, Icon, Table } from 'semantic-ui-react';
 
-export default class TransactionTracker extends Component {
+import { getNetworks } from '~/selectors';
+
+class TransactionTracker extends Component {
   static propTypes = {
     web3: PropTypes.object.isRequired,
-    network: PropTypes.object.isRequired,
+    networks: PropTypes.array.isRequired,
     txHash: PropTypes.string.isRequired,
     broadcast: PropTypes.object.isRequired,
     renderConfirmation: PropTypes.func,
@@ -24,7 +27,8 @@ export default class TransactionTracker extends Component {
     );
   }
   render() {
-    const { broadcast, web3, network, txHash, renderConfirmation } = this.props;
+    const { broadcast, web3, networks, txHash, renderConfirmation } = this.props;
+    const network = networks.find(({ id }) => id === web3.networkId);
     const { explorerTransactionPrefix, explorerBlockPrefix } = network;
     const transaction = web3.eth.transaction(txHash);
     const { blockNumber } = transaction || {};
@@ -79,3 +83,5 @@ export default class TransactionTracker extends Component {
     );
   }
 }
+
+export default connect(s => ({ networks: getNetworks(s) }))(TransactionTracker);
