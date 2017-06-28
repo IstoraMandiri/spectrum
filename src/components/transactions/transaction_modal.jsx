@@ -69,13 +69,13 @@ class TransactionModal extends Component {
     // scoping
     let web3;
     // only pass the nonce if it's an integer
-    const { nonce, ...txData } = formData;
+    const { nonce, ...sanitizedData } = formData;
     if (Number.isInteger(parseInt(nonce, 10))) {
-      txData.nonce = nonce;
+      sanitizedData.nonce = nonce;
     }
     new Promise(resolve => setTimeout(resolve, 10)) // time for UI update
     .then(() => { web3 = this.getWeb3(); }) // setState has resoled by now, we can get web3
-    .then(() => handleTransaction(txData, web3))
+    .then(() => handleTransaction(sanitizedData, web3))
     .then((txHash) => {
       this.setState({ txHash, loading: false, broadcast: new Date() });
       if (onBroadcast) { onBroadcast({ formData, txHash }); }
