@@ -5,10 +5,10 @@ import { registerUIs } from '~/helpers/uiRegistry';
 
 import TokenBalance from './token_balance';
 import TokenTransfer from './token_transfer';
-import TokenTx from './token_tx';
+import TokenTxUi from './token_tx_ui';
 
 // register the tx ui
-registerUIs({ tokenTx: { component: TokenTx } });
+registerUIs({ tokenTx: { component: TokenTxUi } });
 
 export default class BaseTokenButton extends Component {
   static propTypes = {
