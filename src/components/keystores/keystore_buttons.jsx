@@ -8,29 +8,33 @@ import ImportKeystoreModal from './import_keystore_modal';
 import KeystoreModal from './keystore_modal';
 import KeystoreCreationForm from './keystore_creation_form';
 
+import GenericTransaction from './generic_transaction';
+
 class KeystoreButtons extends Component {
   static propTypes = {
-    size: PropTypes.string,
     createKeystore: PropTypes.func.isRequired,
+    keystores: PropTypes.array,
   }
   static defaultProps = {
     size: undefined,
+    keystores: [],
   }
   render() {
     return (
       <span>
+        {!!this.props.keystores.length && <GenericTransaction /> }
         <KeystoreModal
           {...this.props}
           submitFunc={this.props.createKeystore}
           form={KeystoreCreationForm}
           trigger={
-            <Button onClick={e => e.preventDefault()} basic icon="plus" content="Create" size={this.props.size} />
+            <Button onClick={e => e.preventDefault()} basic icon="plus" content="Create" />
           }
         />
         <ImportKeystoreModal
           {...this.props}
           trigger={
-            <Button onClick={e => e.preventDefault()} basic icon="upload" content="Import" size={this.props.size} />
+            <Button onClick={e => e.preventDefault()} basic icon="upload" content="Import" />
           }
         />
       </span>

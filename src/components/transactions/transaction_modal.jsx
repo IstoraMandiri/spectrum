@@ -77,6 +77,7 @@ class TransactionModal extends Component {
     .then(() => { web3 = this.getWeb3(); }) // setState has resoled by now, we can get web3
     .then(() => handleTransaction(sanitizedData, web3))
     .then((txHash) => {
+      if (!txHash) { throw Error('Transaction was not published!'); }
       this.setState({ txHash, loading: false, broadcast: new Date() });
       if (onBroadcast) { onBroadcast({ formData, txHash }); }
       return web3.eth.waitForMined(txHash);

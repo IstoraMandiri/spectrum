@@ -3,7 +3,6 @@ import { Grid, Header } from 'semantic-ui-react';
 import EtcRedemption from '@digix/etc-redemption/spectrum';
 
 import MenuSystem from '~/components/common/menu_system';
-import Signer from './signer';
 
 export default class Dapplets extends Component {
   static propTypes = {
@@ -24,7 +23,6 @@ export default class Dapplets extends Component {
           <MenuSystem
             secondary
             tabs={[
-              { name: 'Transaction Signer', icon: 'pencil', component: <Signer /> },
               { name: 'ETC Redemption', icon: 'fork', component: <EtcRedemption /> },
             ]}
           />
