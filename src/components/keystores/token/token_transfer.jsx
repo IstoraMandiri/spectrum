@@ -22,11 +22,11 @@ export default class TokenTransfer extends Component {
     this.handleTransaction = this.handleTransaction.bind(this);
     this.handleMined = this.handleMined.bind(this);
   }
-  handleTransaction({ to, from, gas, gasPrice, tokenValue }) {
+  handleTransaction({ tokenValue, to, ...rest }) {
     const { contract, token } = this.props;
     if (!tokenValue) { throw new Error('You must enter a value'); }
     const value = toBigNumber(tokenValue).shift(token.decimals);
-    return contract.transfer.sendTransaction(to, value, { gas, gasPrice, from, ui: { type: 'tokenTx', token, value, to } });
+    return contract.transfer.sendTransaction(to, value, { ...rest, ui: { type: 'tokenTx', token, value, to } });
   }
   handleMined({ formData }) {
     const { contract } = this.props;

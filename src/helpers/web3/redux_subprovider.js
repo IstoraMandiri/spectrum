@@ -16,9 +16,7 @@ export default class ReduxSubProvider extends HookedWalletEthTx {
     this.sanitizeData = (txData, network) => {
       const gas = txData.gas || txData.gasLimit;
       const value = txData.value || '0x00';
-      // pass the networkId
       const chainId = network.chainId && parseInt(network.chainId, 10);
-      // const data = txData.data || addHexPrefix(txData.data || '0');
       return { ...txData, gas, value, chainId };
     };
     // overriding https://github.com/MetaMask/provider-engine/blob/master/subproviders/hooked-wallet-ethtx.js

@@ -68,10 +68,14 @@ class TransactionModal extends Component {
     this.setState({ loading: true, error: false, txHash: null, networkId: formData.networkId });
     // scoping
     let web3;
-    // do the transaction
+    // only pass the nonce if it's an integer
+    const { nonce, ...txData } = formData;
+    if (Number.isInteger(parseInt(nonce, 10))) {
+      txData.nonce = nonce;
+    }
     new Promise(resolve => setTimeout(resolve, 10)) // time for UI update
     .then(() => { web3 = this.getWeb3(); }) // setState has resoled by now, we can get web3
-    .then(() => handleTransaction(formData, web3)) // pass web3 to handler for convenience
+    .then(() => handleTransaction(txData, web3))
     .then((txHash) => {
       this.setState({ txHash, loading: false, broadcast: new Date() });
       if (onBroadcast) { onBroadcast({ formData, txHash }); }

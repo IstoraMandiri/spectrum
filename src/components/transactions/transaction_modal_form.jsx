@@ -35,6 +35,13 @@ export default class TransactionModalForm extends Component {
               name="gasPrice"
               {...{ formChange, formData }}
             />
+            <FormField
+              type="number"
+              placeholder="Leave empty to auto-detect"
+              label="Nonce"
+              name="nonce"
+              {...{ formChange, formData }}
+            />
           </Form.Group>
         </Advanced>
       </div>

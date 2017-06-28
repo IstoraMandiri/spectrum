@@ -20,11 +20,11 @@ export default class BaseTokenTransfer extends Component {
     this.handleTransaction = this.handleTransaction.bind(this);
     this.handleMined = this.handleMined.bind(this);
   }
-  handleTransaction({ to, from, gas, gasPrice, ethValue }) {
+  handleTransaction({ ethValue, ...rest }) {
     const { web3 } = this.props;
     if (!ethValue) { throw new Error('You must enter a value'); }
     const value = toBigNumber(ethValue).shift(18);
-    return web3.eth.sendTransaction({ value, to, from, gas, gasPrice, ui: { type: 'baseTokenTx' } });
+    return web3.eth.sendTransaction({ ...rest, value, ui: { type: 'baseTokenTx' } });
   }
   handleMined({ formData }) {
     const { web3 } = this.props;
