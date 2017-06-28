@@ -9,7 +9,6 @@ const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
 // const SriPlugin = require('webpack-subresource-integrity');
 // TODO enable when https://bugs.chromium.org/p/chromium/issues/detail?id=573269 is fixed
 const WebpackPwaManifest = require('webpack-pwa-manifest');
-const CopyWebpackPlugin = require('copy-webpack-plugin');
 const OptimizeCssAssetsPlugin = require('optimize-css-assets-webpack-plugin');
 const StatsPlugin = require('stats-webpack-plugin');
 
@@ -40,7 +39,6 @@ module.exports = config => ({
     new OptimizeCssAssetsPlugin(),
     // TODO fix compatability with SRI?
     // new SriPlugin({ hashFuncNames: ['sha256'] }),
-    new CopyWebpackPlugin([{ from: './src/assets/icon.png', to: 'favicon.ico' }]),
     new WebpackPwaManifest({
       name: 'Spectrum',
       short_name: 'Spectrum',
