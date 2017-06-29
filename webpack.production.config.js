@@ -1,4 +1,5 @@
 /* eslint-disable import/no-extraneous-dependencies */
+const crypto = require('crypto');
 const path = require('path');
 const webpack = require('webpack');
 const OfflinePlugin = require('offline-plugin');
@@ -24,7 +25,9 @@ module.exports = config => ({
       if (chunk.name) {
         return chunk.name;
       }
-      return chunk.modules.map(m => path.relative(m.context, m.request)).join('_');
+      const files = chunk.modules.map(m => path.relative(m.context, m.request)).join('_');
+      // hash the filenames (TODO, this will eventually be a dapplet)
+      return `import.${crypto.createHash('md5').update(files).digest('hex').substr(0, 20)}`;
     }),
     new webpack.optimize.CommonsChunkPlugin({
       name: 'vendor',

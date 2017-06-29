@@ -1,8 +1,12 @@
 import React, { Component } from 'react';
 import { Grid, Header } from 'semantic-ui-react';
-import EtcRedemption from '@digix/etc-redemption/spectrum';
+
+import Lazyload from '~/components/common/lazyload';
 
 import MenuSystem from '~/components/common/menu_system';
+
+const EtcRedemption = Lazyload(() => System.import('@digix/etc-redemption/spectrum'));
+
 
 export default class Dapplets extends Component {
   static propTypes = {
@@ -23,7 +27,11 @@ export default class Dapplets extends Component {
           <MenuSystem
             secondary
             tabs={[
-              { name: 'ETC Redemption', icon: 'fork', component: <EtcRedemption /> },
+              {
+                name: 'ETC Redemption',
+                icon: 'fork',
+                component: <EtcRedemption />,
+              },
             ]}
           />
         </Grid.Column>
