@@ -10,7 +10,7 @@ class TransactionModalContainer extends Component {
     network: PropTypes.object,
     content: PropTypes.func.isRequired,
     loading: PropTypes.oneOfType([PropTypes.string, PropTypes.bool]).isRequired,
-    error: PropTypes.oneOfType([PropTypes.string, PropTypes.bool]).isRequired,
+    error: PropTypes.oneOfType([PropTypes.object, PropTypes.string, PropTypes.bool]).isRequired,
     onClose: PropTypes.func,
     header: PropTypes.string.isRequired,
     trigger: PropTypes.node.isRequired,
