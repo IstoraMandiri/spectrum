@@ -6,6 +6,7 @@ plugins:
  - jest
 env:
   browser: true
+  jest/globals: true
 rules:
   react/prefer-stateless-function:
     - 0

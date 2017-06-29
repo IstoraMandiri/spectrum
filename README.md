@@ -2,11 +2,11 @@
 
 ### Full Gamut Ethereum Lightsuite
 
-Spectrum is an open source react-redux application for developing dapp UIs. dapp development quick, easy and accessible to end users.
+Spectrum is an open source react-redux application for developing dapps.
 
 ## 👉 [Spectrum Contribution Bounty Program](https://github.com/spectrum/spectrum/wiki/Spectrum-Contribution-Bounty-Program)
 
-## Features (test checklist)
+## Features
 
 * Create, Edit, Remove Networks
 * Create, Edit, Remove ERC20 Tokens
@@ -15,7 +15,7 @@ Spectrum is an open source react-redux application for developing dapp UIs. dapp
   * v3 (encrypted json)
   * Ledger nano
   * Offline
-  * Multisig (+ sign other transaction)
+  * Multisig (+ deploy, manage users, sign other's multisig transaction)
 * Send Base Tokens (ETH, KETH, ETC)
 * Send Token (any ERC20 token)
 * Modular Dapplets
@@ -42,6 +42,8 @@ Then clone this repo, and
 npm install
 npm start
 ```
+
+Please read the [Contribution Guide](https://github.com/spectrum/spectrum/wiki/Contribution-Guide) before submitting PRs.
 
 ## License
 
