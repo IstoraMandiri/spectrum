@@ -19,7 +19,7 @@ class Networks extends Component {
   renderNetworks() {
     const { web3Redux, networks } = this.props;
     return networks.map((network) => {
-      const { web3 } = web3Redux.networks[network.id] || {};
+      const web3 = web3Redux.web3(network.id);
       return <Network {...this.props} key={network.id} {...{ network, web3 }} />;
     });
   }

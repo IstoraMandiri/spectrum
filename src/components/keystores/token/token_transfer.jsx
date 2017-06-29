@@ -7,7 +7,6 @@ import TokenTransactionForm from './token_transfer_form';
 
 export default class TokenTransfer extends Component {
   static propTypes = {
-    web3: PropTypes.object.isRequired,
     data: PropTypes.object,
     trigger: PropTypes.node.isRequired,
     contract: PropTypes.object.isRequired,
@@ -34,14 +33,15 @@ export default class TokenTransfer extends Component {
     contract.balanceOf.call(formData.from);
   }
   render() {
-    const { data, web3, trigger, token, contract } = this.props;
+    const { data, trigger, token, contract } = this.props;
+    const { network } = token;
     return (
       <TransactionModal
         header={`Send ${token.name} Tokens`}
         handleTransaction={this.handleTransaction}
         onMined={this.handleMined}
         form={TokenTransactionForm}
-        {...{ data, trigger, web3, token, contract }}
+        {...{ data, trigger, network, token, contract }}
       />
     );
   }

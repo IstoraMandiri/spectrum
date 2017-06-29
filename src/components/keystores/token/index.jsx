@@ -22,7 +22,7 @@ export default class BaseTokenButton extends Component {
     if (!token || !token.networkEnabled) { return null; } // enabled for account
     if (!network || !network.enabled) { return null; } // enabled globally
     if (!address || !address.address) { return null; } // sanity check
-    const { web3 } = web3Redux.networks[network.id] || {};
+    const web3 = web3Redux.web3(network.id);
     if (!web3) { return null; }
     const contract = web3.eth.contract(ERC20_ABI).at(token.address);
     // TODO get the token-specific gas price
@@ -30,7 +30,7 @@ export default class BaseTokenButton extends Component {
       <TokenTransfer
         trigger={<span className="padded"><TokenBalance {...{ contract, token, web3, address }} /></span>}
         data={{ from: address.address, gas: 4000000 }}
-        {...{ contract, web3, token }}
+        {...{ contract, token }}
       />
     );
   }

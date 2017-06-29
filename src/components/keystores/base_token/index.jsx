@@ -19,14 +19,14 @@ export default class BaseTokenButton extends Component {
     const { network, web3Redux, address } = this.props;
     if (!network || !network.enabled) { return null; }
     if (!address || !address.address) { return null; }
-    const { web3 } = web3Redux.networks[network.id] || {};
+    const web3 = web3Redux.web3(network.id);
     if (!web3) { return null; }
     const gas = 21000;
     return (
       <BaseTokenTransfer
         trigger={<span className="padded"><BaseTokenBalance {...{ network, web3, address }} /></span>}
         data={{ from: address.address, gas }}
-        {...{ web3, network }}
+        {...{ network, web3 }}
       />
     );
   }

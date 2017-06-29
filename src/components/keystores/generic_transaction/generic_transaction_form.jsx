@@ -50,7 +50,7 @@ export default class GenericTransactionForm extends Component {
     }
   }
   render() {
-    const { formChange, formData } = this.props;
+    const { formChange, setFormData, formData } = this.props;
     return (
       <div>
         <Input
@@ -92,7 +92,7 @@ export default class GenericTransactionForm extends Component {
             {...{ formChange, formData }}
           />
         </Form.Group>
-        <NetworkSelector {...{ formChange }} />
+        <NetworkSelector onChange={({ chainId, id: networkId }) => setFormData({ ...formData, chainId, networkId })} />
       </div>
     );
   }

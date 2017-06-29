@@ -3,7 +3,9 @@ import FormField from '~/components/common/form_field';
 import Advanced from '~/components/common/advanced';
 import { Form } from 'semantic-ui-react';
 
-export default class TransactionModalForm extends Component {
+import Web3Connect from '~/helpers/web3/connect';
+
+class TransactionModalForm extends Component {
   static propTypes = {
     formChange: PropTypes.func.isRequired,
     formData: PropTypes.object.isRequired,
@@ -52,3 +54,5 @@ export default class TransactionModalForm extends Component {
     );
   }
 }
+
+export default Web3Connect(TransactionModalForm);

@@ -6,7 +6,6 @@ import BaseTokenTransferForm from './base_token_transfer_form';
 
 export default class BaseTokenTransfer extends Component {
   static propTypes = {
-    web3: PropTypes.object.isRequired,
     data: PropTypes.object,
     trigger: PropTypes.node.isRequired,
     network: PropTypes.object.isRequired,
@@ -20,26 +19,24 @@ export default class BaseTokenTransfer extends Component {
     this.handleTransaction = this.handleTransaction.bind(this);
     this.handleMined = this.handleMined.bind(this);
   }
-  handleTransaction({ ethValue, ...rest }) {
-    const { web3 } = this.props;
+  handleTransaction({ ethValue, ...rest }, web3) {
     if (!ethValue) { throw new Error('You must enter a value'); }
     const value = toBigNumber(ethValue).shift(18);
     return web3.eth.sendTransaction({ ...rest, value, ui: { type: 'baseTokenTx' } });
   }
-  handleMined({ formData }) {
-    const { web3 } = this.props;
+  handleMined({ formData }, web3) {
     web3.eth.getBalance(formData.to);
     web3.eth.getBalance(formData.from);
   }
   render() {
-    const { data, web3, trigger, network } = this.props;
+    const { data, trigger, network } = this.props;
     return (
       <TransactionModal
         header={`Send ${network.name} Ether`}
         handleTransaction={this.handleTransaction}
         onMined={this.handleMined}
         form={BaseTokenTransferForm}
-        {...{ data, trigger, web3, network }} // passed to form
+        {...{ data, trigger, network }}
       />
     );
   }

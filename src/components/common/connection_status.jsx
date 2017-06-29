@@ -15,7 +15,7 @@ class ConnectionStatus extends Component {
   render() {
     const { web3Redux, networks } = this.props;
     const items = networks.map((network) => {
-      const { web3 } = web3Redux.networks[network.id] || {};
+      const web3 = web3Redux.web3(network.id);
       if (!network.enabled || !web3 || web3.connectionStatus() === 'connected') { return null; }
       return { network, web3 };
     }).filter(w => w);

@@ -22,8 +22,8 @@ class TransactionTracker extends Component {
   }
   componentDidMount() {
     const { networkId, web3Redux, txHash, onMined } = this.props;
-    const { web3 } = (web3Redux.networks || {})[networkId] || {};
-    web3.eth.waitForMined(txHash).then(() => onMined && onMined());
+    const web3 = web3Redux.web3(networkId);
+    web3.eth.waitForMined(txHash).then(txData => onMined && onMined({ txData, txHash }, web3));
   }
   renderConfirmation() {
     return (
@@ -38,7 +38,7 @@ class TransactionTracker extends Component {
   }
   render() {
     const { broadcast, networkId, web3Redux, networks, txHash, renderConfirmation } = this.props;
-    const { web3 } = (web3Redux.networks || {})[networkId] || {};
+    const web3 = web3Redux.web3(networkId);
     if (!web3) { return <Loader active />; }
     const network = networks.find(({ id }) => id === web3.networkId);
     const { explorerTransactionPrefix, explorerBlockPrefix } = network;

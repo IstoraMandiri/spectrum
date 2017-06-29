@@ -18,14 +18,15 @@ class MultisigKeystoreTransactionSigner extends Component {
     this.state = { stage: 1 };
   }
   render() {
-    const { web3 } = (this.props.web3Redux.networks || {})[(this.props.network || {}).id] || {};
+    const { network, web3Redux } = this.props;
+    const web3 = web3Redux.web3(network.id);
     if (!web3 || !web3.isConnected()) { return <p>Network not connected</p>; }
     const contract = web3.eth.contract(abi).at(this.props.txData.from);
     const txData = {
       ...this.props.txData,
       gas: 4000000,
     };
-    return <MultisigKeystoreTrasnactionProxy {...this.props} txData={txData} contract={contract} web3={web3} />;
+    return <MultisigKeystoreTrasnactionProxy {...this.props} {...{ txData, contract, web3 }} />;
   }
 }
 
