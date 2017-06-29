@@ -45,6 +45,8 @@ class TransactionModal extends Component {
     this.state = defaultState;
     this.handleSubmit = this.handleSubmit.bind(this);
     this.handleClose = this.handleClose.bind(this);
+    this.handleMined = this.handleMined.bind(this);
+    this.getWeb3 = this.getWeb3.bind(this);
   }
   getWeb3() {
     // if web3 is not set, use the networkId passed from formData
@@ -54,9 +56,17 @@ class TransactionModal extends Component {
     if (this.props.onClose) { this.props.onClose(this.state); }
     this.setState(defaultState);
   }
+  handleMined() {
+    const { onMined } = this.props;
+    if (onMined) {
+      const { formData, txData } = this.state;
+      const web3 = this.getWeb3();
+      onMined({ formData, txData }, web3);
+    }
+  }
   handleSubmit(formData) {
     // set the networkId
-    const { handleTransaction, onMined, onBroadcast } = this.props;
+    const { handleTransaction, onBroadcast } = this.props;
     const { networkId } = formData;
     if (!this.props.web3 && !networkId) {
       throw new Error('Network ID not set');
@@ -66,30 +76,27 @@ class TransactionModal extends Component {
     }
     // set the network ID, in case web3 was not passed
     this.setState({ loading: true, error: false, txHash: null, networkId: formData.networkId });
-    // scoping
-    let web3;
     // only pass the nonce if it's an integer
     const { nonce, ...sanitizedData } = formData;
     if (Number.isInteger(parseInt(nonce, 10))) {
       sanitizedData.nonce = nonce;
     }
     new Promise(resolve => setTimeout(resolve, 10)) // time for UI update
-    .then(() => { web3 = this.getWeb3(); }) // setState has resoled by now, we can get web3
-    .then(() => handleTransaction(sanitizedData, web3))
+    .then(() => handleTransaction(sanitizedData, this.getWeb3()))
     .then((txHash) => {
       if (!txHash) { throw Error('Transaction was not published!'); }
-      this.setState({ txHash, loading: false, broadcast: new Date() });
+      this.setState({ formData, txHash, loading: false, broadcast: new Date() });
       if (onBroadcast) { onBroadcast({ formData, txHash }); }
-      return web3.eth.waitForMined(txHash);
     })
-    .then(txData => onMined && onMined({ formData, txData }, web3))
     .catch(error => this.setState({ error, loading: false }));
     return false; // don't close on submit
   }
   renderTracker() {
     const { renderConfirmation } = this.props;
     const { txHash, broadcast } = this.state;
-    return <TransactionTracker {...{ broadcast, txHash, web3: this.getWeb3(), renderConfirmation }} />;
+    const { handleMined: onMined, getWeb3 } = this;
+    const { networkId } = getWeb3();
+    return <TransactionTracker {...{ broadcast, txHash, onMined, networkId, renderConfirmation }} />;
   }
   renderForm(props) {
     return <TransactionModalForm {...this.props} {...props} web3={this.getWeb3()} />;

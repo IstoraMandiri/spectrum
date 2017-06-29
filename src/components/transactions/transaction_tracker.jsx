@@ -1,19 +1,29 @@
 import React, { PropTypes, Component } from 'react';
 import { connect } from 'react-redux';
-import { Divider, Header, Label, Icon, Table } from 'semantic-ui-react';
+import { Loader, Divider, Header, Label, Icon, Table } from 'semantic-ui-react';
 
 import { getNetworks } from '~/selectors';
 
+import Web3Connect from '~/helpers/web3/connect';
+
 class TransactionTracker extends Component {
   static propTypes = {
-    web3: PropTypes.object.isRequired,
     networks: PropTypes.array.isRequired,
     txHash: PropTypes.string.isRequired,
+    networkId: PropTypes.string.isRequired,
     broadcast: PropTypes.object.isRequired,
     renderConfirmation: PropTypes.func,
+    onMined: PropTypes.func,
+    web3Redux: PropTypes.object.isRequired,
   }
   static defaultProps = {
     renderConfirmation: undefined,
+    onMined: undefined,
+  }
+  componentDidMount() {
+    const { networkId, web3Redux, txHash, onMined } = this.props;
+    const { web3 } = (web3Redux.networks || {})[networkId] || {};
+    web3.eth.waitForMined(txHash).then(() => onMined && onMined());
   }
   renderConfirmation() {
     return (
@@ -27,7 +37,9 @@ class TransactionTracker extends Component {
     );
   }
   render() {
-    const { broadcast, web3, networks, txHash, renderConfirmation } = this.props;
+    const { broadcast, networkId, web3Redux, networks, txHash, renderConfirmation } = this.props;
+    const { web3 } = (web3Redux.networks || {})[networkId] || {};
+    if (!web3) { return <Loader active />; }
     const network = networks.find(({ id }) => id === web3.networkId);
     const { explorerTransactionPrefix, explorerBlockPrefix } = network;
     const transaction = web3.eth.transaction(txHash);
@@ -84,4 +96,4 @@ class TransactionTracker extends Component {
   }
 }
 
-export default connect(s => ({ networks: getNetworks(s) }))(TransactionTracker);
+export default Web3Connect(connect(s => ({ networks: getNetworks(s) }))(TransactionTracker));
