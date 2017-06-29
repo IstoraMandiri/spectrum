@@ -76,7 +76,7 @@ class TransactionTracker extends Component {
                   {blockNumber ? 'Created' : 'Pending'}
                 </Label>
                 {!blockNumber && outOfGas &&
-                  <Label as="a" rel="noopener noreferrer" target="_blank" href={href} color="red" text content="Out of Gas?" />
+                  <Label as="a" rel="noopener noreferrer" target="_blank" href={href} color="red" content="Out of Gas?" />
                 }
                 {blockNumber &&
                   <span>
