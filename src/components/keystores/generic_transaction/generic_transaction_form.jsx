@@ -84,7 +84,13 @@ export default class GenericTransactionForm extends Component {
         </Form.Group>
         <Form.Group widths="equal">
           <FormField placeholder="e.g. `0`" type="number" label="Nonce" name="nonce" {...{ formChange, formData }} />
-          <FormField placeholder="e.g. `1`" type="number" label="Chain ID" name="chainId" {...{ formChange, formData }} />
+          <FormField
+            placeholder="e.g. `1`"
+            type="number"
+            label="Chain ID (EIP 155)"
+            name="chainId"
+            {...{ formChange, formData }}
+          />
         </Form.Group>
         <NetworkSelector {...{ formChange }} />
       </div>

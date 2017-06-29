@@ -20,7 +20,7 @@ export default class ValueInput extends Component {
   render() {
     const { label: labelText, formData, name, formChange, color, symbol, sendAll } = this.props;
     const showSendAll = sendAll && sendAll.toNumber() > 0;
-    const value = formData[name];
+    const value = formData[name] || '';
     return (
       <Form.Field>
         {labelText && <label htmlFor={name}>{labelText}</label>}
