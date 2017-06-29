@@ -1,6 +1,6 @@
 import React, { PropTypes, Component } from 'react';
 import { connect } from 'react-redux';
-import { Form, Divider, Modal, Button, Dimmer, Loader } from 'semantic-ui-react';
+import { Divider, Modal, Button, Dimmer, Loader } from 'semantic-ui-react';
 
 import { getKeystoreComponent } from '~/keystoreTypes';
 import { getSigningModalData } from '~/selectors';
