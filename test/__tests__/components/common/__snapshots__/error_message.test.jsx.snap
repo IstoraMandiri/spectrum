@@ -1,0 +1,22 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders correctly 1`] = `
+<div
+  className="ui error icon message"
+>
+  <i
+    aria-hidden="true"
+    className="warning sign icon"
+  />
+  <div
+    className="content"
+  >
+    <div
+      className="header"
+    >
+      Oops, something went wrong
+    </div>
+    test
+  </div>
+</div>
+`;

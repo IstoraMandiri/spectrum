@@ -3,6 +3,7 @@ extends: airbnb
 parser: babel-eslint
 plugins:
  - react
+ - jest
 env:
   browser: true
 rules:

@@ -1,0 +1,49 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders with custom title 1`] = `
+<div
+  className="field"
+>
+  <a
+    onClick={[Function]}
+    role="button"
+    style={
+      Object {
+        "cursor": "pointer",
+      }
+    }
+    tabIndex={0}
+  >
+    test
+     
+    <i
+      aria-hidden="true"
+      className="caret right icon"
+    />
+  </a>
+</div>
+`;
+
+exports[`renders with default title 1`] = `
+<div
+  className="field"
+>
+  <a
+    onClick={[Function]}
+    role="button"
+    style={
+      Object {
+        "cursor": "pointer",
+      }
+    }
+    tabIndex={0}
+  >
+    Advanced
+     
+    <i
+      aria-hidden="true"
+      className="caret right icon"
+    />
+  </a>
+</div>
+`;

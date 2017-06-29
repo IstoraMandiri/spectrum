@@ -1,4 +1,5 @@
 /* eslint-disable no-underscore-dangle */
+
 import { createStore, applyMiddleware, compose, combineReducers } from 'redux';
 import thunk from 'redux-thunk';
 import { persistStore, autoRehydrate } from 'redux-persist';
@@ -16,7 +17,9 @@ import { DEFAULT_KEYSTORE_TYPES, DEFAULT_NETWORKS, DEFAULT_TOKENS } from '~/help
 
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 
-const persist = false;
+// Below is a WIP HACK before implementing temporary persistence layer for dev mode
+// toggle `persist` to disable
+const persist = true;
 
 const enhancers = persist ?
   composeEnhancers(autoRehydrate(), applyMiddleware(thunk)) :

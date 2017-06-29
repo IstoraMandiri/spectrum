@@ -3,13 +3,28 @@
   "version": "0.0.1",
   "description": "Full Gamut Ethereum Lightsuite",
   "author": "Chris Hitchcott <hitchcott@gmail.com> (http://hitchcott.com)",
-  "license": "BSD-3-clause",
+  "license": "BSD-3-Clause",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/spectrum/spectrum.git"
+  },
   "scripts": {
-    "test": "./node_modules/.bin/mocha --compilers js:babel-core/register --require ./registerBabel.js",
+    "test": "jest --no-cache ./test/",
+    "test:watch": "jest --watchAll ./test/",
     "start": "./node_modules/.bin/webpack-dev-server --progress",
     "stats": "rm -rf ./docs; STATS=true NODE_ENV=production ./node_modules/.bin/webpack --progress --profile; ./node_modules/.bin/webpack-bundle-analyzer stats.json ./docs",
     "build": "rm -rf ./docs; NODE_ENV=production ./node_modules/.bin/webpack --progress",
     "lint": "./node_modules/.bin/eslint './src/**/*.{js,jsx}'"
+  },
+  "jest": {
+    "transformIgnorePatterns": [
+      "/node_modules/(?!(web3-redux|@digix/redux-crypto-prices)).+\\.js$"
+    ],
+    "moduleNameMapper": {
+      "\\.(css|less)$": "<rootDir>/test/__mocks__/styleMock.js",
+      "\\.(jpg|jpeg|png|gif|eot|otf|webp|svg|ttf|woff|woff2|mp4|webm|wav|mp3|m4a|aac|oga)$": "<rootDir>/test/__mocks__/fileMock.js",
+      "^@digix/spectrum/src/(.*)": "<rootDir>/src/$1"
+    }
   },
   "files": [
     "src",
@@ -44,12 +59,9 @@
     "redux": "^3.7.0",
     "redux-orm": "^0.9.3",
     "redux-persist": "^4.8.1",
-    "redux-persist-crosstab": "^3.5.3",
-    "redux-persist-transform-filter": "0.0.13",
     "redux-thunk": "^2.2.0",
     "reselect": "^3.0.1",
     "sanitize-filename": "^1.6.1",
-    "semantic-ui-css": "^2.2.10",
     "semantic-ui-less": "^2.2.10",
     "semantic-ui-react": "^0.69.0",
     "sui-react-ezmodal": "^0.1.6",
@@ -62,9 +74,11 @@
   "devDependencies": {
     "babel-core": "^6.25.0",
     "babel-eslint": "^7.2.3",
+    "babel-jest": "^20.0.3",
     "babel-loader": "^7.1.0",
     "babel-plugin-add-module-exports": "^0.2.1",
     "babel-plugin-transform-class-properties": "^6.24.1",
+    "babel-plugin-transform-es2015-modules-commonjs": "^6.24.1",
     "babel-plugin-transform-object-rest-spread": "^6.23.0",
     "babel-preset-env": "^1.5.2",
     "babel-preset-react": "^6.24.1",
@@ -75,31 +89,33 @@
     "babel-root-import": "^4.1.8",
     "copy-webpack-plugin": "^4.0.1",
     "css-loader": "^0.28.4",
+    "enzyme": "^2.9.1",
     "eslint": "^3.19.0",
     "eslint-config-airbnb": "^15.0.1",
     "eslint-plugin-import": "^2.5.0",
+    "eslint-plugin-jest": "^20.0.3",
     "eslint-plugin-jsx-a11y": "^5.0.3",
     "eslint-plugin-react": "^7.1.0",
     "extract-text-webpack-plugin": "2.1.2",
     "file-loader": "^0.11.2",
     "html-loader": "^0.4.5",
     "html-webpack-plugin": "^2.28.0",
+    "jest": "^20.0.4",
     "json-loader": "^0.5.4",
     "less": "^2.7.2",
     "less-loader": "^4.0.4",
-    "mocha": "^3.4.2",
     "name-all-modules-plugin": "^1.0.1",
     "optimize-css-assets-webpack-plugin": "^2.0.0",
+    "react-test-renderer": "^15.6.1",
+    "redux-mock-store": "^1.2.3",
     "stats-webpack-plugin": "^0.6.1",
     "style-loader": "^0.18.2",
     "uglify-js": "git://github.com/mishoo/UglifyJS2.git#harmony-v2.8.22",
     "uglifyjs-webpack-plugin": "^0.4.4",
     "url-loader": "^0.5.9",
-    "web-app-manifest-loader": "^0.1.1",
     "webpack": "^3.0.0",
     "webpack-bundle-analyzer": "^2.8.2",
     "webpack-dev-server": "^2.5.0",
-    "webpack-pwa-manifest": "^3.0.0",
-    "webpack-subresource-integrity": "^1.0.0-rc.1"
+    "webpack-pwa-manifest": "^3.0.0"
   }
 }
