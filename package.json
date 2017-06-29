@@ -11,11 +11,11 @@
   "scripts": {
     "test": "jest",
     "test:watch": "jest --watchAll",
-    "test:cucumber": "wdio wdio.conf.js",
-    "start": "./node_modules/.bin/webpack-dev-server --progress",
+    "test:cucumber": "wdio wdio.development.config.js",
+    "start": "webpack-dev-server --progress",
     "stats": "rm -rf ./docs; STATS=true NODE_ENV=production ./node_modules/.bin/webpack --progress --profile; ./node_modules/.bin/webpack-bundle-analyzer stats.json ./docs",
     "build": "rm -rf ./docs; NODE_ENV=production ./node_modules/.bin/webpack --progress",
-    "lint": "./node_modules/.bin/eslint './src/**/*.{js,jsx}'"
+    "lint": "eslint './src/**/*.{js,jsx}'"
   },
   "jest": {
     "transformIgnorePatterns": [
@@ -34,7 +34,7 @@
     ".gitignore"
   ],
   "dependencies": {
-    "@digix/etc-redemption": "0.0.10",
+    "@digix/etc-redemption": "0.0.11",
     "@digix/react-ledger-container": "0.0.6",
     "@digix/redux-crypto-prices": "0.0.1",
     "@digix/truffle-gnosis-multisig": "0.0.2",
