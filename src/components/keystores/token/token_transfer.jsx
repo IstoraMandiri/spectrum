@@ -24,6 +24,8 @@ export default class TokenTransfer extends Component {
   handleTransaction({ tokenValue, to, ...rest }) {
     const { contract, token } = this.props;
     if (!tokenValue) { throw new Error('You must enter a value'); }
+    if (!rest.from) { throw new Error('You must select a sender'); }
+    if (!to) { throw new Error('You must select a receipient'); }
     const value = toBigNumber(tokenValue).shift(token.decimals);
     return contract.transfer.sendTransaction(to, value, { ...rest, ui: { type: 'tokenTx', token, value, to } });
   }

@@ -21,6 +21,8 @@ export default class BaseTokenTransfer extends Component {
   }
   handleTransaction({ ethValue, ...rest }, web3) {
     if (!ethValue) { throw new Error('You must enter a value'); }
+    if (!rest.from) { throw new Error('You must select a sender'); }
+    if (!rest.to) { throw new Error('You must select a receipient'); }
     const value = toBigNumber(ethValue).shift(18);
     return web3.eth.sendTransaction({ ...rest, value, ui: { type: 'baseTokenTx' } });
   }
