@@ -84,7 +84,7 @@ export default class TransactionModal extends Component {
   render() {
     const { data, trigger, size, network } = this.props;
     const { txHash, open } = this.state;
-    const networkId = (network && network.id) || undefined;
+    const networkId = data.networkId || (network && network.id) || undefined;
     if (!open) {
       return <span tabIndex={0} role="button" onClick={() => this.setState({ open: true })}>{trigger}</span>;
     }
