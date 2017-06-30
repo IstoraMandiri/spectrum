@@ -60,7 +60,7 @@ module.exports = config => ({
       AppCache: false,
       ServiceWorker: { events: true },
       updateStrategy: 'changed',
-      autoUpdate: 1000 * 60 * 10.1,
+      autoUpdate: 1000 * 60 * 2,
     }),
     new webpack.optimize.ModuleConcatenationPlugin(),
   ]).concat(process.env.STATS ? (
