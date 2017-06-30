@@ -36,7 +36,7 @@ var __wpo = {
     "4a552ecb123ded5040ddda01d626103cc65db055": "./flags.png?9c74e172f87984c48ddf5c8108cabe67",
     "a71060854bbb1e8c2035d01a09e5796730809bb9": "./qr-overlay.png?00783e10d7dfd3f05ed65ef9f32e2e70",
     "98e01caf007e399d94cf1bc030c3135228d3b88b": "./import.a50fea841124c24459c4.44a5c6a2c37d4aa94e40.js",
-    "7254802124f115820aaa44cfa6315210c806f207": "./main.6fddf8dd077c4bfc6021.js",
+    "bb9da6e872a6d9411ec14e3c4d4ab939df9e0443": "./main.6fddf8dd077c4bfc6021.js",
     "fc41647d76dd5d6f1e84387f47b0b781e576af37": "./runtime.7115bcd63d4afb0c9786.js",
     "3404439622a670149cde42867c1cc814f2932438": "./vendor.d1266ec62e295ff01916.js",
     "4fdef6c80b9b7a7c291066742531351e2a701025": "./style.ea8d2f7f91baebfd9ce498ca4927a9e9.css",
@@ -52,7 +52,7 @@ var __wpo = {
   },
   "strategy": "changed",
   "responseStrategy": "cache-first",
-  "version": "2017-6-30 18:53:51",
+  "version": "2017-6-30 21:14:46",
   "name": "webpack-offline",
   "pluginVersion": "4.8.1",
   "relativePaths": true
