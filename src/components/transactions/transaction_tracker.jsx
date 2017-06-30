@@ -23,7 +23,7 @@ class TransactionTracker extends Component {
   componentDidMount() {
     const { networkId, web3Redux, txHash, onMined } = this.props;
     const web3 = web3Redux.web3(networkId);
-    web3.eth.waitForMined(txHash).then(txData => onMined && onMined({ txData, txHash }, web3));
+    web3.eth.waitForMined(txHash).then(txData => onMined && onMined(txData, web3));
   }
   renderConfirmation() {
     return (
