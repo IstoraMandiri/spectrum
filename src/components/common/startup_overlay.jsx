@@ -36,6 +36,7 @@ export default class StartupOverlay extends Component {
                     <li>This version of Spectrum has <b>localStorage enabled</b>, which is a feature to aid development</li>
                     <li>Tests coverage is not complete Spectrum, nor has it been audited for security vulnerabilities</li>
                     <li>As such, <b>do not use keystores that have any more than $10 value</b></li>
+                    <li>By using this app your accpet that the developer cannot take responsibility for any losses</li>
                     <li>Tested on Chrome OSX & Android</li>
                   </ul>
                   <p>
