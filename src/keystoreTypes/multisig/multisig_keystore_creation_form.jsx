@@ -24,7 +24,8 @@ class MultisigKeystoreCreationForm extends Component {
     this.handleMined = this.handleMined.bind(this);
   }
   handleTransaction({ owners, required, count }, web3) {
-    return web3.eth.contract(abi).new(owners.slice(0, count), required, { data: binary });
+    const ui = { type: 'multisigKeystoreDeployTxUi', owners, required, count };
+    return web3.eth.contract(abi).new(owners.slice(0, count), required, { data: binary, ui });
   }
   handleMined({ txData: { contractAddress } }) {
     this.props.formChange({ name: 'address', value: contractAddress });

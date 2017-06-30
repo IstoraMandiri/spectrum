@@ -13,16 +13,21 @@ export default class ReduxSubProvider extends HookedWalletEthTx {
         cb(null, addresses);
       },
     });
-    this.sanitizeData = (txData, network) => {
-      const gas = txData.gas || txData.gasLimit;
-      const value = txData.value || '0x00';
-      const chainId = txData.chainId || (network.chainId && parseInt(network.chainId, 10));
-      return { ...txData, gas, value, chainId };
-    };
+    this.sanitizeData = (txData, network) => ({
+      to: txData.to,
+      from: txData.from,
+      gasLimit: txData.gas || txData.gasLimit,
+      gasPrice: txData.gasPrice,
+      value: txData.value || '0x00',
+      data: txData.data || '',
+      nonce: txData.nonce,
+      chainId: (txData.chainId && parseInt(txData.chainId, 10)) || (network.chainId && parseInt(network.chainId, 10)),
+    });
     // overriding https://github.com/MetaMask/provider-engine/blob/master/subproviders/hooked-wallet-ethtx.js
     this.signTransaction = ({ ui, ...data }, cb) => {
       const network = (getNetworks(store.getState()).find(({ id }) => id === networkId) || {});
       const txData = this.sanitizeData(data, network);
+      console.log('data', txData);
       const address = getAddresses(store.getState()).find(a => a.address === txData.from);
       store.dispatch(showTxSigningModal({ address, txData, ui, network })).then(({ signedTx }) => {
         cb(null, signedTx);

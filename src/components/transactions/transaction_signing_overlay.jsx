@@ -9,6 +9,8 @@ import { hideTxSigningModal } from '~/actions/session';
 import TransactionInfo from '~/components/transactions/transaction_info';
 import Advanced from '~/components/common/advanced';
 
+const defaultState = { loading: false, autoBroadcast: true, signedTx: null };
+
 class TransactionSigningOverlay extends Component {
   static propTypes = {
     data: PropTypes.object,
@@ -19,7 +21,7 @@ class TransactionSigningOverlay extends Component {
   }
   constructor(props) {
     super(props);
-    this.state = { loading: false, autoBroadcast: true };
+    this.state = defaultState;
     this.handleFailure = this.handleFailure.bind(this);
     this.handleCancel = this.handleCancel.bind(this);
     this.handleSetLoading = this.handleSetLoading.bind(this);
@@ -28,21 +30,24 @@ class TransactionSigningOverlay extends Component {
   handleSetLoading(loading) {
     this.setState({ loading });
   }
-  handleBroadcast(args) {
-    this.props.hideTxSigningModal(args);
+  handleBroadcast(...args) {
+    this.setState(defaultState);
+    this.props.hideTxSigningModal(...args);
   }
-  handleSign(args) {
+  handleSign(...args) {
     this.handleSetLoading(false);
     if (args.error || this.state.autoBroadcast) {
-      this.handleBroadcast(args);
+      this.handleBroadcast(...args);
     } else {
-      this.setState({ signedTx: args.signedTx });
+      this.setState({ signedTx: args[0].signedTx });
     }
   }
   handleFailure() {
+    this.setState(defaultState);
     this.props.hideTxSigningModal({ error: 'Could not find Address' });
   }
   handleCancel() {
+    this.setState(defaultState);
     this.props.hideTxSigningModal({ error: 'Cancelled Signing' });
   }
   render() {
