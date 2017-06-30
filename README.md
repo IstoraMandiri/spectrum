@@ -11,6 +11,7 @@ Spectrum is an open source react-redux application for developing dapps.
 * Create, Edit, Remove Networks
 * Create, Edit, Remove ERC20 Tokens
 * Create, Edit, Remove Accounts
+* Import v3 wallet
 * Account Types
   * v3 (encrypted json)
   * Ledger nano

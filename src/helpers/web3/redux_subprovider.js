@@ -16,7 +16,7 @@ export default class ReduxSubProvider extends HookedWalletEthTx {
     this.sanitizeData = (txData, network) => ({
       to: txData.to,
       from: txData.from,
-      gasLimit: txData.gas || txData.gasLimit,
+      gas: txData.gas || txData.gasLimit,
       gasPrice: txData.gasPrice,
       value: txData.value || '0x00',
       data: txData.data || '',
