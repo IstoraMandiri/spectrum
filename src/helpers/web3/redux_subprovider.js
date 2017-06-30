@@ -27,7 +27,6 @@ export default class ReduxSubProvider extends HookedWalletEthTx {
     this.signTransaction = ({ ui, ...data }, cb) => {
       const network = (getNetworks(store.getState()).find(({ id }) => id === networkId) || {});
       const txData = this.sanitizeData(data, network);
-      console.log('data', txData);
       const address = getAddresses(store.getState()).find(a => a.address === txData.from);
       store.dispatch(showTxSigningModal({ address, txData, ui, network })).then(({ signedTx }) => {
         cb(null, signedTx);

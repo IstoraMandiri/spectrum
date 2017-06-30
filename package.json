@@ -9,12 +9,13 @@
     "url": "git+https://github.com/spectrum/spectrum.git"
   },
   "scripts": {
-    "test": "jest",
+    "test": "npm run test:jest; npm run test:cucumber;",
+    "test:jest": "jest",
     "test:watch": "jest --watchAll",
     "test:cucumber": "wdio wdio.development.config.js",
     "start": "webpack-dev-server --progress",
-    "stats": "rm -rf ./docs; STATS=true NODE_ENV=production ./node_modules/.bin/webpack --progress --profile; ./node_modules/.bin/webpack-bundle-analyzer stats.json ./docs",
-    "build": "rm -rf ./docs; NODE_ENV=production ./node_modules/.bin/webpack --progress",
+    "stats": "rm -rf ./docs; STATS=true NODE_ENV=production webpack --progress --profile; webpack-bundle-analyzer stats.json ./docs",
+    "build": "rm -rf ./docs; NODE_ENV=production webpack --progress",
     "lint": "eslint './src/**/*.{js,jsx}'"
   },
   "jest": {
@@ -39,8 +40,9 @@
     "@digix/redux-crypto-prices": "0.0.1",
     "@digix/truffle-gnosis-multisig": "0.0.2",
     "babel-polyfill": "^6.23.0",
-    "bignumber.js": "^4.0.2",
+    "bignumber.js": "git+https://github.com/debris/bignumber.js.git#94d7146671b9719e00a09c29b01a691bc85048c2",
     "blockies": "0.0.2",
+    "bn.js": "^4.11.7",
     "es6-deferred": "^1.3.0",
     "ethereumjs-tx": "^1.3.1",
     "ethereumjs-util": "^5.1.2",
@@ -113,7 +115,7 @@
     "stats-webpack-plugin": "^0.6.1",
     "style-loader": "^0.18.2",
     "uglify-js": "git://github.com/mishoo/UglifyJS2.git#harmony-v2.8.22",
-    "uglifyjs-webpack-plugin": "^0.4.1",
+    "uglifyjs-webpack-plugin": "0.4.1",
     "url-loader": "^0.5.9",
     "wdio-cucumber-framework": "^0.3.1",
     "wdio-selenium-standalone-service": "0.0.9",
