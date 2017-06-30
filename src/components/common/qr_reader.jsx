@@ -15,7 +15,7 @@ export default class QrReader extends Component {
       <div className="qr-video-container">
         <QRReader
           delay={500}
-          facingMode="rear" // prefer rear camera (mobile - TODO fix?)
+          facingMode="rear"
           onScan={this.props.onScan}
           onError={this.props.onError}
         />
