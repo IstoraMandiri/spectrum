@@ -22,7 +22,7 @@ export default class StartupOverlay extends Component {
         }
         <EZModal
           initiallyOpen
-          header="Welcome to Spectrum (Developer Release)"
+          header="Welcome to Spectrum (Developer Edtition)"
           onClose={() => this.setState({ hidden: true })}
           content={
             <div>
@@ -31,14 +31,18 @@ export default class StartupOverlay extends Component {
                 <Message.Content>
                   <Message.Header content="Imprtant Big Red Warning Message (Please Read)" />
                   <ul>
+                    <li>This is the first open source relesase of Spectrum, and is <b>intended for developers only</b></li>
+                    <li><b>Do not use this version for anything more than testing or developing</b></li>
+                    <li>This version of Spectrum has <b>localStorage enabled</b>, which is a feature to aid development</li>
+                    <li>Tests coverage is not complete Spectrum, nor has it been audited for security vulnerabilities</li>
+                    <li>As such, <b>do not use keystores that have any more than $10 value</b></li>
                     <li>Tested on Chrome OSX & Android</li>
-                    <li>TODO!</li>
                   </ul>
                   <p>
-                    * For more infromation, including alternative redemption methods, please check the
+                    * For more infromation, and to report issues (for a bounty), please visit the
                     {' '}
                     <a
-                      href="https://github.com/digixglobal/spectrum"
+                      href="https://github.com/spectrum/spectrum"
                       rel="noopener noreferrer"
                       target="_blank"
                     >

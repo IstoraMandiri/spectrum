@@ -44,7 +44,7 @@ export default class App extends Component {
                   <Button
                     icon="github"
                     as="a"
-                    href="https://github.com/DigixGlobal/spectrum"
+                    href="https://github.com/spectrum/spectrum"
                     rel="noopener noreferrer"
                     target="_blank"
                   />
@@ -58,7 +58,7 @@ export default class App extends Component {
                 </Button.Group>
               </Grid.Column>
               <Grid.Column textAlign="right">
-                Spectrum Alpha
+                Spectrum Dev Edition
                 <br />
                 v{version}
               </Grid.Column>
