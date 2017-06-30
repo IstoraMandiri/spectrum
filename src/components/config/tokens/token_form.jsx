@@ -3,7 +3,7 @@ import { Form } from 'semantic-ui-react';
 
 import FormField from '~/components/common/form_field';
 import ColorPicker from '~/components/common/color_picker';
-import NetworkPicker from '~/components/common/network_picker';
+import NetworkSelector from '~/components/common/network_selector';
 
 export default class NetworkForm extends Component {
   static propTypes = {
@@ -25,7 +25,7 @@ export default class NetworkForm extends Component {
         <Form.Group widths="equal">
           <Form.Field>
             <label htmlFor="metwork">Network</label>
-            <NetworkPicker {...{ formData, formChange }} />
+            <NetworkSelector name="network" showDisabled {...{ formData, formChange }} />
           </Form.Field>
           <ColorPicker label="Token Color" {...{ formData, formChange }} />
         </Form.Group>
