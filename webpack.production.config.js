@@ -45,7 +45,7 @@ module.exports = config => ({
     new WebpackPwaManifest({
       name: 'Spectrum',
       short_name: 'Spectrum',
-      display: 'fullscreen',
+      display: 'standalone',
       start_url: '.',
       description: 'Full Gamut Ethereum Lightsuite',
       background_color: '#111111',
