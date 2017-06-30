@@ -15,20 +15,21 @@ Spectrum is an open source react-redux application for developing dapps.
 * Account Types
   * v3 (encrypted json)
   * Ledger nano
-  * Offline
+  * ~ Offline (failing qr scans)
   * Multisig (+ deploy, manage users, sign other's multisig transaction)
 * Send Base Tokens (ETH, KETH, ETC)
 * Send Token (any ERC20 token)
 * Modular Dapplets
-  * Generic Transaction Signer
+  * ~ Generic Transaction Signer (qr code scan fails)
   * ETC Redemption
-  * Digix Assets (closed source ATM)
+  * DigiAssets (closed source ATM)
 * 1st class mobile support (progressive web app)
 * Offline mode (don't need an internet connection)
-* Service worker for push-updates
-* QR code reading & writing (android/desktop)
+* ~ QR code reading & writing (android/desktop)
 * Optimized bundles
-* Modular Architecture
+* Service worker for push-updates
+
+~ QR code working on dev version of chrome android (soon to be mainstream)
 
 ## Developing
 
