@@ -4,7 +4,7 @@ import { createStore, applyMiddleware, compose, combineReducers } from 'redux';
 import thunk from 'redux-thunk';
 import { persistStore, autoRehydrate } from 'redux-persist';
 import { reducer as cryptoPrices } from '@digix/redux-crypto-prices/src';
-import web3Redux from 'web3-redux/src/reducer';
+import { reducer as web3Redux } from 'web3-redux';
 
 import { reducer as orm } from '~/models';
 import { init as initWeb3 } from '~/helpers/web3';

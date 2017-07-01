@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
-import { mapStateToProps, mapDispatchToProps, mergeProps } from 'web3-redux/src';
+import { web3Connect } from 'web3-redux';
 
-export default function web3Connect(WrappedComponent) {
-  return connect(mapStateToProps, mapDispatchToProps, mergeProps)(WrappedComponent);
+export default function (WrappedComponent) {
+  return web3Connect(connect, WrappedComponent);
 }
