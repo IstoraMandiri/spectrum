@@ -8,12 +8,11 @@ Spectrum is designed to make life easy for dapp and contract developers by abstr
 
 Spectrum builds to a static JS bundle, which can be served anywhere; it doesn't even need a server.
 
-*link to medium post*
-
 * 💬 [Gitter Chat](https://gitter.im/spectrum)
 * 💰 [Spectrum Contribution Bounty Program](https://github.com/spectrum/spectrum/wiki/Spectrum-Contribution-Bounty-Program)
-* 📚 Dapp Development Tutorials (TODO)
+* 📢 [Open Source Announcement](https://medium.com/@Digix/ann-digix-spectrum-open-sourced-contributor-bounty-the-future-17adfe926dd1)
 * 🤝 [Contribution Guide](https://github.com/spectrum/spectrum/wiki/Contribution-Guide)
+* 📚 Dapp Development Tutorials (Coming Soon)
 
 ## Features
 
