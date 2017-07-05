@@ -1,3 +1,6 @@
+[![Build Status](https://travis-ci.org/nunohora/spectrum.svg?branch=develop)](https://travis-ci.org/nunohora/spectrum?branch=develop)
+[![Coverage Status](https://coveralls.io/repos/github/nunohora/spectrum/badge.svg?branch=develop)](https://coveralls.io/github/nunohora/spectrum?branch=develop)
+
 # Spectrum (Developer Release)
 
 ### Full Gamut Ethereum Lightsuite
@@ -47,8 +50,8 @@ Spectrum is in early developer release mode. We will be adding more resources as
 
 Ensure you have the following installed:
 
-* Node 8+
-* npm 5+
+* Node 7+
+* npm 4+
 
 Then clone this repo, and
 
@@ -71,6 +74,7 @@ See `package.json` for scripts:
 * `npm run test:cucumber` WebdriverIO Acceptance Tests
 * `npm run stats` Bundle analyzer
 * `npm run lint` Code validator
+* `npm run serve` Serve static files from `./docs/` in localhost:8080
 * TODO `npm run deploy`
 
 ## License

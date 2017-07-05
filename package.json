@@ -10,12 +10,16 @@
   },
   "scripts": {
     "test": "npm run test:jest; npm run test:cucumber;",
+    "test:ci": "npm run test:jest:coverage; npm run test:cucumber:ci",
     "test:jest": "jest",
+    "test:jest:coverage": "jest --coverage && cat ./coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js",
     "test:watch": "jest --watchAll",
-    "test:cucumber": "wdio wdio.development.config.js",
+    "test:cucumber": "./node_modules/.bin/wdio wdio.development.config.js",
+    "test:cucumber:ci": "./node_modules/.bin/wdio wdio.ci.config.js",
     "start": "webpack-dev-server --progress",
     "stats": "rm -rf ./docs; STATS=true NODE_ENV=production webpack --progress --profile; webpack-bundle-analyzer stats.json ./docs",
     "build": "rm -rf ./docs; NODE_ENV=production webpack --progress",
+    "serve": "./node_modules/http-server/bin/http-server ./docs",
     "lint": "eslint './src/**/*.{js,jsx}'"
   },
   "jest": {
@@ -26,7 +30,8 @@
       "\\.(css|less)$": "<rootDir>/test/__mocks__/styleMock.js",
       "\\.(jpg|jpeg|png|gif|eot|otf|webp|svg|ttf|woff|woff2|mp4|webm|wav|mp3|m4a|aac|oga)$": "<rootDir>/test/__mocks__/fileMock.js",
       "^@digix/spectrum/src/(.*)": "<rootDir>/src/$1"
-    }
+    },
+    "collectCoverageFrom": ["src/**/*.{js,jsx}"]
   },
   "files": [
     "src",
@@ -91,6 +96,7 @@
     "babel-root-import": "^4.1.8",
     "chai": "^4.0.2",
     "copy-webpack-plugin": "^4.0.1",
+    "coveralls": "^2.13.1",
     "css-loader": "^0.28.4",
     "enzyme": "^2.9.1",
     "eslint": "^3.19.0",
@@ -103,6 +109,7 @@
     "file-loader": "^0.11.2",
     "html-loader": "^0.4.5",
     "html-webpack-plugin": "^2.28.0",
+    "http-server": "^0.10.0",
     "jest": "^20.0.4",
     "json-loader": "^0.5.4",
     "less": "^2.7.2",
@@ -117,6 +124,7 @@
     "uglifyjs-webpack-plugin": "0.4.1",
     "url-loader": "^0.5.9",
     "wdio-cucumber-framework": "^0.3.1",
+    "wdio-sauce-service": "^0.4.0",
     "wdio-selenium-standalone-service": "0.0.9",
     "wdio-spec-reporter": "^0.1.0",
     "webdriverio": "^4.8.0",
