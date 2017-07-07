@@ -17,7 +17,22 @@ Scenario: Create a new v3 keystore
     And I click on the element "button=OK"
     Then I expect that element ".content*=test_name" becomes visible
 
+Scenario: Edit v3 keystore name
+    When I click on the element ".ribbon*=Single Account"
+    Then I expect that element ".header=Edit Keystore: Single Account" becomes visible
+    When I set "updated_test_name" to the inputfield "[name='name']"
+    And I click on the element "button=OK"
+    Then I expect that element ".content*=updated_test_name" becomes visible
+
 # set test creating with a PK
-# test custom  values
 # test downloading the v3 keystore
-# test editing the keystore
+# test custom values
+
+# removing keystore
+Scenario: Remove v3 keystore name
+    When I click on the element ".ribbon*=Single Account"
+    Then I expect that element ".header=Edit Keystore: Single Account" becomes visible
+    When I click on the element "button=Remove"
+    Then I expect that element ".header=Please Confirm" becomes visible
+    When I click on the element "button=Confirm"
+    Then I expect that element ".content*=updated_test_name" is not visible
