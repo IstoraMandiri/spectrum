@@ -34,9 +34,8 @@ export default class V3KeystoreCreationForm extends Component {
             {...{ formChange, formData }}
           />
         </Form.Group>
+        <NetworkTokensSelector {...{ formChange, formData }} />
         <Advanced>
-          <br />
-          <NetworkTokensSelector {...{ formChange, formData }} />
           <p>Optionally override the default crypto and encryption values (do not prefix hex strings):</p>
           <Form.Group widths="equal">
             <EntropyField label="Private Key (hex)" name="privateKey" {...{ formChange, formData }} />
