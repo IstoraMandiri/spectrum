@@ -5,6 +5,8 @@ node_js:
 
 env:
   - CXX=g++-4.8
+  global:
+    - NODE_ENV=ci
 
 addons:
   apt:
