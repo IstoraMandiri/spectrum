@@ -14,7 +14,9 @@ module.exports = (elem, falseCase, done) => {
      */
     const ms = 10000;
 
-    browser.waitForVisible(elem, ms, !!falseCase);
+    const method = elem.indexOf('=') > -1 ? 'waitForText' : 'waitForVisible';
+
+    browser[method](elem, ms, !!falseCase);
 
     done();
 };
