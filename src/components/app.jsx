@@ -12,7 +12,7 @@ import Keystores from '~/components/keystores';
 import Config from '~/components/config';
 import Dapplets from '~/components/dapplets';
 
-const showOverlay = process.env.NODE_ENV === 'production';
+const showOverlay = !__DEV__;
 
 export default class App extends Component {
   render() {
