@@ -5,7 +5,6 @@ node_js:
 
 env:
   global:
-    - NODE_ENV=test
     - __DEV__=true
 
 addons:
@@ -23,5 +22,5 @@ before_script:
   - npm run serve &
 
 script:
-  - npm run build
+  - npm run build:ci
   - npm run test:ci

@@ -14,8 +14,6 @@ import Dapplets from '~/components/dapplets';
 
 const showOverlay = !__DEV__;
 
-console.log('__DEV__: ', __DEV__);
-
 export default class App extends Component {
   render() {
     return (
