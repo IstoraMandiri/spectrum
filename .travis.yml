@@ -5,7 +5,7 @@ node_js:
 
 env:
   global:
-    - NODE_ENV=ci
+    - NODE_ENV=test
     - __DEV__=true
 
 addons:
