@@ -1,5 +1,5 @@
-[![Build Status](https://travis-ci.org/nunohora/spectrum.svg?branch=develop)](https://travis-ci.org/nunohora/spectrum?branch=develop)
-[![Coverage Status](https://coveralls.io/repos/github/nunohora/spectrum/badge.svg?branch=develop)](https://coveralls.io/github/nunohora/spectrum?branch=develop)
+[![Build Status](https://travis-ci.org/spectrum/spectrum.svg?branch=develop)](https://travis-ci.org/spectrum/spectrum?branch=develop)
+[![Coverage Status](https://coveralls.io/repos/github/spectrum/spectrum/badge.svg?branch=ci)](https://coveralls.io/github/spectrum/spectrum?branch=ci)
 
 # Spectrum (Developer Release)
 

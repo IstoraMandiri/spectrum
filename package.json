@@ -19,7 +19,7 @@
     "start": "webpack-dev-server --progress",
     "stats": "rm -rf ./docs; STATS=true NODE_ENV=production webpack --progress --profile; webpack-bundle-analyzer stats.json ./docs",
     "build": "rm -rf ./docs; NODE_ENV=production webpack --progress",
-    "build:ci": "rm -rf ./docs; NODE_ENV=test webpack --progress",
+    "build:ci": "rm -rf ./docs; NODE_ENV=production webpack",
     "serve": "./node_modules/http-server/bin/http-server ./docs",
     "lint": "eslint './src/**/*.{js,jsx}'"
   },
