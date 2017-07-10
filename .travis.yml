@@ -1,11 +1,7 @@
 language: node_js
 
 node_js:
-- '7'
-
-env:
-  global:
-    - __DEV__=true
+- '8'
 
 addons:
   apt:
