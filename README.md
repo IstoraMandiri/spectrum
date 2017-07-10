@@ -1,5 +1,7 @@
 # Spectrum (Developer Release)
 
+[![Greenkeeper badge](https://badges.greenkeeper.io/spectrum/spectrum.svg)](https://greenkeeper.io/)
+
 ### Full Gamut Ethereum Lightsuite
 
 Spectrum is an open source react-redux app for developing dapp UIs.
