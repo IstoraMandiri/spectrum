@@ -16,12 +16,18 @@ import compareText from '../support/check/compareText';
 import isEnabled from '../support/check/isEnabled';
 import isVisible from '../support/check/isVisible';
 import openWebsite from '../support/action/openWebsite';
+import openSpectrumAndAcceptTerms from '../support/action/openSpectrumAndAcceptTerms';
 import resizeScreenSize from '../support/action/resizeScreenSize';
 
 module.exports = function given() {
     this.Given(
         /^I open the (url|site) "([^"]*)?"$/,
         openWebsite
+    );
+
+    this.Given(
+        /^I open Spectrum and agree to the terms/,
+        openSpectrumAndAcceptTerms
     );
 
     this.Given(

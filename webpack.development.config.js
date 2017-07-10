@@ -23,7 +23,6 @@ module.exports = config => ({
     new ExtractTextPlugin('style.css'),
     new webpack.HotModuleReplacementPlugin(),
     new webpack.NamedModulesPlugin(), // for HMR
-    new webpack.DefinePlugin({ __DEV__: true }),
   ]),
   entry: [
     `webpack-dev-server/client?${hostname}`,

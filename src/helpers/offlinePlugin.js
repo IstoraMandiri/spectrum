@@ -1,6 +1,6 @@
 /* eslint-disable no-alert, global-require */
 
-if (!__DEV__) {
+if (process.env.NODE_ENV === 'production') {
   const OfflinePluginRuntime = require('offline-plugin/runtime');
   OfflinePluginRuntime.install({
     onUpdateReady: () => {

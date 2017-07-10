@@ -50,8 +50,8 @@ Spectrum is in early developer release mode. We will be adding more resources as
 
 Ensure you have the following installed:
 
-* Node 7+
-* npm 4+
+* node 8.x
+* npm 5.x
 
 Then clone this repo, and
 
