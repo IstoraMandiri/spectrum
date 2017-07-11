@@ -4,8 +4,10 @@ import { Grid, Header } from 'semantic-ui-react';
 import Lazyload from '~/components/common/lazyload';
 
 import MenuSystem from '~/components/common/menu_system';
+import Placeholder from './placeholder';
 
 const EtcRedemption = Lazyload(() => System.import('@digix/etc-redemption/spectrum'));
+// const DigixKyc = Lazyload(() => System.import('@digix/etc-redemption/spectrum'));
 
 
 export default class Dapplets extends Component {
@@ -26,11 +28,20 @@ export default class Dapplets extends Component {
         <Grid.Column width={16}>
           <MenuSystem
             secondary
+            usingRouter
+            parentRoute="/dapplets"
             tabs={[
+              {
+                name: 'KYC Verification',
+                icon: 'user',
+                component: Placeholder,
+                path: '/dapplets/kyc',
+              },
               {
                 name: 'ETC Redemption',
                 icon: 'fork',
-                component: <EtcRedemption />,
+                component: EtcRedemption,
+                path: '/dapplets/etc-redemption',
               },
             ]}
           />

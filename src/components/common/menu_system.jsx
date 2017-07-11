@@ -1,6 +1,6 @@
 import React, { PropTypes, Component } from 'react';
 import { Menu, Container } from 'semantic-ui-react';
-import { Switch, Route } from 'react-router-dom';
+import { Redirect, Switch, Route } from 'react-router-dom';
 import ActiveLink from '~/components/common/active_link';
 
 export default class MenuSystem extends Component {
@@ -13,6 +13,7 @@ export default class MenuSystem extends Component {
     marginTop: PropTypes.string,
     equalWidths: PropTypes.bool,
     usingRouter: PropTypes.bool,
+    parentRoute: PropTypes.string,
   }
   static defaultProps = {
     className: undefined,
@@ -22,6 +23,7 @@ export default class MenuSystem extends Component {
     marginTop: '1.5em',
     equalWidths: undefined,
     usingRouter: false,
+    parentRoute: undefined,
   }
   constructor(props) {
     super(props);
@@ -32,7 +34,7 @@ export default class MenuSystem extends Component {
   }
   render() {
     const { tab } = this.state;
-    const { usingRouter, className, fixed, tabs, marginTop, equalWidths, secondary, renderLastItem } = this.props;
+    const { usingRouter, parentRoute, className, fixed, tabs, marginTop, equalWidths, secondary, renderLastItem } = this.props;
     return (
       <div className={className}>
         <Menu borderless {...{ fixed, secondary }} widths={equalWidths ? tabs.length : undefined}>
@@ -56,6 +58,7 @@ export default class MenuSystem extends Component {
           {usingRouter ?
             <Switch>
               {tabs.map(({ path, component, exact }) => <Route key={path} {...{ path, component, exact }} />)}
+              <Redirect from={parentRoute} to={tabs[0].path} />
             </Switch>
           :
             tabs[tab].component
