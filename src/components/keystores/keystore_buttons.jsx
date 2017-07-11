@@ -28,13 +28,13 @@ class KeystoreButtons extends Component {
           submitFunc={this.props.createKeystore}
           form={KeystoreCreationForm}
           trigger={
-            <Button onClick={e => e.preventDefault()} basic icon="plus" content="Create" />
+            <Button onClick={e => e.preventDefault()} basic icon="plus" content="[#5]Create" />
           }
         />
         <ImportKeystoreModal
           {...this.props}
           trigger={
-            <Button onClick={e => e.preventDefault()} basic icon="upload" content="Import" />
+            <Button onClick={e => e.preventDefault()} basic icon="upload" content="[#6]Import" />
           }
         />
       </span>

@@ -40,10 +40,11 @@ export default class ImportKeystore extends Component {
   renderImport() {
     return (
       <EZModal
-        header="Import Keystore"
+        header="[#56]Import Keystore"
         noSubmitButton
         trigger={this.props.trigger}
         onClose={this.handleReset}
+        closeButtonText="[#58]Done"
         content={props => <ImportKeystoreForm {...props} onGetPrivateKey={this.handleGotPrivateKey} />}
       />
     );

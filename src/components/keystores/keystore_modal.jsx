@@ -83,7 +83,7 @@ class KeystoreModal extends Component {
     return (
       <EZModal
         initiallyOpen={this.props.initiallyOpen}
-        header={({ formData }) => this.props.header || (!formData.type && 'Select Keystore Type') || 'Create Keystore'}
+        header={({ formData }) => this.props.header || (!formData.type && '[#9]Select Keystore Type') || '[#19]Create Keystore'}
         data={this.props.data || {}}
         loading={this.state.loading}
         error={this.state.error}
@@ -91,6 +91,8 @@ class KeystoreModal extends Component {
         handleSubmit={this.handleSubmit}
         handleRemove={handleRemove}
         onClose={this.handleClose}
+        submitButtonText="[#34]OK"
+        closeButtonText="[#18]Cancel"
         onReset={this.resetState}
         noSubmitButton={({ formData }) => !formData.type}
         content={props => <KeystoreForm {...props} {...{ keystoreTypes, hideMenu }} />}

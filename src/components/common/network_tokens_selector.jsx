@@ -28,7 +28,7 @@ class NetworkTokensSelector extends Component {
     noTokens: undefined,
     noNetworks: undefined,
     singleSelection: undefined,
-    label: 'Select Network(s)',
+    label: '[#26]Select Network(s)',
   }
   constructor(props) {
     super(props);
@@ -61,7 +61,7 @@ class NetworkTokensSelector extends Component {
       <ButtonSelector
         key={network.id}
         props={{ size: 'mini', className: 'padded' }}
-        label={`Select ${network.name} token(s)`}
+        label={`[#31]Select ${network.name} [#32]token(s)`}
         name="tokens"
         items={network.tokens}
         {...{ formChange, formData }}
@@ -90,7 +90,7 @@ class NetworkTokensSelector extends Component {
     return (
       <Label as="a" color={selectedNetworks ? 'orange' : undefined} size={this.props.modalButtonSize}>
         {selectedNetworks}
-        <Label.Detail>Networks</Label.Detail>
+        <Label.Detail>[#41]Networks</Label.Detail>
       </Label>
     );
   }

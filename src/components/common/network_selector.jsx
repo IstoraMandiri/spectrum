@@ -27,7 +27,7 @@ class NetworkSelector extends Component {
     if (items.length === 0) { return <p>No Networks Available</p>; }
     return (
       <DropdownSelector
-        defaultText="Select Network"
+        defaultText="[#51]Select Network"
         items={items}
         name={name}
         formData={formData}

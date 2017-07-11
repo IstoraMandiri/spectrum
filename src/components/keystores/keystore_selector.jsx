@@ -21,7 +21,7 @@ export default class KeystoreSelector extends Component {
     return (
       <Form.Field>
         <DropdownSelector
-          defaultText="Select Keystore Type"
+          defaultText="[#9]Select Keystore Type"
           name="type"
           items={keystoreTypes}
           {...{ formChange, formData, resetFormData }}

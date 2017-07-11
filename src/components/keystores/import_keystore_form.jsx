@@ -64,7 +64,7 @@ export default class ImportKeystoreForm extends Component {
         <div className="ui padded one column grid">
           <div className="center aligned column">
             <i className="icon upload large" />
-            <p>Click or drag and drop keystore here to upload.</p>
+            <p>[#57]Click or drag and drop keystore here to upload.</p>
           </div>
         </div>
       </Dropzone>

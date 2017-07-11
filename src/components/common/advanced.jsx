@@ -7,7 +7,7 @@ export default class Advanced extends Component {
     title: PropTypes.string,
   };
   static defaultProps = {
-    title: 'Advanced',
+    title: '[#33]Advanced',
   }
 
   constructor(props) {

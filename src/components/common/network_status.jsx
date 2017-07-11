@@ -14,9 +14,9 @@ export default class NetworkStatus extends Component {
   render() {
     const { web3, network, name } = this.props;
     const status = {
-      connected: { content: 'Connected', color: 'green', icon: 'checkmark' },
+      connected: { content: '[#69]Connected', color: 'green', icon: 'checkmark' },
       disconnected: { content: 'No Connection', color: 'red', icon: 'unlinkify' },
-      disabled: { content: 'Disabled', icon: 'remove' },
+      disabled: { content: '[#70]Disabled', icon: 'remove' },
       connecting: { content: 'Connecting...', color: 'orange', icon: 'wait' },
     }[web3 ? web3.connectionStatus() : 'disabled'];
     return (

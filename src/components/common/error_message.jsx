@@ -11,7 +11,7 @@ export default class ErrorMessage extends Component {
       <Message icon error>
         <Icon name="warning sign" />
         <Message.Content>
-          <Message.Header>Oops, something went wrong</Message.Header>
+          <Message.Header>[#35]Oops, something went wrong</Message.Header>
           {message}
         </Message.Content>
       </Message>

@@ -63,7 +63,7 @@ export default class ColdKeystoreCreationForm extends Component {
           <Table.Body>{this.renderItems()}</Table.Body>
         </Table>
         <div style={{ textAlign: 'right' }}>
-          <QRMultiButton header="Scan Multiple Addresses to Add" onScan={this.handleScan} validateScan={this.validateScan} />
+          <QRMultiButton header="#43Scan Multiple Addresses to Add" onScan={this.handleScan} validateScan={this.validateScan} />
         </div>
       </div>
     );

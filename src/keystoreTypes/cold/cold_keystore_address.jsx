@@ -48,7 +48,7 @@ export default class ColdKeystoreAddress extends Component {
               error={removing}
               fluid
               size="small"
-              placeholder="Enter Address"
+              placeholder="[#39]Enter Address"
               name="address"
               onChange={this.handleChange}
               value={data.address || ''}
@@ -61,7 +61,7 @@ export default class ColdKeystoreAddress extends Component {
             disabled={!data.address || removing}
             fluid
             size="small"
-            placeholder="Enter Name"
+            placeholder="[#40]Enter Name"
             name="name"
             onChange={this.handleChange}
             value={data.name || ''}
@@ -71,7 +71,7 @@ export default class ColdKeystoreAddress extends Component {
           {data.address ?
             <NetworkTokensSelector modal {...{ formChange: this.handleChange, formData: data }} disabled={removing} />
           :
-            <Label>0<Label.Detail>Networks</Label.Detail></Label>
+            <Label>0<Label.Detail>[#41]Networks</Label.Detail></Label>
           }
         </Table.Cell>
       </Table.Row>

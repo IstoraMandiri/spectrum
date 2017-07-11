@@ -27,9 +27,9 @@ export default class App extends Component {
             marginTop="5em"
             renderLastItem={() => <ConnectionStatus />}
             tabs={[
-              { exact: true, path: '/', name: 'Keystores', icon: 'key', component: Keystores },
-              { path: '/config', name: 'Config', icon: 'wrench', component: Config },
-              { path: '/dapplets', name: 'Dapplets', icon: 'code', component: Dapplets },
+              { exact: true, path: '/', name: '[#0]Keystores', icon: 'key', component: Keystores },
+              { path: '/config', name: '[#1]Config', icon: 'wrench', component: Config },
+              { path: '/dapplets', name: '[#2]Dapplets', icon: 'code', component: Dapplets },
             ]}
           />
         </HashRouter>

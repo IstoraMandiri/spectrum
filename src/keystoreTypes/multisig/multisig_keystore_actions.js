@@ -13,7 +13,7 @@ export function create(formData) {
       throw new Error('Please select a wallet type');
     }
     if (!name) {
-      throw new Error('You must provide a name');
+      throw new Error('[#36]You must provide a name');
     }
     if (!isAddress(plainAddress)) {
       throw new Error('Invalid Address');

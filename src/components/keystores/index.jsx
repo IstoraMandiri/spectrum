@@ -49,8 +49,8 @@ class Keystores extends Component {
       <Grid>
         <Grid.Column width={7}>
           <Header>
-            Keystores
-            <Header.Subheader>Manage your Accounts</Header.Subheader>
+            [#3] Keystores
+            <Header.Subheader>[#4] Manage your Accounts</Header.Subheader>
           </Header>
         </Grid.Column>
         <Grid.Column width={9} textAlign="right">
@@ -61,8 +61,8 @@ class Keystores extends Component {
             <Message
               info
               icon="key"
-              header="No Keystores Created"
-              content="Please create or import a new keystore"
+              header="[#7]No Keystores Created"
+              content="[#8]Please create or import a new keystore"
             />
           :
             <Segment.Group style={{ background: 'white' }}>

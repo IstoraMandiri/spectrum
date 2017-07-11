@@ -6,7 +6,7 @@ export default class Placeholder extends Component {
   }
   render() {
     return (
-      <p>COMING SOON</p>
+      <p>[#75]COMING SOON</p>
     );
   }
 }

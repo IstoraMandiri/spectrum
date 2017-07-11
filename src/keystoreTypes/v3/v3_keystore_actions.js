@@ -12,7 +12,7 @@ export function create(formData) {
       throw new Error('Please select a wallet type');
     }
     if (!name) {
-      throw new Error('You must provide a name');
+      throw new Error('[#36]You must provide a name');
     }
     if (!password || password.length < 6) {
       throw new Error('Password Must be at least 6 characters long (and ideally > 24)');

@@ -19,9 +19,9 @@ export default class Dapplets extends Component {
       <Grid>
         <Grid.Column width={16}>
           <Header>
-            Dapplets
+            [#71]Dapplets
             <Header.Subheader>
-              Sample of some Dapplets built in spectrum. This section will soon be replaced with an on-chain registry.
+              [#72]Sample of some Dapplets built in spectrum. This section will soon be replaced with an on-chain registry.
             </Header.Subheader>
           </Header>
         </Grid.Column>
@@ -32,13 +32,13 @@ export default class Dapplets extends Component {
             parentRoute="/dapplets"
             tabs={[
               {
-                name: 'KYC Verification',
+                name: '[#73]KYC Verification',
                 icon: 'user',
                 component: Placeholder,
                 path: '/dapplets/kyc',
               },
               {
-                name: 'ETC Redemption',
+                name: '[#74]ETC Redemption',
                 icon: 'fork',
                 component: EtcRedemption,
                 path: '/dapplets/etc-redemption',

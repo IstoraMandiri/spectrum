@@ -98,7 +98,7 @@ export default class TransactionModal extends Component {
           size: (txHash && 'small') || size || undefined,
           onClose: this.handleClose,
           handleSubmit: this.handleSubmit,
-          closeButtonText: !txHash ? 'Cancel' : 'Done',
+          closeButtonText: !txHash ? '[#16]Cancel' : 'Done',
           noSubmitButton: !!txHash,
           content: (props) => {
             if (txHash) { return this.renderTracker(props); }

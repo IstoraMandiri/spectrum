@@ -74,7 +74,7 @@ export default class AddressInput extends Component {
           fluid
           key={0}
           className="labeled"
-          placeholder={this.props.placeholder || 'Enter Address'}
+          placeholder={this.props.placeholder || '[#52]Enter Address'}
           value={value}
           name={this.props.name}
           onChange={this.handleChange}

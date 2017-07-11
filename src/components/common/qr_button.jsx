@@ -29,6 +29,7 @@ export default class QrButton extends Component {
   render() {
     return (
       <EZModal
+        closeButtonText="[#55]Done"
         size="small"
         trigger={<Button tabIndex="-1" basic icon="qrcode" onClick={e => e.preventDefault()} />}
         onClose={() => this.setState({ error: null })}
@@ -44,8 +45,8 @@ export default class QrButton extends Component {
             :
               <Message
                 icon="qrcode"
-                header="Scan QR Code"
-                content="Present a QR code to the camera to scan for an address"
+                header="[#53]Scan QR Code"
+                content="[#54]Present a QR code to the camera to scan for an address"
               />
             }
             <QrReader onScan={data => this.handleScan({ data, hide })} />

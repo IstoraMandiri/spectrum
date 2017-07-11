@@ -17,19 +17,19 @@ export default class V3KeystoreCreationForm extends Component {
     const { formChange, formData } = this.props;
     return (
       <div>
-        <FormField placeholder="Nickname for the Address" label="Name" name="name" {...{ formChange, formData }} />
+        <FormField placeholder="[#22]Nickname for the Address" label="[#21]Name" name="name" {...{ formChange, formData }} />
         <Form.Group widths="equal">
           <FormField
-            placeholder="Enter Password"
+            placeholder="[#24]Enter Password"
             type="password"
-            label="Password"
+            label="[#23]Password"
             name="password"
             {...{ formChange, formData }}
           />
           <FormField
-            placeholder="Confirm Password"
+            placeholder="[#25]Confirm Password"
             type="password"
-            label="Confirm Password"
+            label="[#25]Confirm Password"
             name="confirmPassword"
             {...{ formChange, formData }}
           />

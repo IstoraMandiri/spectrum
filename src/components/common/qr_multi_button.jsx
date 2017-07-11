@@ -51,6 +51,7 @@ export default class QRMultiButton extends Component {
   render() {
     return (
       <EZModal
+        closeButtonText="[#45]Done"
         size="small"
         content={
           <div>
@@ -60,14 +61,14 @@ export default class QRMultiButton extends Component {
               negative={this.state.color === 'negative'}
               warning={this.state.color === 'warning'}
               header={this.state.message || this.props.header}
-              content={`Scanned ${Object.keys(this.state.scannedItems).length} items`}
+              content={`[#44]Scanned ${Object.keys(this.state.scannedItems).length} items`}
             />
             <QrReader onScan={this.handleScan} />
           </div>
         }
         trigger={
           <Button
-            content="Scan QRs"
+            content="[#42]Scan QRs"
             basic
             icon="qrcode"
             onClick={(e) => {

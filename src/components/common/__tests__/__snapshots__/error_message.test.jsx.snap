@@ -14,7 +14,7 @@ exports[`renders correctly 1`] = `
     <div
       className="header"
     >
-      Oops, something went wrong
+      [#35]Oops, something went wrong
     </div>
     test
   </div>

@@ -28,14 +28,14 @@ class Networks extends Component {
       <Grid>
         <Grid.Column width={7}>
           <Header>
-            Networks
-            <Header.Subheader>Configure your Connection</Header.Subheader>
+            [#59]Networks
+            <Header.Subheader>[#60]Configure your Connection</Header.Subheader>
           </Header>
         </Grid.Column>
         <Grid.Column width={9} textAlign="right">
           <EZModal
             header="Create New Network"
-            trigger={<Button basic icon="plus" content="Create" />}
+            trigger={<Button basic icon="plus" content="[#61]Create" />}
             handleSubmit={this.props.createNetwork}
             content={props => <NetworkForm {...props} />}
           />

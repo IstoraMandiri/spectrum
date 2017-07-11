@@ -38,8 +38,8 @@ class MultisigKeystoreCreationForm extends Component {
         <Grid.Column width={8}>
           <Header as="h3" icon>
             <Icon name="upload" color="blue" />
-            Deploy New Contract
-            <Header.Subheader content="Create a new contract and configure owners" />
+            [#47]Deploy New Contract
+            <Header.Subheader content="[#49]Create a new contract and configure owners" />
           </Header>
           {!formData.networks ?
             <NetworkSelector onChange={({ id }) => formChange({ name: 'networks', value: [id] })} />
@@ -59,14 +59,14 @@ class MultisigKeystoreCreationForm extends Component {
         <Grid.Column width={8}>
           <Header as="h3" icon>
             <Icon name="linkify" color="orange" />
-            Use Existing Address
-            <Header.Subheader content="Add an already-deployed multisig wallet instance" />
+            [#48]Use Existing Address
+            <Header.Subheader content="[#50]Add an already-deployed multisig wallet instance" />
           </Header>
           <AddressInput
             showQrScanner
             hideDropdown
             name="address"
-            placeholder="Enter Conrtract Address"
+            placeholder="[#52]Enter Conrtract Address"
             {...{ formData, formChange }}
           />
         </Grid.Column>

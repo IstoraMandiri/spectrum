@@ -90,7 +90,7 @@ export default class IPFSUploader extends Component {
                 size="small"
                 header="Uploaded Certificate"
                 noSubmitButton
-                closeButtonText="Done"
+                closeButtonText="[#45]Done"
                 content={<IPFSImage hex={hex} showHash />}
                 trigger={<Button content="View" icon="image" color="blue" fluid onClick={e => e.preventDefault()} />}
               />
