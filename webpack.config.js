@@ -76,6 +76,7 @@ const baseConfig = {
     ],
     alias: {
       '@digix/spectrum': path.resolve(__dirname),
+      'spectrum-lightsuite': path.resolve(__dirname),
       '../../theme.config$': path.join(__dirname, './src/semantic-ui/theme.config'),
     },
   },
