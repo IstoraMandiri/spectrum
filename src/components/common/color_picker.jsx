@@ -12,7 +12,7 @@ export default class ColorPicker extends Component {
     label: PropTypes.string,
   }
   static defaultProps = {
-    label: 'Color',
+    label: '[#108]Color',
   }
   render() {
     const { formData, formChange, label } = this.props;
@@ -24,7 +24,7 @@ export default class ColorPicker extends Component {
           button
           fluid
           floating
-          text={(formData.color && capitalize(formData.color)) || 'Select Color'}
+          text={(formData.color && capitalize(formData.color)) || '[#109]Select Color'}
           className={`icon ${formData.color || ''}`}
         >
           <Dropdown.Menu>

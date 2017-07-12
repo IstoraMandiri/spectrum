@@ -20,7 +20,7 @@ function validateFormData({ type, addresses }) {
   if (!type) { throw new Error('You must provide a wallet type'); }
   const addressArray = Object.values(addresses || []);
   const validAddresses = addressArray.map(a => a.address && { ...a, address: validateAddress(a) }).filter(a => a);
-  if (!validAddresses.length) { throw new Error('No valid addresses defined'); }
+  if (!validAddresses.length) { throw new Error('[#91]No valid addresses defined'); }
   // ensure there are no duplciates
   const dupes = {};
   validAddresses.forEach((a) => {

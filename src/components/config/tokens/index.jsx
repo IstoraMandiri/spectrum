@@ -32,7 +32,9 @@ class Tokens extends Component {
         </Grid.Column>
         <Grid.Column width={9} textAlign="right">
           <EZModal
-            header="Add Token"
+            header="[#118]Add Token"
+            closeButtonText="[#129]Cancel"
+            submitButtonText="[#130]OK"
             trigger={<Button basic icon="plus" content="[#64]Create" />}
             handleSubmit={this.props.createToken}
             content={props => <TokenForm {...props} />}

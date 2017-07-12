@@ -20,41 +20,41 @@ export default class NetworkForm extends Component {
       <Form.Field>
         <Form.Group widths="equal">
           <FormField
-            placeholder="e.g. `Ethereum`"
-            label="Name"
+            placeholder="e.g. `[#96]Ethereum`"
+            label="[#93]Name"
             name="name"
             {...{ formChange, formData }}
           />
           <FormField
-            placeholder="e.g. `ETH`"
-            label="Symbol"
+            placeholder="e.g. `[#97]ETH`"
+            label="[#94]Symbol"
             name="symbol"
             {...{ formChange, formData }}
           />
           <FormField
-            placeholder="e.g. `Main Chain`"
-            label="Description"
+            placeholder="[#98]e.g. `Main Chain`"
+            label="[#95]Description"
             name="description"
             {...{ formChange, formData }}
           />
         </Form.Group>
         <Form.Group widths="equal">
           <FormField
-            placeholder="e.g. `https://mainnet.infura.io`"
-            label="Provider"
+            placeholder="[#102]e.g. `https://mainnet.infura.io`"
+            label="[#99]Provider"
             name="provider"
             {...{ formChange, formData }}
           />
           <FormField
-            placeholder="e.g. `1`"
-            label="Chain ID (EIP 155)"
+            placeholder="[#103]e.g. `1`"
+            label="[#100]Chain ID (EIP 155)"
             name="chainId"
             type="number"
             {...{ formChange, formData }}
           />
           <FormField
-            placeholder="e.g. `eth-mainnet`"
-            label="Unique Identifier"
+            placeholder="[#104]e.g. `eth-mainnet`"
+            label="[#101]Unique Identifier"
             name="id"
             readOnly={!!data}
             disabled={!!data}
@@ -64,11 +64,11 @@ export default class NetworkForm extends Component {
         <Form.Group widths="equal">
           <ColorPicker {...{ formData, formChange }} />
           <Form.Field>
-            <label htmlFor="enabled">Enabled Status</label>
+            <label htmlFor="enabled">[#105]Enabled Status</label>
             <Button
               fluid
               positive={formData.enabled}
-              content={formData.enabled ? 'Enabled' : 'Disabled'}
+              content={formData.enabled ? '[#107]Enabled' : '[#106]Disabled'}
               icon={formData.enabled ? 'checkmark' : 'remove'}
               onClick={(e) => {
                 e.preventDefault();
@@ -78,23 +78,23 @@ export default class NetworkForm extends Component {
           </Form.Field>
         </Form.Group>
         <Advanced>
-          <p>Optionaly set Block Explorer URL prefixes:</p>
+          <p>[#109]Optionaly set Block Explorer URL prefixes:</p>
           <Form.Group widths="equal">
             <FormField
-              placeholder="e.g. `https://etherscan.io/address/`"
-              label="Address Prefix"
+              placeholder="[#113]e.g. `https://etherscan.io/address/`"
+              label="[#110]Address Prefix"
               name="explorerAddressPrefix"
               {...{ formChange, formData }}
             />
             <FormField
-              placeholder="e.g. `https://etherscan.io/block/`"
-              label="Block Prefix"
+              placeholder="[#114]e.g. `https://etherscan.io/block/`"
+              label="[#111]Block Prefix"
               name="explorerBlockPrefix"
               {...{ formChange, formData }}
             />
             <FormField
-              placeholder="e.g. `https://etherscan.io/tx/`"
-              label="Transaction Prefix"
+              placeholder="[#115]e.g. `https://etherscan.io/tx/`"
+              label="[#112]Transaction Prefix"
               name="explorerTransactionPrefix"
               {...{ formChange, formData }}
             />

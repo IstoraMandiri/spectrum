@@ -74,7 +74,7 @@ export default class AddressInput extends Component {
           fluid
           key={0}
           className="labeled"
-          placeholder={this.props.placeholder || '[#52]Enter Address'}
+          placeholder={this.props.placeholder || 'Enter Address'}
           value={value}
           name={this.props.name}
           onChange={this.handleChange}
@@ -93,7 +93,7 @@ export default class AddressInput extends Component {
           <Label
             style={{ zIndex: '100', position: 'absolute' }}
             basic
-            color="red"
+            color="[#112]red"
             pointing
             content="Copy and paste the address, do not manually type it out!"
           />

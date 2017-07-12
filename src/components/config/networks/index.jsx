@@ -34,7 +34,9 @@ class Networks extends Component {
         </Grid.Column>
         <Grid.Column width={9} textAlign="right">
           <EZModal
-            header="Create New Network"
+            closeButtonText="[#116]Cancel"
+            submitButtonText="[#117]OK"
+            header="[#92]Create New Network"
             trigger={<Button basic icon="plus" content="[#61]Create" />}
             handleSubmit={this.props.createNetwork}
             content={props => <NetworkForm {...props} />}

@@ -15,19 +15,19 @@ export default class NetworkForm extends Component {
     return (
       <Form.Field>
         <Form.Group widths="equal">
-          <FormField placeholder="e.g. `Digix DAO`" label="Name" name="name" {...{ formChange, formData }} />
-          <FormField placeholder="e.g. `DGD`" label="Symbol" name="symbol" {...{ formChange, formData }} />
+          <FormField placeholder="e.g. `[#120]Digix DAO`" label="[#119]Name" name="name" {...{ formChange, formData }} />
+          <FormField placeholder="e.g. `[#122]DGD`" label="[#121]Symbol" name="symbol" {...{ formChange, formData }} />
         </Form.Group>
         <Form.Group widths="equal">
-          <FormField placeholder="e.g. `0x1234...cdef`" label="Address" name="address" {...{ formChange, formData }} />
-          <FormField placeholder="e.g. `3`" label="Decimals" name="decimals" type="number" {...{ formChange, formData }} />
+          <FormField placeholder="e.g. `[#124]0x1234...cdef`" label="[#123]Address" name="address" {...{ formChange, formData }} />
+          <FormField placeholder="e.g. `[#126]3`" label="[#125]Decimals" name="decimals" type="number" {...{ formChange, formData }} />
         </Form.Group>
         <Form.Group widths="equal">
           <Form.Field>
-            <label htmlFor="metwork">Network</label>
+            <label htmlFor="metwork">[#127]Network</label>
             <NetworkSelector name="network" showDisabled {...{ formData, formChange }} />
           </Form.Field>
-          <ColorPicker label="Token Color" {...{ formData, formChange }} />
+          <ColorPicker label="[#128]Token Color" {...{ formData, formChange }} />
         </Form.Group>
       </Form.Field>
     );

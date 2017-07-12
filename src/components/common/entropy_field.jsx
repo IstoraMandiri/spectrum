@@ -30,7 +30,7 @@ export default class EntropyField extends Component {
       <Form.Field>
         {pLabel && <label htmlFor={pLabel}>{pLabel}</label>}
         <Input
-          placeholder={`randomBytes(${bits ? bits / 8 : 32})`}
+          placeholder={`[#81]randomBytes(${bits ? bits / 8 : 32})`}
           type="password"
           {...rest}
           onChange={formChange}

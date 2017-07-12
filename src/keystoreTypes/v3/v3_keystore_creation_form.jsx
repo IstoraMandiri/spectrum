@@ -36,12 +36,12 @@ export default class V3KeystoreCreationForm extends Component {
         </Form.Group>
         <NetworkTokensSelector {...{ formChange, formData }} />
         <Advanced>
-          <p>Optionally override the default crypto and encryption values (do not prefix hex strings):</p>
+          <p>[`76`]Optionally override the default crypto and encryption values (do not prefix hex strings):</p>
           <Form.Group widths="equal">
-            <EntropyField label="Private Key (hex)" name="privateKey" {...{ formChange, formData }} />
-            <EntropyField bits={128} label="Initialization Vector (hex)" name="iv" {...{ formChange, formData }} />
-            <EntropyField label="Salt (hex)" name="salt" {...{ formChange, formData }} />
-            <FormField placeholder="1024" type="number" label="Iteration Count" name="n" {...{ formChange, formData }} />
+            <EntropyField label="[#77]Private Key (hex)" name="privateKey" {...{ formChange, formData }} />
+            <EntropyField bits={128} label="[#78]Initialization Vector (hex)" name="iv" {...{ formChange, formData }} />
+            <EntropyField label="[#79]Salt (hex)" name="salt" {...{ formChange, formData }} />
+            <FormField placeholder="1024" type="number" label="[#80]Iteration Count" name="n" {...{ formChange, formData }} />
           </Form.Group>
         </Advanced>
       </div>
