@@ -35,21 +35,28 @@ export default class MenuSystem extends Component {
   render() {
     const { tab } = this.state;
     const { usingRouter, parentRoute, className, fixed, tabs, marginTop, equalWidths, secondary, renderLastItem } = this.props;
+    const mappedTabs = tabs.map(({ name, exact, icon, component, path }, i) => {
+      const absolutePath = parentRoute && path[0] !== '/' ? `${parentRoute}/${path}` : path;
+      console.log({ absolutePath });
+      return {
+        exact,
+        icon,
+        component,
+        path: absolutePath,
+        key: absolutePath,
+        content: name,
+        active: !usingRouter ? tab === i : undefined,
+        as: usingRouter ? ActiveLink : undefined,
+        to: usingRouter ? absolutePath : undefined,
+        onClick: !usingRouter ? () => this.handleClick(i) : undefined,
+      };
+    });
     return (
       <div className={className}>
         <Menu borderless {...{ fixed, secondary }} widths={equalWidths ? tabs.length : undefined}>
           <Container>
-            {tabs.map(({ icon, name, path, exact }, i) => (
-              <Menu.Item
-                exact={exact}
-                icon={icon}
-                key={name}
-                content={name}
-                active={!usingRouter ? tab === i : undefined}
-                as={usingRouter ? ActiveLink : undefined}
-                to={usingRouter ? path : undefined}
-                onClick={!usingRouter ? () => this.handleClick(i) : undefined}
-              />
+            {mappedTabs.map(({ exact, icon, key, content, active, as, to, onClick }) => (
+              <Menu.Item {...{ exact, icon, key, content, active, as, to, onClick }} />
             ))}
             {renderLastItem && renderLastItem()}
           </Container>
@@ -57,8 +64,8 @@ export default class MenuSystem extends Component {
         <Container style={{ marginTop }}>
           {usingRouter ?
             <Switch>
-              {tabs.map(({ path, component, exact }) => <Route key={path} {...{ path, component, exact }} />)}
-              <Redirect from={parentRoute} to={tabs[0].path} />
+              {mappedTabs.map(({ key, path, component, exact }) => <Route {...{ key, path, component, exact }} />)}
+              <Redirect from={parentRoute} to={mappedTabs[0].path} />
             </Switch>
           :
             tabs[tab].component
