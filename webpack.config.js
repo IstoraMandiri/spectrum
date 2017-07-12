@@ -49,11 +49,13 @@ const baseConfig = {
       test: /\.(js|jsx)$/,
       include: [
         // TODO auto detect es6 modules?
+        // TODO replace with dapplet system
         path.resolve('./src'),
         fs.realpathSync(`${__dirname}/node_modules/web3-redux`),
         fs.realpathSync(`${__dirname}/node_modules/@digix/etc-redemption`),
         fs.realpathSync(`${__dirname}/node_modules/@digix/redux-crypto-prices`),
         fs.realpathSync(`${__dirname}/node_modules/@digix/truffle-gnosis-multisig`),
+        fs.realpathSync(`${__dirname}/node_modules/@digix/kyc-system`),
         fs.realpathSync(`${__dirname}/node_modules/ethereumjs-tx`),
         fs.realpathSync(`${__dirname}/node_modules/web3-provider-engine`),
       ],
