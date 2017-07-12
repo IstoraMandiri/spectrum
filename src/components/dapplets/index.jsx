@@ -35,13 +35,13 @@ export default class Dapplets extends Component {
                 name: 'KYC Verification',
                 icon: 'user',
                 component: Placeholder,
-                path: '/dapplets/kyc',
+                path: 'kyc',
               },
               {
                 name: 'ETC Redemption',
                 icon: 'fork',
                 component: EtcRedemption,
-                path: '/dapplets/etc-redemption',
+                path: 'etc-redemption',
               },
             ]}
           />
