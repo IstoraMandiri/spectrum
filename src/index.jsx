@@ -8,7 +8,6 @@ import 'semantic-ui-less/semantic.less';
 import './helpers/offlinePlugin';
 
 const renderApp = () => {
-  console.log('Accepting the updated component!');
   /* eslint-disable global-require */
   const NewApp = require('./components/app').default;
   const store = require('./store').default;

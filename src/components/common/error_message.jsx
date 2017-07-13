@@ -1,5 +1,5 @@
 import React, { PropTypes, Component } from 'react';
-import { Message, Icon } from 'semantic-ui-react';
+import { Message } from 'semantic-ui-react';
 
 export default class ErrorMessage extends Component {
   static propTypes = {
@@ -8,13 +8,12 @@ export default class ErrorMessage extends Component {
   render() {
     const message = this.props.content.message || `${this.props.content}`;
     return (
-      <Message icon error>
-        <Icon name="warning sign" />
-        <Message.Content>
-          <Message.Header>Oops, something went wrong</Message.Header>
-          {message}
-        </Message.Content>
-      </Message>
+      <Message
+        negative
+        header="Ooops, something went wrong..."
+        content={message}
+        icon="warning sign"
+      />
     );
   }
 }
