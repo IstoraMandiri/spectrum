@@ -49,3 +49,4 @@ selenium-debug.log
 todo.txt
 stats.json
 errorShots
+.cache-loader

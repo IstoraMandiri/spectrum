@@ -14,13 +14,14 @@ const OptimizeCssAssetsPlugin = require('optimize-css-assets-webpack-plugin');
 const StatsPlugin = require('stats-webpack-plugin');
 
 module.exports = config => ({
+  entry: ['babel-polyfill'].concat(config.entry),
   devtool: false,
   output: {
     path: path.join(__dirname, './docs'),
     filename: '[name].[chunkhash].js',
   },
   plugins: config.plugins.concat([
-    new webpack.NamedModulesPlugin(),
+    new NameAllModulesPlugin(),
     new webpack.NamedChunksPlugin((chunk) => {
       if (chunk.name) {
         return chunk.name;
@@ -36,7 +37,6 @@ module.exports = config => ({
     new webpack.optimize.CommonsChunkPlugin({
       name: 'runtime',
     }),
-    new NameAllModulesPlugin(),
     new ExtractTextPlugin('style.[contenthash].css'),
     new UglifyJsPlugin({ mangle: true, sourceMap: false, comments: false }),
     new OptimizeCssAssetsPlugin(),

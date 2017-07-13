@@ -22,7 +22,6 @@ console.log('Building Spectrum', buildName);
 
 const baseConfig = {
   entry: [
-    'babel-polyfill',
     './src/index.jsx',
   ],
   module: {
@@ -38,13 +37,13 @@ const baseConfig = {
       loader: 'json-loader',
     }, {
       test: /\.jpe?g$|\.gif$|\.png$|\.ttf$|\.eot$|\.svg$/,
-      use: 'file-loader?name=[name].[ext]?[hash]',
+      loader: 'file-loader?name=[name].[ext]?[hash]',
     }, {
       test: /\.woff(2)?(\?v=[0-9]\.[0-9]\.[0-9])?$/,
       loader: 'url-loader?limit=10000&mimetype=application/fontwoff',
     }, {
       test: /\.(css|less)$/,
-      loader: ExtractTextPlugin.extract({ fallback: 'style-loader', use: ['css-loader', 'less-loader'] }),
+      loader: ExtractTextPlugin.extract({ fallback: 'style-loader', use: ['cache-loader', 'css-loader', 'less-loader'] }),
     }, {
       test: /\.(js|jsx)$/,
       include: [
@@ -57,7 +56,10 @@ const baseConfig = {
         fs.realpathSync(`${__dirname}/node_modules/ethereumjs-tx`),
         fs.realpathSync(`${__dirname}/node_modules/web3-provider-engine`),
       ],
-      loader: 'babel-loader',
+      use: [
+        'cache-loader',
+        'babel-loader',
+      ],
     }],
   },
   plugins: [

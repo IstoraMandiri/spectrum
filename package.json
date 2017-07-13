@@ -99,6 +99,7 @@
     "babel-preset-stage-2": "^6.24.1",
     "babel-preset-stage-3": "^6.24.1",
     "babel-root-import": "^4.1.8",
+    "cache-loader": "^1.0.3",
     "chai": "^4.0.2",
     "copy-webpack-plugin": "^4.0.1",
     "coveralls": "^2.13.1",
@@ -133,7 +134,7 @@
     "wdio-selenium-standalone-service": "0.0.9",
     "wdio-spec-reporter": "^0.1.0",
     "webdriverio": "^4.8.0",
-    "webpack": "^3.0.0",
+    "webpack": "^3.2.0",
     "webpack-bundle-analyzer": "^2.8.2",
     "webpack-dev-server": "^2.5.0",
     "webpack-pwa-manifest": "^3.0.0"
