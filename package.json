@@ -44,6 +44,7 @@
   ],
   "dependencies": {
     "@digix/etc-redemption": "0.0.11",
+    "@digix/kyc-system": "file:../kyc_system",
     "@digix/react-ledger-container": "0.0.6",
     "@digix/redux-crypto-prices": "0.0.1",
     "@digix/truffle-gnosis-multisig": "0.0.2",

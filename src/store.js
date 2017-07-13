@@ -5,7 +5,7 @@ import thunk from 'redux-thunk';
 import { persistStore, autoRehydrate } from 'redux-persist';
 import { reducer as cryptoPrices } from '@digix/redux-crypto-prices/src';
 import { reducer as web3Redux } from 'web3-redux';
-import kycUser from '@digix/kyc-system/spectrum/reducer.js';
+import kycSystem from '@digix/kyc-system/spectrum/reducer';
 
 import { reducer as orm } from '~/models';
 import { init as initWeb3 } from '~/helpers/web3';
@@ -26,7 +26,7 @@ const enhancers = persist ?
   composeEnhancers(autoRehydrate(), applyMiddleware(thunk)) :
   composeEnhancers(applyMiddleware(thunk));
 
-const reducers = combineReducers({ kycUser, web3Redux, orm, cryptoPrices });
+const reducers = combineReducers({ kycSystem, web3Redux, orm, cryptoPrices });
 const store = createStore(reducers, {}, enhancers);
 
 function seedStore() {
