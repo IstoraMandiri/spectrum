@@ -6,7 +6,7 @@ const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const hostname = process.env.HOSTNAME || 'http://localhost:8080';
 
 module.exports = config => ({
-  devtool: '#module-inline-source-map',
+  devtool: 'eval',
   devServer: {
     hot: true,
     publicPath: '/',
@@ -20,11 +20,11 @@ module.exports = config => ({
     filename: 'bundle.js',
   },
   plugins: config.plugins.concat([
-    new ExtractTextPlugin('style.css'),
+    new webpack.NamedModulesPlugin(),
     new webpack.HotModuleReplacementPlugin(),
-    new webpack.NamedModulesPlugin(), // for HMR
+    new ExtractTextPlugin('style.css'),
   ]),
   entry: [
-    `webpack-dev-server/client?${hostname}`,
+    'react-hot-loader/patch',
   ].concat(config.entry),
 });

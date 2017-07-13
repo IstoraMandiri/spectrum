@@ -1,21 +1,7 @@
 {
   "presets": [
     "react",
-    ["env", {
-      "targets": {
-        "uglify": false,
-        "browsers": [
-          "last 2 versions",
-          "safari >= 8",
-          "ie >= 10",
-          "ios >= 8"
-        ]
-      },
-      "modules": false,
-      "loose": true,
-      "useBuiltIns": true
-    }],
-    "es2015"
+    "env"
   ],
   "compact" : false,
   "plugins": [
@@ -26,7 +12,22 @@
   ],
   "env": {
     "production": {
-      "presets": ["react-optimize"]
+      "presets": [
+        "react-optimize",
+        ["env", {
+          "targets": {
+            "uglify": false,
+            "browsers": [
+              "last 2 versions",
+              "safari >= 8",
+              "ie >= 10",
+              "ios >= 8"
+            ]
+          },
+          "loose": true,
+          "useBuiltIns": true
+          }]
+      ]
     },
     "test": {
       "presets": ["env"],
