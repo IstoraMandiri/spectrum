@@ -7,9 +7,11 @@ export default class FormField extends Component {
     formData: PropTypes.object.isRequired,
     name: PropTypes.string.isRequired,
     defaultValue: PropTypes.any,
+    options: PropTypes.array,
   };
   static defaultProps = {
     defaultValue: undefined,
+    options: undefined,
   }
   componentDidMount() {
     const { formChange, defaultValue, name } = this.props;
@@ -18,10 +20,12 @@ export default class FormField extends Component {
     }
   }
   render() {
-    const { formChange, formData, name, ...rest } = this.props;
+    const { formChange, formData, name, options, ...rest } = this.props;
     const value = formData[name] === undefined ? '' : formData[name];
-    return (
-      <Form.Field {...rest} onChange={formChange} name={name} value={value} control="input" />
-    );
+    if (rest.type === 'select') {
+      const mappedOptions = options.map(({ id, name: text }) => ({ key: id, value: id, text }));
+      return <Form.Select {...rest} options={mappedOptions} onChange={formChange} name={name} value={value} />;
+    }
+    return <Form.Field {...rest} onChange={formChange} name={name} value={value} control="input" />;
   }
 }
