@@ -34,7 +34,7 @@ export default class MenuSystem extends Component {
   }
   render() {
     const { tab } = this.state;
-    const { usingRouter, parentRoute, className, fixed, tabs, marginTop, equalWidths, secondary, renderLastItem } = this.props;
+    const { props, usingRouter, parentRoute, className, fixed, tabs, marginTop, equalWidths, secondary, renderLastItem } = this.props;
     const mappedTabs = tabs.map(({ name, exact, icon, component, path }, i) => {
       const absolutePath = parentRoute && path[0] !== '/' ? `${parentRoute}/${path}` : path;
       return {
@@ -63,7 +63,17 @@ export default class MenuSystem extends Component {
         <Container style={{ marginTop }}>
           {usingRouter ?
             <Switch>
-              {mappedTabs.map(({ key, path, component, exact }) => <Route {...{ key, path, component, exact }} />)}
+              {mappedTabs.map(({ key, path, component: Comp, exact }) => (
+                <Route
+                  {...{
+                    key,
+                    path,
+                    component: !props ? Comp : undefined,
+                    render: !props ? undefined : () => <Comp {...props} />,
+                    exact,
+                  }}
+                />
+              ))}
               <Redirect from={parentRoute} to={mappedTabs[0].path} />
             </Switch>
           :
