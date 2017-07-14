@@ -1,0 +1,20 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<EntropyField /> renders correctly 1`] = `
+<FormField>
+  <Input
+    action={
+      <EntropyGenerator
+        bits={256}
+        handleSubmit={[Function]}
+      />
+    }
+    fluid={true}
+    name="test"
+    onChange={[Function]}
+    placeholder="randomBytes(32)"
+    type="password"
+    value="Test name"
+  />
+</FormField>
+`;

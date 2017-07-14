@@ -25,15 +25,15 @@ export default class IPFSUploader extends Component {
     onChange: undefined,
     multiple: undefined,
   }
-  static handleClick(e) {
-    e.preventDefault();
-    e.target.nextSibling.click();
-  }
   constructor(props) {
     super(props);
     this.state = { uploading: false, error: false, hex: false };
     this.handleClick = this.handleClick.bind(this);
     this.handleUpload = this.handleUpload.bind(this);
+  }
+  handleClick(e) {
+    e.preventDefault();
+    e.target.nextSibling.click();
   }
   handleUpload(e) {
     if (this.props.beforeUpload) {

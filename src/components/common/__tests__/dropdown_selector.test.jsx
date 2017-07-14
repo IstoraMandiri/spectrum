@@ -2,13 +2,13 @@ import React from 'react';
 import { shallow } from 'enzyme';
 import toJson from 'enzyme-to-json';
 
-import ErrorMessage from '../error_message';
+import DropdownSelector from '../dropdown_selector';
 
-describe('<ErrorMessage />', () => {
+describe('<DropdownSelector />', () => {
 	test('renders correctly', () => {
     const component = shallow(
-      <ErrorMessage 
-      	content="Test Error message"
+      <DropdownSelector 
+      	items={[]}
       />
     );
 

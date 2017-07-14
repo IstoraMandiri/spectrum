@@ -1,0 +1,555 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Keystores /> renders correctly 1`] = `
+<Grid>
+  <GridColumn
+    width={7}
+  >
+    <Header>
+      Keystores
+      <HeaderSubheader>
+        Manage your Accounts
+      </HeaderSubheader>
+    </Header>
+  </GridColumn>
+  <GridColumn
+    textAlign="right"
+    width={9}
+  >
+    <KeystoreButtons
+      createKeystore={[Function]}
+      deleteKeystore={[Function]}
+      keystoreTypes={Array []}
+      keystores={
+        Array [
+          Object {
+            "addresses": Array [
+              Object {
+                "address": "0x12345",
+              },
+              Object {
+                "address": "0x1234567",
+              },
+            ],
+            "id": 1,
+            "type": Object {
+              "color": "red",
+              "icon": "testIcon",
+              "name": "test keystore",
+              "subtitle": "test subtitle",
+            },
+          },
+          Object {
+            "addresses": Array [
+              Object {
+                "address": "0x54321",
+              },
+              Object {
+                "address": "0x543210123",
+              },
+            ],
+            "id": 2,
+            "type": Object {
+              "color": "blue",
+              "icon": "testIcon2",
+              "name": "test keystore 2",
+              "subtitle": "test subtitle 2",
+            },
+          },
+        ]
+      }
+      updateKeystore={[Function]}
+    />
+  </GridColumn>
+  <GridColumn
+    width={16}
+  >
+    <SegmentGroup
+      style={
+        Object {
+          "background": "white",
+        }
+      }
+    >
+      <Segment>
+        <KeystoreModal
+          createKeystore={[Function]}
+          data={
+            Object {
+              "addresses": Array [
+                Object {
+                  "address": "0x12345",
+                },
+                Object {
+                  "address": "0x1234567",
+                },
+              ],
+              "id": 1,
+              "type": Object {
+                "color": "red",
+                "icon": "testIcon",
+                "name": "test keystore",
+                "subtitle": "test subtitle",
+              },
+            }
+          }
+          deleteKeystore={[Function]}
+          form={[Function]}
+          header="Edit Keystore: test keystore"
+          keystoreTypes={Array []}
+          keystores={
+            Array [
+              Object {
+                "addresses": Array [
+                  Object {
+                    "address": "0x12345",
+                  },
+                  Object {
+                    "address": "0x1234567",
+                  },
+                ],
+                "id": 1,
+                "type": Object {
+                  "color": "red",
+                  "icon": "testIcon",
+                  "name": "test keystore",
+                  "subtitle": "test subtitle",
+                },
+              },
+              Object {
+                "addresses": Array [
+                  Object {
+                    "address": "0x54321",
+                  },
+                  Object {
+                    "address": "0x543210123",
+                  },
+                ],
+                "id": 2,
+                "type": Object {
+                  "color": "blue",
+                  "icon": "testIcon2",
+                  "name": "test keystore 2",
+                  "subtitle": "test subtitle 2",
+                },
+              },
+            ]
+          }
+          removeFunc={[Function]}
+          submitFunc={[Function]}
+          trigger={
+            <Label
+              basic={true}
+              color="red"
+              ribbon={true}
+              style={
+                Object {
+                  "cursor": "pointer",
+                }
+              }
+            >
+              <Icon
+                as="i"
+                name="testIcon"
+              />
+              test keystore
+            </Label>
+          }
+          updateKeystore={[Function]}
+        />
+        <Header
+          as="span"
+          disabled={true}
+          size="tiny"
+        >
+          test subtitle
+        </Header>
+        <Table
+          as="table"
+          basic="very"
+        >
+          <TableBody
+            as="tbody"
+          >
+            <KeystoreAddress
+              address={
+                Object {
+                  "address": "0x12345",
+                }
+              }
+              createKeystore={[Function]}
+              deleteKeystore={[Function]}
+              keystore={
+                Object {
+                  "addresses": Array [
+                    Object {
+                      "address": "0x12345",
+                    },
+                    Object {
+                      "address": "0x1234567",
+                    },
+                  ],
+                  "id": 1,
+                  "type": Object {
+                    "color": "red",
+                    "icon": "testIcon",
+                    "name": "test keystore",
+                    "subtitle": "test subtitle",
+                  },
+                }
+              }
+              keystoreTypes={Array []}
+              keystores={
+                Array [
+                  Object {
+                    "addresses": Array [
+                      Object {
+                        "address": "0x12345",
+                      },
+                      Object {
+                        "address": "0x1234567",
+                      },
+                    ],
+                    "id": 1,
+                    "type": Object {
+                      "color": "red",
+                      "icon": "testIcon",
+                      "name": "test keystore",
+                      "subtitle": "test subtitle",
+                    },
+                  },
+                  Object {
+                    "addresses": Array [
+                      Object {
+                        "address": "0x54321",
+                      },
+                      Object {
+                        "address": "0x543210123",
+                      },
+                    ],
+                    "id": 2,
+                    "type": Object {
+                      "color": "blue",
+                      "icon": "testIcon2",
+                      "name": "test keystore 2",
+                      "subtitle": "test subtitle 2",
+                    },
+                  },
+                ]
+              }
+              updateKeystore={[Function]}
+            />
+            <KeystoreAddress
+              address={
+                Object {
+                  "address": "0x1234567",
+                }
+              }
+              createKeystore={[Function]}
+              deleteKeystore={[Function]}
+              keystore={
+                Object {
+                  "addresses": Array [
+                    Object {
+                      "address": "0x12345",
+                    },
+                    Object {
+                      "address": "0x1234567",
+                    },
+                  ],
+                  "id": 1,
+                  "type": Object {
+                    "color": "red",
+                    "icon": "testIcon",
+                    "name": "test keystore",
+                    "subtitle": "test subtitle",
+                  },
+                }
+              }
+              keystoreTypes={Array []}
+              keystores={
+                Array [
+                  Object {
+                    "addresses": Array [
+                      Object {
+                        "address": "0x12345",
+                      },
+                      Object {
+                        "address": "0x1234567",
+                      },
+                    ],
+                    "id": 1,
+                    "type": Object {
+                      "color": "red",
+                      "icon": "testIcon",
+                      "name": "test keystore",
+                      "subtitle": "test subtitle",
+                    },
+                  },
+                  Object {
+                    "addresses": Array [
+                      Object {
+                        "address": "0x54321",
+                      },
+                      Object {
+                        "address": "0x543210123",
+                      },
+                    ],
+                    "id": 2,
+                    "type": Object {
+                      "color": "blue",
+                      "icon": "testIcon2",
+                      "name": "test keystore 2",
+                      "subtitle": "test subtitle 2",
+                    },
+                  },
+                ]
+              }
+              updateKeystore={[Function]}
+            />
+          </TableBody>
+        </Table>
+      </Segment>
+      <Segment>
+        <KeystoreModal
+          createKeystore={[Function]}
+          data={
+            Object {
+              "addresses": Array [
+                Object {
+                  "address": "0x54321",
+                },
+                Object {
+                  "address": "0x543210123",
+                },
+              ],
+              "id": 2,
+              "type": Object {
+                "color": "blue",
+                "icon": "testIcon2",
+                "name": "test keystore 2",
+                "subtitle": "test subtitle 2",
+              },
+            }
+          }
+          deleteKeystore={[Function]}
+          form={[Function]}
+          header="Edit Keystore: test keystore 2"
+          keystoreTypes={Array []}
+          keystores={
+            Array [
+              Object {
+                "addresses": Array [
+                  Object {
+                    "address": "0x12345",
+                  },
+                  Object {
+                    "address": "0x1234567",
+                  },
+                ],
+                "id": 1,
+                "type": Object {
+                  "color": "red",
+                  "icon": "testIcon",
+                  "name": "test keystore",
+                  "subtitle": "test subtitle",
+                },
+              },
+              Object {
+                "addresses": Array [
+                  Object {
+                    "address": "0x54321",
+                  },
+                  Object {
+                    "address": "0x543210123",
+                  },
+                ],
+                "id": 2,
+                "type": Object {
+                  "color": "blue",
+                  "icon": "testIcon2",
+                  "name": "test keystore 2",
+                  "subtitle": "test subtitle 2",
+                },
+              },
+            ]
+          }
+          removeFunc={[Function]}
+          submitFunc={[Function]}
+          trigger={
+            <Label
+              basic={true}
+              color="blue"
+              ribbon={true}
+              style={
+                Object {
+                  "cursor": "pointer",
+                }
+              }
+            >
+              <Icon
+                as="i"
+                name="testIcon2"
+              />
+              test keystore 2
+            </Label>
+          }
+          updateKeystore={[Function]}
+        />
+        <Header
+          as="span"
+          disabled={true}
+          size="tiny"
+        >
+          test subtitle 2
+        </Header>
+        <Table
+          as="table"
+          basic="very"
+        >
+          <TableBody
+            as="tbody"
+          >
+            <KeystoreAddress
+              address={
+                Object {
+                  "address": "0x54321",
+                }
+              }
+              createKeystore={[Function]}
+              deleteKeystore={[Function]}
+              keystore={
+                Object {
+                  "addresses": Array [
+                    Object {
+                      "address": "0x54321",
+                    },
+                    Object {
+                      "address": "0x543210123",
+                    },
+                  ],
+                  "id": 2,
+                  "type": Object {
+                    "color": "blue",
+                    "icon": "testIcon2",
+                    "name": "test keystore 2",
+                    "subtitle": "test subtitle 2",
+                  },
+                }
+              }
+              keystoreTypes={Array []}
+              keystores={
+                Array [
+                  Object {
+                    "addresses": Array [
+                      Object {
+                        "address": "0x12345",
+                      },
+                      Object {
+                        "address": "0x1234567",
+                      },
+                    ],
+                    "id": 1,
+                    "type": Object {
+                      "color": "red",
+                      "icon": "testIcon",
+                      "name": "test keystore",
+                      "subtitle": "test subtitle",
+                    },
+                  },
+                  Object {
+                    "addresses": Array [
+                      Object {
+                        "address": "0x54321",
+                      },
+                      Object {
+                        "address": "0x543210123",
+                      },
+                    ],
+                    "id": 2,
+                    "type": Object {
+                      "color": "blue",
+                      "icon": "testIcon2",
+                      "name": "test keystore 2",
+                      "subtitle": "test subtitle 2",
+                    },
+                  },
+                ]
+              }
+              updateKeystore={[Function]}
+            />
+            <KeystoreAddress
+              address={
+                Object {
+                  "address": "0x543210123",
+                }
+              }
+              createKeystore={[Function]}
+              deleteKeystore={[Function]}
+              keystore={
+                Object {
+                  "addresses": Array [
+                    Object {
+                      "address": "0x54321",
+                    },
+                    Object {
+                      "address": "0x543210123",
+                    },
+                  ],
+                  "id": 2,
+                  "type": Object {
+                    "color": "blue",
+                    "icon": "testIcon2",
+                    "name": "test keystore 2",
+                    "subtitle": "test subtitle 2",
+                  },
+                }
+              }
+              keystoreTypes={Array []}
+              keystores={
+                Array [
+                  Object {
+                    "addresses": Array [
+                      Object {
+                        "address": "0x12345",
+                      },
+                      Object {
+                        "address": "0x1234567",
+                      },
+                    ],
+                    "id": 1,
+                    "type": Object {
+                      "color": "red",
+                      "icon": "testIcon",
+                      "name": "test keystore",
+                      "subtitle": "test subtitle",
+                    },
+                  },
+                  Object {
+                    "addresses": Array [
+                      Object {
+                        "address": "0x54321",
+                      },
+                      Object {
+                        "address": "0x543210123",
+                      },
+                    ],
+                    "id": 2,
+                    "type": Object {
+                      "color": "blue",
+                      "icon": "testIcon2",
+                      "name": "test keystore 2",
+                      "subtitle": "test subtitle 2",
+                    },
+                  },
+                ]
+              }
+              updateKeystore={[Function]}
+            />
+          </TableBody>
+        </Table>
+      </Segment>
+    </SegmentGroup>
+  </GridColumn>
+</Grid>
+`;

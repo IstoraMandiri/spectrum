@@ -1,0 +1,45 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Address /> renders correctly 1`] = `
+<div
+  className="spectrum-address"
+>
+  <Image
+    as="img"
+    avatar={true}
+    ui={true}
+  />
+  <code
+    className="address"
+    style={
+      Object {
+        "width": undefined,
+      }
+    }
+  >
+    test address
+  </code>
+</div>
+`;
+
+exports[`<Address /> renders correctly with short width 1`] = `
+<div
+  className="spectrum-address"
+>
+  <Image
+    as="img"
+    avatar={true}
+    ui={true}
+  />
+  <code
+    className="address"
+    style={
+      Object {
+        "width": "10em",
+      }
+    }
+  >
+    test address 2
+  </code>
+</div>
+`;

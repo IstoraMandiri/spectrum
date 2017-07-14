@@ -1,0 +1,35 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<CryptoPrice /> renders correctly 1`] = `
+<Label
+  ammount={400}
+  basic={true}
+  getPrices={[Function]}
+  pointing={true}
+  setSelectedCurrency={[Function]}
+>
+  <Dropdown
+    additionLabel="Add "
+    additionPosition="top"
+    closeOnBlur={true}
+    icon="dropdown"
+    minCharacters={1}
+    noResultsMessage="No results found."
+    onChange={[Function]}
+    openOnFocus={true}
+    options={
+      Array [
+        Object {
+          "text": "Test",
+          "value": "Test",
+        },
+      ]
+    }
+    renderLabel={[Function]}
+    scrolling={true}
+    selectOnBlur={true}
+    text="About 0 GBP"
+    value="GBP"
+  />
+</Label>
+`;

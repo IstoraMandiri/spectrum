@@ -1,0 +1,59 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Token /> renders correctly 1`] = `
+<EZModal
+  content={[Function]}
+  data={
+    Object {
+      "address": "0x123f43ddd",
+      "id": 1,
+      "name": "Test token",
+      "network": 1,
+      "symbol": "GBP",
+    }
+  }
+  handleRemove={[Function]}
+  handleSubmit={[Function]}
+  header="Edit Token: Test token"
+  trigger={
+    <TableRow
+      as="tr"
+      cellAs="td"
+    >
+      <TableCell
+        as="td"
+      >
+        <Header
+          as="h4"
+          image={true}
+        >
+          <Image
+            as="img"
+            shape="rounded"
+            size="mini"
+            ui={true}
+          />
+          <HeaderContent>
+            Test token
+            <Label
+              content="GBP"
+              size="small"
+            />
+            <HeaderSubheader>
+              0x123f43ddd
+            </HeaderSubheader>
+          </HeaderContent>
+        </Header>
+      </TableCell>
+      <TableCell
+        as="td"
+      >
+        <Label
+          color="blue"
+          content="Test network"
+        />
+      </TableCell>
+    </TableRow>
+  }
+/>
+`;

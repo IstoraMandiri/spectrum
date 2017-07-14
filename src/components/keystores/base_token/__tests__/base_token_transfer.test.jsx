@@ -2,13 +2,16 @@ import React from 'react';
 import { shallow } from 'enzyme';
 import toJson from 'enzyme-to-json';
 
-import ErrorMessage from '../error_message';
+import BaseTokenTransfer from '../base_token_transfer';
 
-describe('<ErrorMessage />', () => {
+describe('<BaseTokenTransfer />', () => {
 	test('renders correctly', () => {
     const component = shallow(
-      <ErrorMessage 
-      	content="Test Error message"
+      <BaseTokenTransfer 
+      	trigger={<div></div>}
+      	network={{
+      		name: 'test network',
+      	}}
       />
     );
 

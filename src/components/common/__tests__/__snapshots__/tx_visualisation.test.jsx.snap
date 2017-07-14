@@ -1,0 +1,90 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<TxVisualisation /> renders correctly 1`] = `
+<Grid
+  centered={true}
+  columns={2}
+  verticalAlign="middle"
+>
+  <GridColumn
+    textAlign="center"
+  >
+    <Header
+      as="h2"
+      color="blue"
+      icon={true}
+      style={
+        Object {
+          "maxWidth": "100%",
+        }
+      }
+    >
+      <Icon
+        as="i"
+        name="testIcon1"
+      />
+      <span
+        className="truncated"
+      >
+        test header 1
+      </span>
+      <HeaderSubheader>
+        <b
+          className="truncated"
+        >
+          test subheader 1
+        </b>
+        <br />
+        <a
+          className="truncated"
+          href="/test-link-1"
+          rel="noopener noreferrer"
+          target="_blank"
+        >
+          test data 1
+        </a>
+      </HeaderSubheader>
+    </Header>
+  </GridColumn>
+  <GridColumn
+    textAlign="center"
+  >
+    <Header
+      as="h2"
+      color="white"
+      icon={true}
+      style={
+        Object {
+          "maxWidth": "100%",
+        }
+      }
+    >
+      <Icon
+        as="i"
+        name="testIcon2"
+      />
+      <span
+        className="truncated"
+      >
+        test header 2
+      </span>
+      <HeaderSubheader>
+        <b
+          className="truncated"
+        >
+          test subheader 2
+        </b>
+        <br />
+        <a
+          className="truncated"
+          href="/test-link-2"
+          rel="noopener noreferrer"
+          target="_blank"
+        >
+          test data 2
+        </a>
+      </HeaderSubheader>
+    </Header>
+  </GridColumn>
+</Grid>
+`;

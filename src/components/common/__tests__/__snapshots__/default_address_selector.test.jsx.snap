@@ -1,0 +1,13 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<DefaultAddressSelector /> renders correctly 1`] = `
+<span>
+  No keystores:
+   
+   
+   
+  <KeystoreButtons
+    keystores={Array []}
+  />
+</span>
+`;

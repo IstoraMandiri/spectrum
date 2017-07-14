@@ -2,13 +2,13 @@ import React from 'react';
 import { shallow } from 'enzyme';
 import toJson from 'enzyme-to-json';
 
-import ErrorMessage from '../error_message';
+import QrReader from '../qr_reader';
 
-describe('<ErrorMessage />', () => {
+describe('<QrReader />', () => {
 	test('renders correctly', () => {
     const component = shallow(
-      <ErrorMessage 
-      	content="Test Error message"
+      <QrReader
+      	onScan={jest.fn} 
       />
     );
 

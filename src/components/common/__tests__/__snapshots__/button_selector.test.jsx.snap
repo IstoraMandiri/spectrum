@@ -1,0 +1,30 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<ButtonSelector /> renders correctly 1`] = `
+<FormField>
+  <Button
+    as="button"
+    content="testing 1"
+    icon="remove"
+    labelPosition="left"
+    onClick={[Function]}
+    size="small"
+  />
+  <Button
+    as="button"
+    content="testing 2"
+    icon="remove"
+    labelPosition="left"
+    onClick={[Function]}
+    size="small"
+  />
+  <Button
+    as="button"
+    content="testing 3"
+    icon="remove"
+    labelPosition="left"
+    onClick={[Function]}
+    size="small"
+  />
+</FormField>
+`;

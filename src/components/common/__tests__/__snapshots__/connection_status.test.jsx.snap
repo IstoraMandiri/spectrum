@@ -1,0 +1,20 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<ConnectionStatus /> renders correctly 1`] = `
+<MenuMenu
+  position="right"
+>
+  <MenuItem
+    fitted={true}
+  >
+    <Loader
+      active={true}
+      inline={true}
+      size="tiny"
+    />
+  </MenuItem>
+  <MenuItem
+    fitted={true}
+  />
+</MenuMenu>
+`;

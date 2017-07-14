@@ -1,0 +1,65 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<TokenForm /> renders correctly 1`] = `
+<FormField>
+  <FormGroup
+    widths="equal"
+  >
+    <FormField
+      formChange={[Function]}
+      formData={Object {}}
+      label="Name"
+      name="name"
+      placeholder="e.g. \`Digix DAO\`"
+    />
+    <FormField
+      formChange={[Function]}
+      formData={Object {}}
+      label="Symbol"
+      name="symbol"
+      placeholder="e.g. \`DGD\`"
+    />
+  </FormGroup>
+  <FormGroup
+    widths="equal"
+  >
+    <FormField
+      formChange={[Function]}
+      formData={Object {}}
+      label="Address"
+      name="address"
+      placeholder="e.g. \`0x1234...cdef\`"
+    />
+    <FormField
+      formChange={[Function]}
+      formData={Object {}}
+      label="Decimals"
+      name="decimals"
+      placeholder="e.g. \`3\`"
+      type="number"
+    />
+  </FormGroup>
+  <FormGroup
+    widths="equal"
+  >
+    <FormField>
+      <label
+        htmlFor="metwork"
+      >
+        Network
+      </label>
+      <Connect(NetworkSelector)
+        formChange={[Function]}
+        formData={Object {}}
+        name="network"
+        showDisabled={true}
+      />
+    </FormField>
+    <ColorPicker
+      formChange={[Function]}
+      formData={Object {}}
+      label="Token Color"
+    />
+  </FormGroup>
+</FormField>
+`;

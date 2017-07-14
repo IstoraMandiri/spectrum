@@ -2,14 +2,12 @@ import React from 'react';
 import { shallow } from 'enzyme';
 import toJson from 'enzyme-to-json';
 
-import ErrorMessage from '../error_message';
+import StartupOverlay from '../startup_overlay';
 
-describe('<ErrorMessage />', () => {
+describe('<StartupOverlay />', () => {
 	test('renders correctly', () => {
     const component = shallow(
-      <ErrorMessage 
-      	content="Test Error message"
-      />
+      <StartupOverlay />
     );
 
     expect(toJson(component)).toMatchSnapshot();

@@ -2,13 +2,15 @@ import React from 'react';
 import { shallow } from 'enzyme';
 import toJson from 'enzyme-to-json';
 
-import ErrorMessage from '../error_message';
+import ImportKeystoreForm from '../import_keystore_form';
 
-describe('<ErrorMessage />', () => {
+describe('<ImportKeystoreForm />', () => {
 	test('renders correctly', () => {
     const component = shallow(
-      <ErrorMessage 
-      	content="Test Error message"
+      <ImportKeystoreForm 
+        setError={jest.fn}
+        setLoading={jest.fn}
+        onGetPrivateKey={jest.fn}
       />
     );
 

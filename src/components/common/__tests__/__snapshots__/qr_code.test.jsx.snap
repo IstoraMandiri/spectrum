@@ -1,0 +1,34 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<QrCode /> renders correctly 1`] = `
+<EZModal
+  content={
+    <div>
+      <pre>
+        <code>
+          "qr code test"
+        </code>
+      </pre>
+    </div>
+  }
+  header="QR Code Data"
+  trigger={
+    <div
+      className="qr-container"
+      style={
+        Object {
+          "cursor": "pointer",
+        }
+      }
+    >
+      <QRCode
+        bgColor="#FFFFFF"
+        fgColor="#000000"
+        level="L"
+        size={1024}
+        value="qr code test"
+      />
+    </div>
+  }
+/>
+`;

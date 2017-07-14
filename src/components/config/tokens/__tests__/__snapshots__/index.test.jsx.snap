@@ -1,0 +1,70 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Tokens /> renders correctly 1`] = `
+<Grid>
+  <GridColumn
+    width={7}
+  >
+    <Header>
+      Tokens
+      <HeaderSubheader>
+        Configure Available Token Assets
+      </HeaderSubheader>
+    </Header>
+  </GridColumn>
+  <GridColumn
+    textAlign="right"
+    width={9}
+  >
+    <EZModal
+      content={[Function]}
+      handleSubmit={[Function]}
+      header="Add Token"
+      trigger={
+        <Button
+          as="button"
+          basic={true}
+          content="Create"
+          icon="plus"
+        />
+      }
+    />
+  </GridColumn>
+  <GridColumn
+    width={16}
+  >
+    <Table
+      as="table"
+      selectable={true}
+      style={
+        Object {
+          "cursor": "pointer",
+        }
+      }
+    >
+      <TableBody
+        as="tbody"
+      >
+        <Token
+          deleteToken={[Function]}
+          token={
+            Object {
+              "id": 1,
+            }
+          }
+          updateToken={[Function]}
+        />
+        <Token
+          deleteToken={[Function]}
+          token={
+            Object {
+              "id": 2,
+            }
+          }
+          updateToken={[Function]}
+        />
+      </TableBody>
+    </Table>
+  </GridColumn>
+</Grid>
+`;

@@ -1,0 +1,16 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<QrReader /> renders correctly 1`] = `
+<div
+  className="qr-video-container"
+>
+  <Reader
+    delay={500}
+    facingMode="rear"
+    maxImageSize={1000}
+    onError={[Function]}
+    onScan={[Function]}
+    style={Object {}}
+  />
+</div>
+`;

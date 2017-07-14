@@ -1,0 +1,13 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<NetworkStatus /> renders correctly 1`] = `
+<Label
+  content="test network"
+  icon="remove"
+  style={
+    Object {
+      "float": "right",
+    }
+  }
+/>
+`;

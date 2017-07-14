@@ -2,13 +2,13 @@ import React from 'react';
 import { shallow } from 'enzyme';
 import toJson from 'enzyme-to-json';
 
-import ErrorMessage from '../error_message';
+import IpfsUploader from '../ipfs_uploader';
 
-describe('<ErrorMessage />', () => {
+describe('<IpfsUploader />', () => {
 	test('renders correctly', () => {
     const component = shallow(
-      <ErrorMessage 
-      	content="Test Error message"
+      <IpfsUploader 
+      	name="Ipfs test"
       />
     );
 

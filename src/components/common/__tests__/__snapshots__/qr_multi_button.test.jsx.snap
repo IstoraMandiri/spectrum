@@ -1,0 +1,32 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<QrMultiButton /> renders correctly 1`] = `
+<EZModal
+  content={
+    <div>
+      <Message
+        content="Scanned 0 items"
+        header="Scan QR Codes"
+        icon="qrcode"
+        negative={false}
+        positive={false}
+        warning={false}
+      />
+      <QrReader
+        onError={[Function]}
+        onScan={[Function]}
+      />
+    </div>
+  }
+  size="small"
+  trigger={
+    <Button
+      as="button"
+      basic={true}
+      content="Scan QRs"
+      icon="qrcode"
+      onClick={[Function]}
+    />
+  }
+/>
+`;

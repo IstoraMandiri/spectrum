@@ -1,0 +1,72 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Address /> renders correctly 1`] = `
+<TableRow
+  as="tr"
+  cellAs="td"
+>
+  <TableCell
+    as="td"
+    width="1"
+  >
+    <Header
+      as="h4"
+      image={true}
+      style={
+        Object {
+          "whiteSpace": "nowrap",
+        }
+      }
+    >
+      <Image
+        as="img"
+        shape="rounded"
+        size="mini"
+        ui={true}
+      />
+      <HeaderContent>
+        test address
+        <HeaderSubheader>
+          <code
+            style={
+              Object {
+                "fontSize": "0.8em",
+              }
+            }
+          >
+            0x12345
+          </code>
+          <EZModal
+            content={
+              <QrCode
+                data="0x12345"
+              />
+            }
+            header="test address"
+            size="small"
+            trigger={
+              <Icon
+                as="i"
+                name="qrcode"
+                style={
+                  Object {
+                    "cursor": "pointer",
+                  }
+                }
+              />
+            }
+          />
+        </HeaderSubheader>
+      </HeaderContent>
+    </Header>
+  </TableCell>
+  <Connect(AddressBalances)
+    address={
+      Object {
+        "address": "0x12345",
+        "name": "test address",
+      }
+    }
+  />
+</TableRow>
+`;

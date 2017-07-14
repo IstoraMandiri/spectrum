@@ -2,13 +2,14 @@ import React from 'react';
 import { shallow } from 'enzyme';
 import toJson from 'enzyme-to-json';
 
-import ErrorMessage from '../error_message';
+import ImportKeystoreModal from '../import_keystore_modal';
 
-describe('<ErrorMessage />', () => {
+describe('<ImportKeystoreModal />', () => {
 	test('renders correctly', () => {
     const component = shallow(
-      <ErrorMessage 
-      	content="Test Error message"
+      <ImportKeystoreModal 
+        trigger={<div></div>}
+        createKeystore={jest.fn}
       />
     );
 

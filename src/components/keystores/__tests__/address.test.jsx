@@ -1,15 +1,20 @@
+jest.mock('../../../helpers/blockie');
+
 import React from 'react';
 import { shallow } from 'enzyme';
 import toJson from 'enzyme-to-json';
 
-import ErrorMessage from '../error_message';
+import Address from '../address';
 
-describe('<ErrorMessage />', () => {
+const address = {
+  address: '0x12345',
+  name: 'test address',
+}
+
+describe('<Address />', () => {
 	test('renders correctly', () => {
     const component = shallow(
-      <ErrorMessage 
-      	content="Test Error message"
-      />
+      <Address address={address} />
     );
 
     expect(toJson(component)).toMatchSnapshot();

@@ -1,0 +1,98 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<AddressDropdown /> renders correctly 1`] = `
+<Dropdown
+  additionLabel="Add "
+  additionPosition="top"
+  closeOnBlur={true}
+  floating={true}
+  icon="dropdown"
+  minCharacters={1}
+  noResultsMessage="No results found."
+  onChange={null}
+  openOnFocus={true}
+  options={
+    Array [
+      Object {
+        "content": <div>
+          address 1
+    </div>,
+        "key": "address test 1",
+        "text": "address 1",
+        "value": "address test 1",
+      },
+      Object {
+        "content": <div>
+          address 2
+    </div>,
+        "key": "address test 2",
+        "text": "address 2",
+        "value": "address test 2",
+      },
+      Object {
+        "content": <div>
+          address 3
+    </div>,
+        "key": "address test 4",
+        "text": "address 3",
+        "value": "address test 4",
+      },
+    ]
+  }
+  placeholder="Select Address"
+  renderLabel={[Function]}
+  search={true}
+  selectOnBlur={true}
+  selection={true}
+  tabIndex="-1"
+/>
+`;
+
+exports[`<AddressDropdown /> renders correctly with matching value 1`] = `
+<Dropdown
+  additionLabel="Add "
+  additionPosition="top"
+  closeOnBlur={true}
+  floating={true}
+  icon="dropdown"
+  minCharacters={1}
+  noResultsMessage="No results found."
+  onChange={null}
+  openOnFocus={true}
+  options={
+    Array [
+      Object {
+        "content": <div>
+          address 1
+    </div>,
+        "key": "address test 1",
+        "text": "address 1",
+        "value": "address test 1",
+      },
+      Object {
+        "content": <div>
+          address 2
+    </div>,
+        "key": "address test 2",
+        "text": "address 2",
+        "value": "address test 2",
+      },
+      Object {
+        "content": <div>
+          address 3
+    </div>,
+        "key": "address test 4",
+        "text": "address 3",
+        "value": "address test 4",
+      },
+    ]
+  }
+  placeholder="Select Address"
+  renderLabel={[Function]}
+  search={true}
+  selectOnBlur={true}
+  selection={true}
+  tabIndex="-1"
+  value="address test 4"
+/>
+`;
