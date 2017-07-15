@@ -1,0 +1,11 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<TransactionModal /> renders correctly 1`] = `
+<span
+  onClick={[Function]}
+  role="button"
+  tabIndex={0}
+>
+  <div />
+</span>
+`;

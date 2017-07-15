@@ -5,13 +5,13 @@ import toJson from 'enzyme-to-json';
 import DropdownSelector from '../dropdown_selector';
 
 describe('<DropdownSelector />', () => {
-	test('renders correctly', () => {
+  test('renders correctly', () => {
     const component = shallow(
-      <DropdownSelector 
-      	items={[]}
-      />
+      <DropdownSelector
+        items={[]}
+      />,
     );
 
     expect(toJson(component)).toMatchSnapshot();
-	});
+  });
 });

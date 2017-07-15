@@ -67,7 +67,7 @@ export default class MenuSystem extends Component {
               {mappedTabs.map(({ key, path, component, exact }) => <Route {...{ key, path, component, exact }} />)}
               <Redirect from={parentRoute} to={mappedTabs[0].path} />
             </Switch>
-          :
+            :
             tabs[tab].component
           }
         </Container>

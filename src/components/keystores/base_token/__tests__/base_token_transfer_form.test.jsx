@@ -24,19 +24,19 @@ const formData = {
   from: '0x1234',
   gas: 1000,
   gasPrice: 10,
-}
+};
 
 describe('<BaseTokenTransferForm />', () => {
-	test('renders correctly', () => {
+  test('renders correctly', () => {
     const component = shallow(
-      <BaseTokenTransferForm 
-      	formChange={jest.fn}
+      <BaseTokenTransferForm
+        formChange={jest.fn}
         formData={formData}
         web3={web3}
         network={network}
-      />
+      />,
     );
 
     expect(toJson(component)).toMatchSnapshot();
-	});
+  });
 });

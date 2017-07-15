@@ -1,5 +1,5 @@
 jest.mock('react-redux', () => ({
-	connect: () => component => component
+  connect: () => component => component,
 }));
 
 import React from 'react';
@@ -9,26 +9,26 @@ import toJson from 'enzyme-to-json';
 import CryptoPrice from '../crypto_price';
 
 const cryptoPrices = {
-	available: ["Test"],
-	prices: {
-		"GBP": 10,
-		selected: "GBP",
-	},
-	selected: "GBP",
-}
+  available: ['Test'],
+  prices: {
+    GBP: 10,
+    selected: 'GBP',
+  },
+  selected: 'GBP',
+};
 
 describe('<CryptoPrice />', () => {
-	test('renders correctly', () => {
+  test('renders correctly', () => {
     const component = shallow(
-        <CryptoPrice 
-        	ammount={400}
-        	cryptoPrices={cryptoPrices}
-        	getPrices={jest.fn}
-        	setSelectedCurrency={jest.fn}
-        	symbol="GBP"
-        />
+      <CryptoPrice
+        ammount={400}
+        cryptoPrices={cryptoPrices}
+        getPrices={jest.fn}
+        setSelectedCurrency={jest.fn}
+        symbol="GBP"
+      />,
     );
 
     expect(toJson(component)).toMatchSnapshot();
-	});
+  });
 });

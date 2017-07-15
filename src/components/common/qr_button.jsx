@@ -41,7 +41,7 @@ export default class QrButton extends Component {
                 header="Invalid Address"
                 content="The QR code was read but did not contain a valid address"
               />
-            :
+              :
               <Message
                 icon="qrcode"
                 header="Scan QR Code"

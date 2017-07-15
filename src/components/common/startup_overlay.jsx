@@ -48,7 +48,7 @@ export default class StartupOverlay extends Component {
                       target="_blank"
                     >
                         Github Repo
-                      </a>.
+                    </a>.
                   </p>
                 </Message.Content>
               </Message>

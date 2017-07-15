@@ -19,15 +19,15 @@ const token = {
 };
 
 describe('<Token />', () => {
-	test('renders correctly', () => {
+  test('renders correctly', () => {
     const component = shallow(
-      <Token 
+      <Token
         token={token}
         updateToken={jest.fn}
         deleteToken={jest.fn}
-      />
+      />,
     );
 
     expect(toJson(component)).toMatchSnapshot();
-	});
+  });
 });

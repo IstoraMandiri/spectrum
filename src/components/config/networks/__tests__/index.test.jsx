@@ -1,5 +1,5 @@
 jest.mock('react-redux', () => ({
-	connect: () => component => component
+  connect: () => component => component,
 }));
 
 import React from 'react';
@@ -9,27 +9,27 @@ import toJson from 'enzyme-to-json';
 import Networks from '../index';
 
 const networks = [{
-	id: 1,
+  id: 1,
 }, {
-	id: 2,
+  id: 2,
 }];
 
 const web3Redux = {
-	web3: () => {},
+  web3: () => {},
 };
 
 describe('<Networks />', () => {
-	test('renders correctly', () => {
+  test('renders correctly', () => {
     const component = shallow(
-      <Networks 
-      	createNetwork={jest.fn}
-      	updateNetwork={jest.fn}
-      	deleteNetwork={jest.fn}
-      	networks={networks}
-      	web3Redux={web3Redux}
-      />
+      <Networks
+        createNetwork={jest.fn}
+        updateNetwork={jest.fn}
+        deleteNetwork={jest.fn}
+        networks={networks}
+        web3Redux={web3Redux}
+      />,
     );
 
     expect(toJson(component)).toMatchSnapshot();
-	});
+  });
 });

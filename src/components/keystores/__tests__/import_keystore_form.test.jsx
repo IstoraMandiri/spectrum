@@ -5,15 +5,15 @@ import toJson from 'enzyme-to-json';
 import ImportKeystoreForm from '../import_keystore_form';
 
 describe('<ImportKeystoreForm />', () => {
-	test('renders correctly', () => {
+  test('renders correctly', () => {
     const component = shallow(
-      <ImportKeystoreForm 
+      <ImportKeystoreForm
         setError={jest.fn}
         setLoading={jest.fn}
         onGetPrivateKey={jest.fn}
-      />
+      />,
     );
 
     expect(toJson(component)).toMatchSnapshot();
-	});
+  });
 });

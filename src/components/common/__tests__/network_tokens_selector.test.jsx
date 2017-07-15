@@ -1,5 +1,5 @@
 jest.mock('react-redux', () => ({
-    connect: () => component => component
+  connect: () => component => component,
 }));
 
 import React from 'react';
@@ -9,16 +9,16 @@ import toJson from 'enzyme-to-json';
 import NetworkTokensSelector from '../network_tokens_selector';
 
 describe('<NetworkTokensSelector />', () => {
-	test('renders correctly', () => {
+  test('renders correctly', () => {
     const component = shallow(
-      <NetworkTokensSelector 
-      	formData={{}}
-      	formChange={jest.fn}
-      	networks={[]}
-      	defaultNetworks={[]}
-      />
+      <NetworkTokensSelector
+        formData={{}}
+        formChange={jest.fn}
+        networks={[]}
+        defaultNetworks={[]}
+      />,
     );
 
     expect(toJson(component)).toMatchSnapshot();
-	});
+  });
 });

@@ -1,5 +1,5 @@
 jest.mock('react-redux', () => ({
-  connect: () => component => component
+  connect: () => component => component,
 }));
 
 import React from 'react';
@@ -15,16 +15,16 @@ const tokens = [{
 }];
 
 describe('<Tokens />', () => {
-	test('renders correctly', () => {
+  test('renders correctly', () => {
     const component = shallow(
-      <Tokens 
+      <Tokens
         tokens={tokens}
         createToken={jest.fn}
         updateToken={jest.fn}
         deleteToken={jest.fn}
-      />
+      />,
     );
 
     expect(toJson(component)).toMatchSnapshot();
-	});
+  });
 });

@@ -5,11 +5,11 @@ import toJson from 'enzyme-to-json';
 import StartupOverlay from '../startup_overlay';
 
 describe('<StartupOverlay />', () => {
-	test('renders correctly', () => {
+  test('renders correctly', () => {
     const component = shallow(
-      <StartupOverlay />
+      <StartupOverlay />,
     );
 
     expect(toJson(component)).toMatchSnapshot();
-	});
+  });
 });

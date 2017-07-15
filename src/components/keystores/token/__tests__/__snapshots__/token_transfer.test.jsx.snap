@@ -1,0 +1,26 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<TokenTransfer /> renders correctly 1`] = `
+<TransactionModal
+  contract={
+    Object {
+      "balanceOf": [Function],
+      "transfer": Object {
+        "sendTransaction": [Function],
+      },
+    }
+  }
+  data={Object {}}
+  form={[Function]}
+  handleTransaction={[Function]}
+  header="Send test token Tokens"
+  onMined={[Function]}
+  token={
+    Object {
+      "decimals": 2,
+      "name": "test token",
+    }
+  }
+  trigger={<div />}
+/>
+`;

@@ -13,7 +13,7 @@ const address = {
     type: {
       color: 'black',
       icon: 'testIcon',
-    }
+    },
   },
   name: 'test network',
   address: '0x213452',
@@ -34,15 +34,15 @@ const txData = {
 };
 
 describe('<BaseTokenTxUi />', () => {
-	test('renders correctly', () => {
+  test('renders correctly', () => {
     const component = shallow(
-      <BaseTokenTxUi 
+      <BaseTokenTxUi
         address={address}
         network={network}
         txData={txData}
-      />
+      />,
     );
 
     expect(toJson(component)).toMatchSnapshot();
-	});
+  });
 });

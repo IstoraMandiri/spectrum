@@ -5,11 +5,11 @@ import toJson from 'enzyme-to-json';
 import AddressInput from '../address_input';
 
 describe('<AddressInput />', () => {
-	test('renders correctly', () => {
+  test('renders correctly', () => {
     const component = shallow(
-      <AddressInput />
+      <AddressInput />,
     );
 
     expect(toJson(component)).toMatchSnapshot();
-	});
+  });
 });

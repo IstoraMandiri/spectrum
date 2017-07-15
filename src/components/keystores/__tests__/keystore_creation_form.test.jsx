@@ -9,23 +9,23 @@ import KeystoreCreationForm from '../keystore_creation_form';
 const formData = {};
 
 const keystoreTypes = [{
-	id: 'testType',
+  id: 'testType',
 }, {
-	id: 'testType2',
+  id: 'testType2',
 }];
 
 describe('<KeystoreCreationForm />', () => {
-	test('renders correctly', () => {
+  test('renders correctly', () => {
     const component = shallow(
-      <KeystoreCreationForm 
+      <KeystoreCreationForm
         hideMenu
-      	formData={formData}
-      	formChange={jest.fn}
-      	resetFormData={jest.fn}
-      	keystoreTypes={keystoreTypes}
-      />
+        formData={formData}
+        formChange={jest.fn}
+        resetFormData={jest.fn}
+        keystoreTypes={keystoreTypes}
+      />,
     );
 
     expect(toJson(component)).toMatchSnapshot();
-	});
+  });
 });

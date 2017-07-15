@@ -17,7 +17,7 @@ export default class TxVisualisation extends Component {
             <br />
             {dataLink ?
               <a className="truncated" rel="noopener noreferrer" target="_blank" href={dataLink}>{data}</a>
-            :
+              :
               <span className="truncated">{data}</span>
             }
           </Header.Subheader>

@@ -12,16 +12,16 @@ const network = {
 };
 
 describe('<Network />', () => {
-	test('renders correctly', () => {
+  test('renders correctly', () => {
     const component = shallow(
-      <Network 
-      	web3={{}}
-      	updateNetwork={jest.fn}
-      	deleteNetwork={jest.fn}
-      	network={network}
-      />
+      <Network
+        web3={{}}
+        updateNetwork={jest.fn}
+        deleteNetwork={jest.fn}
+        network={network}
+      />,
     );
 
     expect(toJson(component)).toMatchSnapshot();
-	});
+  });
 });

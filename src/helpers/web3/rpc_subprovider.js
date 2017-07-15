@@ -38,5 +38,4 @@ export default class SigmateSubprovider extends RPCProvider {
       return end(null, data.result);
     });
   }
-
 }

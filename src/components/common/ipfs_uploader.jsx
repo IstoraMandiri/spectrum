@@ -40,8 +40,8 @@ export default class IPFSUploader extends Component {
       const { target } = e;
       this.setState({ uploading: true, hex: false, error: false });
       return new Promise(resolve => setTimeout(resolve, 10))
-      .then(() => this.props.beforeUpload({ target }))
-      .then(buffer => this.saveToIpfs(buffer));
+        .then(() => this.props.beforeUpload({ target }))
+        .then(buffer => this.saveToIpfs(buffer));
     }
     const file = e.target.files[0];
     const reader = new FileReader();
@@ -55,28 +55,28 @@ export default class IPFSUploader extends Component {
     if (formChange) { formChange({ name, value: undefined }); }
     let data;
     ipfs.add(buffer)
-    .then((response) => {
-      const docHash = response[0].hash;
-      data = {
-        docHash,
-        timestamp: new Date(),
-        title: 'My test file', // TODO make it configurable
-      };
-      const jsonBuffer = Buffer.from(JSON.stringify(data));
-      return ipfs.add(jsonBuffer);
-    })
-    .then(([{ hash: ipfsHash }]) => {
-      const hex = multihash.decode(ipfsHash).toString('hex');
-      // const hash
-      if (onChange) {
-        onChange({ ipfsHash, hex });
-      } else {
-        formChange({ name, value: hex });
-      }
-      this.setState({ uploading: false, hex });
-    }).catch((error) => {
-      this.setState({ uploading: false, error });
-    });
+      .then((response) => {
+        const docHash = response[0].hash;
+        data = {
+          docHash,
+          timestamp: new Date(),
+          title: 'My test file', // TODO make it configurable
+        };
+        const jsonBuffer = Buffer.from(JSON.stringify(data));
+        return ipfs.add(jsonBuffer);
+      })
+      .then(([{ hash: ipfsHash }]) => {
+        const hex = multihash.decode(ipfsHash).toString('hex');
+        // const hash
+        if (onChange) {
+          onChange({ ipfsHash, hex });
+        } else {
+          formChange({ name, value: hex });
+        }
+        this.setState({ uploading: false, hex });
+      }).catch((error) => {
+        this.setState({ uploading: false, error });
+      });
   }
   render() {
     const { uploading, hex, error } = this.state;

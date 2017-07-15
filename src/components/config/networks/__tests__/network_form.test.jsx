@@ -12,16 +12,16 @@ const network = {
 };
 
 describe('<NetworkForm />', () => {
-	test('renders correctly', () => {
+  test('renders correctly', () => {
     const component = shallow(
-      <NetworkForm 
-      	formChange={jest.fn}
+      <NetworkForm
+        formChange={jest.fn}
         formData={{
           enabled: true,
         }}
-      />
+      />,
     );
 
     expect(toJson(component)).toMatchSnapshot();
-	});
+  });
 });

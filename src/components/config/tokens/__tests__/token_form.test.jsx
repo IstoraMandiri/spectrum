@@ -5,14 +5,14 @@ import toJson from 'enzyme-to-json';
 import TokenForm from '../token_form';
 
 describe('<TokenForm />', () => {
-	test('renders correctly', () => {
+  test('renders correctly', () => {
     const component = shallow(
-      <TokenForm 
+      <TokenForm
         formData={{}}
         formChange={jest.fn}
-      />
+      />,
     );
 
     expect(toJson(component)).toMatchSnapshot();
-	});
+  });
 });

@@ -7,19 +7,19 @@ import toJson from 'enzyme-to-json';
 import KeystoreTypeMessage from '../keystore_type_message';
 
 const keystoreType = {
-	id: 1,
-	name: 'keystore test 1',
-	icon: 'testIcon',
-	color: 'blue',
-	description: 'test description',
-}
+  id: 1,
+  name: 'keystore test 1',
+  icon: 'testIcon',
+  color: 'blue',
+  description: 'test description',
+};
 
 describe('<KeystoreTypeMessage />', () => {
-	test('renders correctly', () => {
+  test('renders correctly', () => {
     const component = shallow(
-      <KeystoreTypeMessage keystoreType={keystoreType} />
+      <KeystoreTypeMessage keystoreType={keystoreType} />,
     );
 
     expect(toJson(component)).toMatchSnapshot();
-	});
+  });
 });

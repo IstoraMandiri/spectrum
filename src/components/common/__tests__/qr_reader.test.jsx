@@ -5,13 +5,13 @@ import toJson from 'enzyme-to-json';
 import QrReader from '../qr_reader';
 
 describe('<QrReader />', () => {
-	test('renders correctly', () => {
+  test('renders correctly', () => {
     const component = shallow(
       <QrReader
-      	onScan={jest.fn} 
-      />
+        onScan={jest.fn}
+      />,
     );
 
     expect(toJson(component)).toMatchSnapshot();
-	});
+  });
 });

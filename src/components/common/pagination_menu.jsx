@@ -43,7 +43,7 @@ export default class PaginationMenu extends Component {
         </Menu.Item>
         {renderCenter ?
           renderCenter({ total, firstItem, lastItem, itemsPerPage })
-        :
+          :
           <Menu.Item content={`${firstItem} - ${lastItem} / ${total || '?'}`} />
         }
         <Menu.Item

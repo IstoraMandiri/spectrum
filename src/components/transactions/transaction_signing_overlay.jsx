@@ -90,7 +90,7 @@ class TransactionSigningOverlay extends Component {
                 />
               </Advanced>
             </div>
-          :
+            :
             <div>
               <p>
                 <b>Signed Transaction:</b>

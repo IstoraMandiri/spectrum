@@ -5,25 +5,25 @@ import toJson from 'enzyme-to-json';
 import MenuSystem from '../menu_system';
 
 const tabs = [{
-	icon: 'tabIcon1',
-	name: 'Tab 1',
-	path: '/tab-1',
-	exact: true,
+  icon: 'tabIcon1',
+  name: 'Tab 1',
+  path: '/tab-1',
+  exact: true,
 }, {
-	icon: 'tabIcon2',
-	name: 'Tab 2',
-	path: '/tab-2',
-	exact: true,
+  icon: 'tabIcon2',
+  name: 'Tab 2',
+  path: '/tab-2',
+  exact: true,
 }];
 
 describe('<MenuSystem />', () => {
-	test('renders correctly', () => {
+  test('renders correctly', () => {
     const component = shallow(
       <MenuSystem
-      	tabs={tabs}
-      />
+        tabs={tabs}
+      />,
     );
 
     expect(toJson(component)).toMatchSnapshot();
-	});
+  });
 });

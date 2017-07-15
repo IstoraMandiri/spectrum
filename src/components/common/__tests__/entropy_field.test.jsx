@@ -5,19 +5,19 @@ import toJson from 'enzyme-to-json';
 import EntropyField from '../entropy_field';
 
 const formData = {
-	test: "Test name",
-}
+  test: 'Test name',
+};
 
 describe('<EntropyField />', () => {
-	test('renders correctly', () => {
+  test('renders correctly', () => {
     const component = shallow(
-        <EntropyField 
-        	formChange={jest.fn}
-        	formData={formData}
-        	name="test"
-        />
+      <EntropyField
+        formChange={jest.fn}
+        formData={formData}
+        name="test"
+      />,
     );
 
     expect(toJson(component)).toMatchSnapshot();
-	});
+  });
 });

@@ -43,7 +43,7 @@ export default class ColdKeystoreAddress extends Component {
         >
           {oldItem ?
             data.address
-           :
+            :
             <Input
               error={removing}
               fluid
@@ -70,7 +70,7 @@ export default class ColdKeystoreAddress extends Component {
         <Table.Cell width="1" style={{ minWidth: '9em' }}>
           {data.address ?
             <NetworkTokensSelector modal {...{ formChange: this.handleChange, formData: data }} disabled={removing} />
-          :
+            :
             <Label>0<Label.Detail>Networks</Label.Detail></Label>
           }
         </Table.Cell>

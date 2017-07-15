@@ -53,7 +53,7 @@ export function update(formData, oldData) {
     if (!validAddresses.find(a => !a.exists || a.enabled)) {
       throw new Error('You must have at least one address enabled. If you want to remove the keystore, click "remove"');
     }
-    const newAddresses = validAddresses.filter(a => !a.exists).map(a => a.address);    // ensure they don't exist already
+    const newAddresses = validAddresses.filter(a => !a.exists).map(a => a.address); // ensure they don't exist already
     throwIfExistingAddress(newAddresses, getState);
     validAddresses.forEach((address) => {
       // remove the address if deisabled

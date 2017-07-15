@@ -1,5 +1,5 @@
 jest.mock('react-redux', () => ({
-    connect: () => component => component
+  connect: () => component => component,
 }));
 
 import React from 'react';
@@ -9,14 +9,14 @@ import toJson from 'enzyme-to-json';
 import KeystoreButtons from '../keystore_buttons';
 
 describe('<KeystoreButtons />', () => {
-	test('renders correctly', () => {
+  test('renders correctly', () => {
     const component = shallow(
-      <KeystoreButtons 
-      	createKeystore={jest.fn}
-      	keystoreTypes={[]}
-      />
+      <KeystoreButtons
+        createKeystore={jest.fn}
+        keystoreTypes={[]}
+      />,
     );
 
     expect(toJson(component)).toMatchSnapshot();
-	});
+  });
 });

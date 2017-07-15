@@ -1,0 +1,20 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<GenericTransactionForm /> renders correctly 1`] = `
+<TransactionModal
+  data={Object {}}
+  disableAdvanced={true}
+  handleTransaction={[Function]}
+  header="Generic Transaction Signer"
+  renderForm={[Function]}
+  trigger={
+    <Button
+      as="button"
+      basic={true}
+      content="Sign"
+      icon="pencil"
+      onClick={[Function]}
+    />
+  }
+/>
+`;

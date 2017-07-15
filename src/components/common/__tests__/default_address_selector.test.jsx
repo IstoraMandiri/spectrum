@@ -1,5 +1,5 @@
 jest.mock('react-redux', () => ({
-	connect: () => component => component
+  connect: () => component => component,
 }));
 jest.mock('../../../components/keystores/keystore_buttons');
 
@@ -10,14 +10,14 @@ import toJson from 'enzyme-to-json';
 import DefaultAddressSelector from '../default_address_selector';
 
 describe('<DefaultAddressSelector />', () => {
-	test('renders correctly', () => {
+  test('renders correctly', () => {
     const component = shallow(
-        <DefaultAddressSelector 
-        	addresses={[]}
-        	updateSession={jest.fn}
-        />
+      <DefaultAddressSelector
+        addresses={[]}
+        updateSession={jest.fn}
+      />,
     );
 
     expect(toJson(component)).toMatchSnapshot();
-	});
+  });
 });

@@ -9,14 +9,14 @@ import Address from '../address';
 const address = {
   address: '0x12345',
   name: 'test address',
-}
+};
 
 describe('<Address />', () => {
-	test('renders correctly', () => {
+  test('renders correctly', () => {
     const component = shallow(
-      <Address address={address} />
+      <Address address={address} />,
     );
 
     expect(toJson(component)).toMatchSnapshot();
-	});
+  });
 });

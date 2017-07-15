@@ -63,13 +63,13 @@ export default class TransactionModal extends Component {
       sanitizedData.nonce = nonce;
     }
     new Promise(resolve => setTimeout(resolve, 10)) // time for UI update
-    .then(() => handleTransaction(sanitizedData, web3))
-    .then((txHash) => {
-      if (!txHash) { throw Error('Transaction was not published!'); }
-      this.setState({ formData, networkId: web3.networkId, txHash, loading: false, broadcast: new Date() });
-      if (onBroadcast) { onBroadcast({ formData, txHash }); }
-    })
-    .catch(error => this.setState({ error, loading: false }));
+      .then(() => handleTransaction(sanitizedData, web3))
+      .then((txHash) => {
+        if (!txHash) { throw Error('Transaction was not published!'); }
+        this.setState({ formData, networkId: web3.networkId, txHash, loading: false, broadcast: new Date() });
+        if (onBroadcast) { onBroadcast({ formData, txHash }); }
+      })
+      .catch(error => this.setState({ error, loading: false }));
     return false; // don't close on submit
   }
   renderTracker() {

@@ -1,0 +1,45 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<TokenTransferForm /> renders correctly 1`] = `
+<FormField>
+  <AddressInput
+    formChange={[Function]}
+    formData={
+      Object {
+        "from": "0x12345",
+      }
+    }
+    hideDropdown={false}
+    label="From"
+    name="from"
+    placeholder="e.g. \`0x123...456\`"
+    showQrScanner={false}
+  />
+  <AddressInput
+    formChange={[Function]}
+    formData={
+      Object {
+        "from": "0x12345",
+      }
+    }
+    hideDropdown={false}
+    label="To"
+    name="to"
+    placeholder="e.g. \`0x123...456\`"
+    showQrScanner={true}
+  />
+  <ValueInput
+    color="blue"
+    formChange={[Function]}
+    formData={
+      Object {
+        "from": "0x12345",
+      }
+    }
+    label="Number of Tokens"
+    name="tokenValue"
+    sendAll={Object {}}
+    symbol="GBP"
+  />
+</FormField>
+`;

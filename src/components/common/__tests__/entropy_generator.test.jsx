@@ -5,13 +5,13 @@ import toJson from 'enzyme-to-json';
 import EntropyGenerator from '../entropy_generator';
 
 describe('<EntropyGenerator />', () => {
-	test('renders correctly', () => {
+  test('renders correctly', () => {
     const component = shallow(
       <EntropyGenerator
-      	handleSubmit={jest.fn}
-      />
+        handleSubmit={jest.fn}
+      />,
     );
 
     expect(toJson(component)).toMatchSnapshot();
-	});
+  });
 });

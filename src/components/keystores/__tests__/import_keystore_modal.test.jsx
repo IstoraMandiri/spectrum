@@ -5,14 +5,14 @@ import toJson from 'enzyme-to-json';
 import ImportKeystoreModal from '../import_keystore_modal';
 
 describe('<ImportKeystoreModal />', () => {
-	test('renders correctly', () => {
+  test('renders correctly', () => {
     const component = shallow(
-      <ImportKeystoreModal 
-        trigger={<div></div>}
+      <ImportKeystoreModal
+        trigger={<div />}
         createKeystore={jest.fn}
-      />
+      />,
     );
 
     expect(toJson(component)).toMatchSnapshot();
-	});
+  });
 });

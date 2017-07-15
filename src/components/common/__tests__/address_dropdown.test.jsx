@@ -1,5 +1,5 @@
 jest.mock('react-redux', () => ({
-    connect: () => component => component
+  connect: () => component => component,
 }));
 
 import React from 'react';
@@ -9,36 +9,36 @@ import toJson from 'enzyme-to-json';
 import AddressDropdown from '../address_dropdown';
 
 const addresses = [{
-	name: 'address 1',
-	address: 'address test 1',
+  name: 'address 1',
+  address: 'address test 1',
 }, {
-	name: 'address 2',
-	address: 'address test 2',
+  name: 'address 2',
+  address: 'address test 2',
 }, {
-	name: 'address 3',
-	address: 'address test 4',
-}]
+  name: 'address 3',
+  address: 'address test 4',
+}];
 
 describe('<AddressDropdown />', () => {
-	test('renders correctly', () => {
+  test('renders correctly', () => {
     const component = shallow(
-        <AddressDropdown
-        	addresses={addresses}
-        	value="none"
-        />
+      <AddressDropdown
+        addresses={addresses}
+        value="none"
+      />,
     );
 
     expect(toJson(component)).toMatchSnapshot();
-	});
+  });
 
-	test('renders correctly with matching value', () => {
+  test('renders correctly with matching value', () => {
     const component = shallow(
-        <AddressDropdown
-        	addresses={addresses}
-        	value="address test 4"
-        />
+      <AddressDropdown
+        addresses={addresses}
+        value="address test 4"
+      />,
     );
 
     expect(toJson(component)).toMatchSnapshot();
-	});
+  });
 });

@@ -5,19 +5,19 @@ import toJson from 'enzyme-to-json';
 import FormField from '../form_field';
 
 const formData = {
-	'TestField': 'test value',
-}
+  TestField: 'test value',
+};
 
 describe('<FormField />', () => {
-	test('renders correctly', () => {
+  test('renders correctly', () => {
     const component = shallow(
-        <FormField 
-        	formChange={jest.fn}
-        	formData={formData}
-        	name="TestField"
-        />
+      <FormField
+        formChange={jest.fn}
+        formData={formData}
+        name="TestField"
+      />,
     );
 
     expect(toJson(component)).toMatchSnapshot();
-	});
+  });
 });

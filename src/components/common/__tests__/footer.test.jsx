@@ -5,11 +5,11 @@ import toJson from 'enzyme-to-json';
 import Footer from '../footer';
 
 describe('<Footer />', () => {
-	test('renders correctly', () => {
+  test('renders correctly', () => {
     const component = shallow(
-      <Footer />
+      <Footer />,
     );
 
     expect(toJson(component)).toMatchSnapshot();
-	});
+  });
 });
