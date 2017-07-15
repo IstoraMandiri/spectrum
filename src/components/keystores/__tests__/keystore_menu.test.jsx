@@ -1,10 +1,9 @@
-jest.mock('semantic-ui-react');
-
 import React from 'react';
 import { shallow } from 'enzyme';
 import toJson from 'enzyme-to-json';
-
 import KeystoreMenu from '../keystore_menu';
+
+jest.mock('semantic-ui-react');
 
 const keystoreTypes = [{
   id: 1,

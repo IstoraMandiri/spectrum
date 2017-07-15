@@ -1,12 +1,11 @@
-jest.mock('react-redux', () => ({
-  connect: () => component => component,
-}));
-
 import React from 'react';
 import { shallow } from 'enzyme';
 import toJson from 'enzyme-to-json';
-
 import TransactionTracker from '../transaction_tracker';
+
+jest.mock('react-redux', () => ({
+  connect: () => component => component,
+}));
 
 const networks = [{
   id: 1,

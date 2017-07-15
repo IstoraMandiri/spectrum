@@ -1,10 +1,9 @@
-jest.mock('../../../keystoreTypes');
-
 import React from 'react';
 import { shallow } from 'enzyme';
 import toJson from 'enzyme-to-json';
-
 import KeystoreCreationForm from '../keystore_creation_form';
+
+jest.mock('../../../keystoreTypes');
 
 const formData = {};
 

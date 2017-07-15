@@ -1,10 +1,9 @@
-jest.mock('../../../helpers/stringUtils');
-
 import React from 'react';
 import { shallow } from 'enzyme';
 import toJson from 'enzyme-to-json';
-
 import ValueInput from '../value_input';
+
+jest.mock('../../../helpers/stringUtils');
 
 const formData = {
   testForm: 'test',

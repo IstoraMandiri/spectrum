@@ -37,7 +37,7 @@ export default class MenuSystem extends Component {
     const { usingRouter, parentRoute, className, fixed, tabs, marginTop, equalWidths, secondary, renderLastItem } = this.props;
     const mappedTabs = tabs.map(({ name, exact, icon, component, path }, i) => {
       const absolutePath = parentRoute && path[0] !== '/' ? `${parentRoute}/${path}` : path;
-      console.log({ absolutePath });
+
       return {
         exact,
         icon,

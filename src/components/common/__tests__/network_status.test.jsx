@@ -1,7 +1,6 @@
 import React from 'react';
 import { shallow } from 'enzyme';
 import toJson from 'enzyme-to-json';
-
 import NetworkStatus from '../network_status';
 
 describe('<NetworkStatus />', () => {
@@ -10,8 +9,8 @@ describe('<NetworkStatus />', () => {
       <NetworkStatus
         name
         network={{
-      		name: 'test network',
-      	}}
+          name: 'test network',
+        }}
       />,
     );
 

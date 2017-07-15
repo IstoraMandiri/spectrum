@@ -1,10 +1,9 @@
-jest.mock('../../../../helpers/blockie');
-
 import React from 'react';
 import { shallow } from 'enzyme';
 import toJson from 'enzyme-to-json';
-
 import Token from '../token';
+
+jest.mock('../../../../helpers/blockie');
 
 const token = {
   id: 1,

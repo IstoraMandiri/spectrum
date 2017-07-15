@@ -1,7 +1,6 @@
 import React from 'react';
 import { shallow } from 'enzyme';
 import toJson from 'enzyme-to-json';
-
 import BaseTokenTransfer from '../base_token_transfer';
 
 describe('<BaseTokenTransfer />', () => {
@@ -10,8 +9,8 @@ describe('<BaseTokenTransfer />', () => {
       <BaseTokenTransfer
         trigger={<div />}
         network={{
-      		name: 'test network',
-      	}}
+          name: 'test network',
+        }}
       />,
     );
 

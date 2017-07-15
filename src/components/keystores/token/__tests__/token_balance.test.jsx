@@ -1,12 +1,11 @@
-jest.mock('../../../../helpers/stringUtils', () => ({
-  parseBigNumber: () => 20,
-}));
-
 import React from 'react';
 import { shallow } from 'enzyme';
 import toJson from 'enzyme-to-json';
-
 import TokenBalance from '../token_balance';
+
+jest.mock('../../../../helpers/stringUtils', () => ({
+  parseBigNumber: () => 20,
+}));
 
 const token = {
   decimals: 2,

@@ -1,12 +1,11 @@
-jest.mock('../../../../helpers/stringUtils', () => ({
-  toBigNumber: () => 20,
-}));
-
 import React from 'react';
 import { shallow } from 'enzyme';
 import toJson from 'enzyme-to-json';
-
 import TokenTransfer from '../token_transfer';
+
+jest.mock('../../../../helpers/stringUtils', () => ({
+  toBigNumber: () => 20,
+}));
 
 const contract = {
   transfer: {

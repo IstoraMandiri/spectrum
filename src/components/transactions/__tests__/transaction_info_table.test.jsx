@@ -1,12 +1,11 @@
-jest.mock('../../../helpers/stringUtils', () => ({
-  parseBigNumber: () => 20,
-}));
-
 import React from 'react';
 import { shallow } from 'enzyme';
 import toJson from 'enzyme-to-json';
-
 import TransactionInfoTable from '../transaction_info_table';
+
+jest.mock('../../../helpers/stringUtils', () => ({
+  parseBigNumber: () => 20,
+}));
 
 const txData = {
   tx1: 10,

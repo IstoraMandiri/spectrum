@@ -7,7 +7,7 @@ import Advanced from '../advanced';
 describe('<Advanced />', () => {
   test('renders correctly', () => {
     const component = shallow(
-      <Advanced children={<div>Test</div>} />,
+      <Advanced><div>Test</div></Advanced>,
     );
 
     expect(toJson(component)).toMatchSnapshot();

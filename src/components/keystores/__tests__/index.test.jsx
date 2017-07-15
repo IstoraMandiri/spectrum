@@ -1,13 +1,12 @@
+import React from 'react';
+import { shallow } from 'enzyme';
+import toJson from 'enzyme-to-json';
+import Keystores from '../index';
+
 jest.mock('react-redux', () => ({
   connect: () => component => component,
 }));
 jest.mock('semantic-ui-react');
-
-import React from 'react';
-import { shallow } from 'enzyme';
-import toJson from 'enzyme-to-json';
-
-import Keystores from '../index';
 
 const keystores = [{
   id: 1,

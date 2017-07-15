@@ -1,12 +1,11 @@
-jest.mock('../../../../helpers/stringUtils', () => ({
-  parseBigNumber: () => 20,
-}));
-
 import React from 'react';
 import { shallow } from 'enzyme';
 import toJson from 'enzyme-to-json';
-
 import BaseTokenTxUi from '../base_token_tx_ui';
+
+jest.mock('../../../../helpers/stringUtils', () => ({
+  parseBigNumber: () => 20,
+}));
 
 const address = {
   keystore: {
