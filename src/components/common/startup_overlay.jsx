@@ -29,14 +29,14 @@ export default class StartupOverlay extends Component {
               <Message error icon>
                 <Icon name="warning sign" />
                 <Message.Content>
-                  <Message.Header content="Imprtant Big Red Warning Message (Please Read)" />
+                  <Message.Header content="Important Message (Please Read) - Terms and Conditions" />
                   <ul>
-                    <li>This is the first open source relesase of Spectrum, and is <b>intended for developers only</b></li>
+                    <li>This is the first open source release of Spectrum, and is <b>intended for developers only</b></li>
                     <li><b>Do not use this version for anything more than testing or developing</b></li>
                     <li>This version of Spectrum has <b>localStorage enabled</b>, which is a feature to aid development</li>
-                    <li>Tests coverage is not complete Spectrum, nor has it been audited for security vulnerabilities</li>
-                    <li>As such, <b>do not use keystores that have any more than $10 value</b></li>
-                    <li>By using this app your accpet that the developer cannot take responsibility for any losses</li>
+                    <li>Test coverage is not complete in Spectrum, nor has it been audited for security vulnerabilities</li>
+                    <li>As such, <b>do not use keystores that have more than $10 in value</b></li>
+                    <li>By using this app, you accept that the developer and/or authors will be liable for any claim, damages or other liability</li>
                     <li>Tested on Chrome OSX & Android</li>
                   </ul>
                   <p>
@@ -57,7 +57,7 @@ export default class StartupOverlay extends Component {
           actions={({ hide }) => (
             <Button
               onClick={hide}
-              content="I have read the above"
+              content="I have read the above terms"
               color="green"
               icon="checkmark"
             />
