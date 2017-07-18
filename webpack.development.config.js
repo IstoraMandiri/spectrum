@@ -11,6 +11,7 @@ module.exports = config => ({
     hot: true,
     publicPath: '/',
     host: '0.0.0.0',
+    port: 3000,
     watchOptions: {
       aggregateTimeout: 300,
       ignored: /node_modules/,

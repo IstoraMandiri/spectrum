@@ -9,7 +9,7 @@
     "url": "git+https://github.com/spectrum/spectrum.git"
   },
   "scripts": {
-    "test": "npm run test:jest; npm run test:cucumber;",
+    "test": "npm run build; npm run test:jest; npm run serve:pm2; npm run test:cucumber; npm run serve:stop-pm2;",
     "test:ci": "npm run test:jest:coverage; npm run test:cucumber:ci",
     "test:jest": "jest",
     "test:jest:coverage": "jest --coverage && cat ./coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js",
@@ -20,7 +20,9 @@
     "stats": "rm -rf ./docs; STATS=true NODE_ENV=production webpack --progress --profile; webpack-bundle-analyzer stats.json ./docs",
     "build": "rm -rf ./docs; NODE_ENV=production webpack --progress",
     "build:ci": "rm -rf ./docs; NODE_ENV=production webpack",
-    "serve": "./node_modules/http-server/bin/http-server ./docs",
+    "serve": "./node_modules/.bin/http-server ./docs",
+    "serve:pm2": "./node_modules/.bin/pm2 start ./node_modules/.bin/http-server --name spectrum-test-server -- ./docs",
+    "serve:stop-pm2": "./node_modules/.bin/pm2 stop spectrum-test-server",
     "lint": "eslint './src/**/*.{js,jsx}'"
   },
   "jest": {
