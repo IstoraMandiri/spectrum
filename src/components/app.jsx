@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import { HashRouter } from 'react-router-dom';
-import KycSystem from '@digix/kyc-system';
 
 import TransactionSigningOverlay from '~/components/transactions/transaction_signing_overlay';
 import MenuSystem from '~/components/common/menu_system';
@@ -28,7 +27,6 @@ export default class App extends Component {
             marginTop="5em"
             renderLastItem={() => <ConnectionStatus />}
             tabs={[
-              { path: '/kyc', name: 'KYC', icon: 'user', component: KycSystem },
               { exact: true, path: '/', name: 'Keystores', icon: 'key', component: Keystores },
               { path: '/config', name: 'Config', icon: 'wrench', component: Config },
               { path: '/dapplets', name: 'Dapplets', icon: 'code', component: Dapplets },
