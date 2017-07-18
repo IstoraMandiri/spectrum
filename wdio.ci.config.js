@@ -11,3 +11,4 @@ exports.config = Object.assign({}, config, {
     logger(message) { console.log('LOG: ', message); },
   },
 });
+
