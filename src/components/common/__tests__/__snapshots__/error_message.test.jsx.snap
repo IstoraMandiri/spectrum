@@ -2,18 +2,9 @@
 
 exports[`<ErrorMessage /> renders correctly 1`] = `
 <Message
-  error={true}
-  icon={true}
->
-  <Icon
-    as="i"
-    name="warning sign"
-  />
-  <MessageContent>
-    <MessageHeader>
-      Oops, something went wrong
-    </MessageHeader>
-    Test Error message
-  </MessageContent>
-</Message>
+  content="Test Error message"
+  header="Oops, something went wrong..."
+  icon="warning sign"
+  negative={true}
+/>
 `;

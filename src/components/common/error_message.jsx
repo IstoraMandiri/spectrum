@@ -10,7 +10,7 @@ export default class ErrorMessage extends Component {
     return (
       <Message
         negative
-        header="Ooops, something went wrong..."
+        header="Oops, something went wrong..."
         content={message}
         icon="warning sign"
       />
