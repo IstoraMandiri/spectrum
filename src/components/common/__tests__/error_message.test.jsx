@@ -1,9 +1,17 @@
 import React from 'react';
-import renderer from 'react-test-renderer';
+import { shallow } from 'enzyme';
+import toJson from 'enzyme-to-json';
 
 import ErrorMessage from '../error_message';
 
-it('renders correctly', () => {
-  const tree = renderer.create(<ErrorMessage content="test" />).toJSON();
-  expect(tree).toMatchSnapshot();
+describe('<ErrorMessage />', () => {
+  test('renders correctly', () => {
+    const component = shallow(
+      <ErrorMessage
+        content="Test Error message"
+      />,
+    );
+
+    expect(toJson(component)).toMatchSnapshot();
+  });
 });

@@ -27,8 +27,8 @@ export default class V3KestoreTransactionSigner extends Component {
         const { keystore } = address;
         const { password } = this.state;
         signTx({ txData, keystore, password })
-        .then(this.props.hideTxSigningModal)
-        .catch(throwErr);
+          .then(this.props.hideTxSigningModal)
+          .catch(throwErr);
       } catch (error) {
         throwErr(error);
       }

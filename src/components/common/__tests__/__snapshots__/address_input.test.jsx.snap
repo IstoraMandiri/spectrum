@@ -1,0 +1,21 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<AddressInput /> renders correctly 1`] = `
+<span>
+  <Input
+    action={true}
+    className="labeled"
+    fluid={true}
+    onChange={[Function]}
+    placeholder="Enter Address"
+    type="text"
+    value=""
+  >
+    <input />
+    <Connect(AddressDropdown)
+      onChange={[Function]}
+      value=""
+    />
+  </Input>
+</span>
+`;

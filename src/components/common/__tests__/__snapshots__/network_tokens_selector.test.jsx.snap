@@ -1,0 +1,14 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<NetworkTokensSelector /> renders correctly 1`] = `
+<FormField>
+  <ButtonSelector
+    formChange={[Function]}
+    formData={Object {}}
+    items={Array []}
+    label="Select Network(s)"
+    name="networks"
+    singleSelection={false}
+  />
+</FormField>
+`;

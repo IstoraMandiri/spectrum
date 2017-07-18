@@ -1,0 +1,60 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Network /> renders correctly 1`] = `
+<EZModal
+  content={[Function]}
+  data={
+    Object {
+      "color": "blue",
+      "description": "test description",
+      "image": "test.png",
+      "name": "testNetwork",
+    }
+  }
+  handleRemove={[Function]}
+  handleSubmit={[Function]}
+  header="Edit Network - testNetwork"
+  trigger={
+    <Segment
+      style={
+        Object {
+          "cursor": "pointer",
+        }
+      }
+    >
+      <Label
+        basic={true}
+        color="blue"
+        image={true}
+        ribbon={true}
+      >
+        <img
+          alt=""
+          src="test.png"
+        />
+        testNetwork
+      </Label>
+      <Header
+        as="span"
+        disabled={true}
+        size="tiny"
+      >
+        test description
+      </Header>
+      <NetworkStatus
+        name={false}
+        network={
+          Object {
+            "color": "blue",
+            "description": "test description",
+            "image": "test.png",
+            "name": "testNetwork",
+          }
+        }
+        web3={Object {}}
+      />
+      <Segment />
+    </Segment>
+  }
+/>
+`;

@@ -1,0 +1,92 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<StartupOverlay /> renders correctly 1`] = `
+<div>
+  <Label
+    color="purple"
+    content="Beware of phishing! Always check the URL!"
+    icon="warning sign"
+    pointing={true}
+    style={
+      Object {
+        "left": 10,
+        "maxWidth": "100%",
+        "position": "fixed",
+        "top": 0,
+        "zIndex": 1002,
+      }
+    }
+  />
+  <EZModal
+    actions={[Function]}
+    content={
+      <div>
+        <Message
+          error={true}
+          icon={true}
+        >
+          <Icon
+            as="i"
+            name="warning sign"
+          />
+          <MessageContent>
+            <MessageHeader
+              content="Imprtant Big Red Warning Message (Please Read)"
+            />
+            <ul>
+              <li>
+                This is the first open source relesase of Spectrum, and is 
+                <b>
+                  intended for developers only
+                </b>
+              </li>
+              <li>
+                <b>
+                  Do not use this version for anything more than testing or developing
+                </b>
+              </li>
+              <li>
+                This version of Spectrum has 
+                <b>
+                  localStorage enabled
+                </b>
+                , which is a feature to aid development
+              </li>
+              <li>
+                Tests coverage is not complete Spectrum, nor has it been audited for security vulnerabilities
+              </li>
+              <li>
+                As such, 
+                <b>
+                  do not use keystores that have any more than $10 value
+                </b>
+              </li>
+              <li>
+                By using this app your accpet that the developer cannot take responsibility for any losses
+              </li>
+              <li>
+                Tested on Chrome OSX & Android
+              </li>
+            </ul>
+            <p>
+              * For more infromation, and to report issues (for a bounty), please visit the
+               
+              <a
+                href="https://github.com/spectrum/spectrum"
+                rel="noopener noreferrer"
+                target="_blank"
+              >
+                Github Repo
+              </a>
+              .
+            </p>
+          </MessageContent>
+        </Message>
+      </div>
+    }
+    header="Welcome to Spectrum (Developer Edtition)"
+    initiallyOpen={true}
+    onClose={[Function]}
+  />
+</div>
+`;

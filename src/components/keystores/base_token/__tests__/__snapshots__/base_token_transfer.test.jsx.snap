@@ -1,0 +1,17 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<BaseTokenTransfer /> renders correctly 1`] = `
+<TransactionModal
+  data={Object {}}
+  form={[Function]}
+  handleTransaction={[Function]}
+  header="Send test network Ether"
+  network={
+    Object {
+      "name": "test network",
+    }
+  }
+  onMined={[Function]}
+  trigger={<div />}
+/>
+`;

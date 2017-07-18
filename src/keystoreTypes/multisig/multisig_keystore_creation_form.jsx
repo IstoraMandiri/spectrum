@@ -43,7 +43,7 @@ class MultisigKeystoreCreationForm extends Component {
           </Header>
           {!formData.networks ?
             <NetworkSelector onChange={({ id }) => formChange({ name: 'networks', value: [id] })} />
-          :
+            :
             <TransactionModal
               {...this.props}
               size="small"

@@ -1,0 +1,38 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<TransactionModalForm /> renders correctly 1`] = `
+<div>
+  <Advanced
+    title="Advanced"
+  >
+    <FormGroup
+      widths="equal"
+    >
+      <FormField
+        formChange={[Function]}
+        formData={Object {}}
+        label="Gas"
+        name="gas"
+        placeholder="e.g. \`21000\`"
+        type="number"
+      />
+      <FormField
+        formChange={[Function]}
+        formData={Object {}}
+        label="Gas Price"
+        name="gasPrice"
+        placeholder="e.g. \`20000000000\`"
+        type="number"
+      />
+      <FormField
+        formChange={[Function]}
+        formData={Object {}}
+        label="Nonce"
+        name="nonce"
+        placeholder="Leave empty to auto-detect"
+        type="number"
+      />
+    </FormGroup>
+  </Advanced>
+</div>
+`;

@@ -1,0 +1,26 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<EntropyGenerator /> renders correctly 1`] = `
+<EZModal
+  content={[Function]}
+  data={
+    Object {
+      "base": 16,
+      "bits": 256,
+    }
+  }
+  handleSubmit={[Function]}
+  header="Manually Input Random Data Source"
+  noSubmitButton={true}
+  onClose={[Function]}
+  size="small"
+  trigger={
+    <Button
+      as="button"
+      basic={true}
+      content="🎲"
+      onClick={[Function]}
+    />
+  }
+/>
+`;

@@ -1,0 +1,22 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<TransactionInfoTable /> renders correctly 1`] = `
+<div>
+  <div
+    style={
+      Object {
+        "textAlign": "center",
+      }
+    }
+  >
+    <Button
+      as="button"
+      basic={true}
+      content="Details"
+      icon="angle double down"
+      onClick={[Function]}
+      size="mini"
+    />
+  </div>
+</div>
+`;

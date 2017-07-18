@@ -1,0 +1,90 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Networks /> renders correctly 1`] = `
+<Grid>
+  <GridColumn
+    width={7}
+  >
+    <Header>
+      Networks
+      <HeaderSubheader>
+        Configure your Connection
+      </HeaderSubheader>
+    </Header>
+  </GridColumn>
+  <GridColumn
+    textAlign="right"
+    width={9}
+  >
+    <EZModal
+      content={[Function]}
+      handleSubmit={[Function]}
+      header="Create New Network"
+      trigger={
+        <Button
+          as="button"
+          basic={true}
+          content="Create"
+          icon="plus"
+        />
+      }
+    />
+  </GridColumn>
+  <GridColumn
+    width={16}
+  >
+    <SegmentGroup>
+      <Network
+        createNetwork={[Function]}
+        deleteNetwork={[Function]}
+        network={
+          Object {
+            "id": 1,
+          }
+        }
+        networks={
+          Array [
+            Object {
+              "id": 1,
+            },
+            Object {
+              "id": 2,
+            },
+          ]
+        }
+        updateNetwork={[Function]}
+        web3Redux={
+          Object {
+            "web3": [Function],
+          }
+        }
+      />
+      <Network
+        createNetwork={[Function]}
+        deleteNetwork={[Function]}
+        network={
+          Object {
+            "id": 2,
+          }
+        }
+        networks={
+          Array [
+            Object {
+              "id": 1,
+            },
+            Object {
+              "id": 2,
+            },
+          ]
+        }
+        updateNetwork={[Function]}
+        web3Redux={
+          Object {
+            "web3": [Function],
+          }
+        }
+      />
+    </SegmentGroup>
+  </GridColumn>
+</Grid>
+`;

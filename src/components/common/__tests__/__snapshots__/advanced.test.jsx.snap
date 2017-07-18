@@ -1,0 +1,23 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Advanced /> renders correctly 1`] = `
+<FormField>
+  <a
+    onClick={[Function]}
+    role="button"
+    style={
+      Object {
+        "cursor": "pointer",
+      }
+    }
+    tabIndex={0}
+  >
+    Advanced
+     
+    <Icon
+      as="i"
+      name="caret right"
+    />
+  </a>
+</FormField>
+`;

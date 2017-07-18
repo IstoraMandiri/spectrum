@@ -1,0 +1,54 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<BaseTokenButton /> renders correctly 1`] = `
+<TokenTransfer
+  contract={Object {}}
+  data={
+    Object {
+      "from": "0x5434132",
+      "gas": 4000000,
+    }
+  }
+  token={
+    Object {
+      "address": "0x123456",
+      "network": Object {
+        "enabled": true,
+        "id": 1,
+      },
+      "networkEnabled": true,
+    }
+  }
+  trigger={
+    <span
+      className="padded"
+    >
+      <TokenBalance
+        address={
+          Object {
+            "address": "0x5434132",
+          }
+        }
+        contract={Object {}}
+        token={
+          Object {
+            "address": "0x123456",
+            "network": Object {
+              "enabled": true,
+              "id": 1,
+            },
+            "networkEnabled": true,
+          }
+        }
+        web3={
+          Object {
+            "eth": Object {
+              "contract": [Function],
+            },
+          }
+        }
+      />
+    </span>
+  }
+/>
+`;

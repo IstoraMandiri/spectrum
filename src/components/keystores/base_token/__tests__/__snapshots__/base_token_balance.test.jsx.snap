@@ -1,0 +1,8 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<BaseTokenBalance /> renders correctly 1`] = `
+<BalanceLabel
+  item={Object {}}
+  value={20}
+/>
+`;

@@ -1,0 +1,33 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<BaseTokenTxUi /> renders correctly 1`] = `
+<TxVisualisation
+  items={
+    Array [
+      Object {
+        "color": "black",
+        "data": "0x213452",
+        "dataLink": "testPrefix0x213452",
+        "header": "Sender",
+        "icon": "testIcon",
+        "subheader": "test network",
+      },
+      Object {
+        "color": "red",
+        "data": "test description",
+        "header": "20 GBP",
+        "icon": "long right arrow",
+        "subheader": "test network Ether",
+      },
+      Object {
+        "color": "blue",
+        "data": "0x123456ff",
+        "dataLink": "testPrefix0x123456ff",
+        "header": "Receiver",
+        "icon": "user",
+        "subheader": "Account",
+      },
+    ]
+  }
+/>
+`;

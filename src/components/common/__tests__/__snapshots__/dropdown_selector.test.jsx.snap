@@ -1,0 +1,27 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<DropdownSelector /> renders correctly 1`] = `
+<Dropdown
+  additionLabel="Add "
+  additionPosition="top"
+  button={true}
+  className="icon  "
+  closeOnBlur={true}
+  floating={true}
+  fluid={true}
+  icon="dropdown"
+  labeled={true}
+  minCharacters={1}
+  noResultsMessage="No results found."
+  openOnFocus={true}
+  renderLabel={[Function]}
+  selectOnBlur={true}
+  text="Select "
+>
+  <DropdownMenu>
+    <DropdownMenu
+      scrolling={true}
+    />
+  </DropdownMenu>
+</Dropdown>
+`;

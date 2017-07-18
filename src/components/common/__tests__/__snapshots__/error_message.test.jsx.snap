@@ -1,22 +1,19 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`renders correctly 1`] = `
-<div
-  className="ui error icon message"
+exports[`<ErrorMessage /> renders correctly 1`] = `
+<Message
+  error={true}
+  icon={true}
 >
-  <i
-    aria-hidden="true"
-    className="warning sign icon"
+  <Icon
+    as="i"
+    name="warning sign"
   />
-  <div
-    className="content"
-  >
-    <div
-      className="header"
-    >
+  <MessageContent>
+    <MessageHeader>
       Oops, something went wrong
-    </div>
-    test
-  </div>
-</div>
+    </MessageHeader>
+    Test Error message
+  </MessageContent>
+</Message>
 `;

@@ -1,0 +1,12 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<TokenBalance /> renders correctly 1`] = `
+<BalanceLabel
+  item={
+    Object {
+      "decimals": 2,
+    }
+  }
+  value={20}
+/>
+`;

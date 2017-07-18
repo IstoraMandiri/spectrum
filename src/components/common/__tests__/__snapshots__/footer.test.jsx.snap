@@ -1,0 +1,57 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Footer /> renders correctly 1`] = `
+<Segment
+  attached="top"
+  className="footer"
+  color="black"
+  compact={true}
+  inverted={true}
+  secondary={true}
+  size="small"
+>
+  <Container>
+    <Grid
+      columns="equal"
+      verticalAlign="middle"
+    >
+      <GridColumn>
+        <ButtonGroup
+          color="grey"
+          size="mini"
+        >
+          <Button
+            as="a"
+            href="https://reddit.com/r/digix"
+            icon="reddit alien"
+            rel="noopener noreferrer"
+            target="_blank"
+          />
+          <Button
+            as="a"
+            href="https://github.com/spectrum/spectrum"
+            icon="github"
+            rel="noopener noreferrer"
+            target="_blank"
+          />
+          <Button
+            as="a"
+            href="https://www.cryptocompare.com/api/"
+            icon="line chart"
+            rel="noopener noreferrer"
+            target="_blank"
+          />
+        </ButtonGroup>
+      </GridColumn>
+      <GridColumn
+        textAlign="right"
+      >
+        Spectrum Dev Edition
+        <br />
+        v
+        0.0.1
+      </GridColumn>
+    </Grid>
+  </Container>
+</Segment>
+`;

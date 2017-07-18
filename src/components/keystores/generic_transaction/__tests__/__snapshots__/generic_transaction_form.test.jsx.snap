@@ -1,0 +1,105 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<GenericTransactionForm /> renders correctly 1`] = `
+<div>
+  <Input
+    action={true}
+    fluid={true}
+    onChange={[Function]}
+    placeholder="Optional - paste JSON data"
+    size="large"
+    type="text"
+    value=""
+  >
+    <input />
+    <QrButton
+      icon="qrcode"
+      onScan={[Function]}
+    />
+  </Input>
+  <Divider
+    horizontal={true}
+  >
+    Or Enter Manually
+  </Divider>
+  <AddressInput
+    formChange={[Function]}
+    formData={Object {}}
+    hideDropdown={false}
+    label="From"
+    name="from"
+    placeholder="e.g. \`0x123...456\`"
+    showQrScanner={false}
+  />
+  <AddressInput
+    formChange={[Function]}
+    formData={Object {}}
+    hideDropdown={false}
+    label="To"
+    name="to"
+    placeholder="e.g. \`0x123...456\`"
+    showQrScanner={false}
+  />
+  <FormGroup
+    widths="equal"
+  >
+    <FormField
+      formChange={[Function]}
+      formData={Object {}}
+      label="Value (ETH)"
+      name="ethValue"
+      placeholder="e.g. \`1000000000\`"
+    />
+    <FormField
+      formChange={[Function]}
+      formData={Object {}}
+      label="Data"
+      name="data"
+      placeholder="e.g. \`0x00\`"
+    />
+  </FormGroup>
+  <FormGroup
+    widths="equal"
+  >
+    <FormField
+      formChange={[Function]}
+      formData={Object {}}
+      label="Gas"
+      name="gas"
+      placeholder="e.g. \`21000\`"
+      type="number"
+    />
+    <FormField
+      formChange={[Function]}
+      formData={Object {}}
+      label="Gas Price"
+      name="gasPrice"
+      placeholder="e.g. \`4000000000\`"
+      type="number"
+    />
+  </FormGroup>
+  <FormGroup
+    widths="equal"
+  >
+    <FormField
+      formChange={[Function]}
+      formData={Object {}}
+      label="Nonce"
+      name="nonce"
+      placeholder="e.g. \`0\`"
+      type="number"
+    />
+    <FormField
+      formChange={[Function]}
+      formData={Object {}}
+      label="Chain ID (EIP 155)"
+      name="chainId"
+      placeholder="e.g. \`1\`"
+      type="number"
+    />
+  </FormGroup>
+  <Connect(NetworkSelector)
+    onChange={[Function]}
+  />
+</div>
+`;

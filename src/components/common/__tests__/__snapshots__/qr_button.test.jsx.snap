@@ -1,0 +1,18 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<QrButton /> renders correctly 1`] = `
+<EZModal
+  content={[Function]}
+  onClose={[Function]}
+  size="small"
+  trigger={
+    <Button
+      as="button"
+      basic={true}
+      icon="qrcode"
+      onClick={[Function]}
+      tabIndex="-1"
+    />
+  }
+/>
+`;

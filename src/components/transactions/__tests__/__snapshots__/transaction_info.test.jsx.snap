@@ -1,0 +1,8 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<TransactionInfo /> renders correctly 1`] = `
+<TransactionInfoTable
+  open={true}
+  txData={Object {}}
+/>
+`;

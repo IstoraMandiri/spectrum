@@ -41,8 +41,8 @@ export default class SeriesPaginator extends Component {
   getInitial() {
     this.setState({ loading: true });
     this.props.getTotal()
-    .then(totalItems => this.setState({ ...this.state, totalItems }))
-    .then(() => setTimeout(this.getLatest(), 1));
+      .then(totalItems => this.setState({ ...this.state, totalItems }))
+      .then(() => setTimeout(this.getLatest(), 1));
   }
   getLatest() {
     // calculate indexes, pass to getter
@@ -56,10 +56,10 @@ export default class SeriesPaginator extends Component {
     }
     last = totalItems > last ? last : totalItems;
     this.props.getLatest(start < 0 ? 0 : start, last < 0 ? 0 : last)
-    .then((res) => {
-      const items = res.map(bn => bn.toNumber());
-      this.setState({ items: sort !== 1 ? items.reverse() : items, loading: false });
-    });
+      .then((res) => {
+        const items = res.map(bn => bn.toNumber());
+        this.setState({ items: sort !== 1 ? items.reverse() : items, loading: false });
+      });
   }
   reset() {
     this.setState(initialState);

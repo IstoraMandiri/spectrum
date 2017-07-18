@@ -1,0 +1,18 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<SeriesPaginator /> renders correctly 1`] = `
+<div>
+  <TableRow
+    as="tr"
+    cellAs="td"
+  >
+    <TableCell
+      as="td"
+      colSpan={100}
+      content="Loading..."
+      disabled={true}
+      textAlign="center"
+    />
+  </TableRow>
+</div>
+`;

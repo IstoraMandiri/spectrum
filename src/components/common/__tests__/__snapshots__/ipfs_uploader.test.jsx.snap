@@ -1,0 +1,36 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<IpfsUploader /> renders correctly 1`] = `
+<FormField>
+  <label
+    htmlFor="upload"
+  >
+    Upload to IPFS
+  </label>
+  <FormGroup
+    widths="equal"
+  >
+    <FormField>
+      <Button
+        as="button"
+        color="green"
+        content="Browse File"
+        disabled={false}
+        fluid={true}
+        icon="upload"
+        onClick={[Function]}
+      />
+      <input
+        onChange={[Function]}
+        style={
+          Object {
+            "position": "absolute",
+            "visibility": "hidden",
+          }
+        }
+        type="file"
+      />
+    </FormField>
+  </FormGroup>
+</FormField>
+`;

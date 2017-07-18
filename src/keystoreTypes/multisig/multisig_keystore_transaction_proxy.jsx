@@ -21,9 +21,9 @@ export default class MultisigKeystoreTransactionProxy extends Component {
   }
   setAccount(selectedAccount) {
     return this.props.web3.eth.getTransactionCount(selectedAccount.address)
-    .then((nonce) => {
-      this.setState({ loading: false, selectedAccount, nonce });
-    });
+      .then((nonce) => {
+        this.setState({ loading: false, selectedAccount, nonce });
+      });
   }
   getAvailableAccounts() {
     const owners = this.props.contract.getOwners() || [];

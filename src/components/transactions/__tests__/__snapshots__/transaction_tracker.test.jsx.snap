@@ -1,0 +1,63 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<TransactionTracker /> renders correctly 1`] = `
+<div>
+  <Table
+    as="table"
+  >
+    <TableBody
+      as="tbody"
+    >
+      <TableRow
+        as="tr"
+        cellAs="td"
+      >
+        <TableCell
+          as="td"
+        >
+          Transaction
+        </TableCell>
+        <TableCell
+          as="td"
+        >
+          <a
+            href="testPrefix0x123456"
+            rel="noopener noreferrer"
+            target="_blank"
+          >
+            0x123456
+          </a>
+        </TableCell>
+      </TableRow>
+      <TableRow
+        as="tr"
+        cellAs="td"
+      >
+        <TableCell
+          as="td"
+        >
+          Status
+        </TableCell>
+        <TableCell
+          as="td"
+        >
+          <Label
+            as="a"
+            color="orange"
+            href="testPrefix0x123456"
+            rel="noopener noreferrer"
+            target="_blank"
+          >
+            <Icon
+              as="i"
+              loading={true}
+              name="circle notched"
+            />
+            Pending
+          </Label>
+        </TableCell>
+      </TableRow>
+    </TableBody>
+  </Table>
+</div>
+`;

@@ -1,0 +1,34 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<ValueInput /> renders correctly 1`] = `
+<FormField>
+  <Input
+    action={true}
+    className="labeled"
+    fluid={true}
+    name="testForm"
+    onChange={[Function]}
+    placeholder="e.g. \`5\`"
+    step="any"
+    type="number"
+    value="test"
+  >
+    <Label
+      color="red"
+      content="GBP"
+    />
+    <input />
+    <Button
+      as="button"
+      basic={true}
+      content="Send All undefined"
+      icon="plus"
+      onClick={[Function]}
+    />
+  </Input>
+  <Connect(CryptoPrice)
+    amount={NaN}
+    symbol="GBP"
+  />
+</FormField>
+`;

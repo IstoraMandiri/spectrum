@@ -64,7 +64,7 @@ class Keystores extends Component {
               header="No Keystores Created"
               content="Please create or import a new keystore"
             />
-          :
+            :
             <Segment.Group style={{ background: 'white' }}>
               {this.renderKeystores()}
             </Segment.Group>

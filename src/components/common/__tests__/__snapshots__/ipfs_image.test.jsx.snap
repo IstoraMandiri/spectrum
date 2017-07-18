@@ -1,0 +1,10 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<IpfsImage /> renders correctly 1`] = `
+<p>
+  Loading...
+  <br />
+  ipfs: 
+  QmXRPqMrSaekAdAPu7NEewQVBYLACmk42f84EKa2a3pRx5
+</p>
+`;

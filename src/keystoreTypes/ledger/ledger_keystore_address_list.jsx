@@ -38,22 +38,22 @@ export default class LedgerAddressList extends Component {
   getPage() {
     this.setState({ loading: true });
     new Promise(resolve => setTimeout(resolve, 1))
-    .then(() => {
-      const { currentPage } = this.state;
-      return mapSeries(this.getPageItems(), ({ n, kdPath }) =>
-        new Promise((resolve, reject) => {
-          if (currentPage !== this.state.currentPage) { return reject(); }
-          if (this.state.items[kdPath]) { return resolve(this.state.items[kdPath]); }
-          return this.props.ethLedger.getAddress_async(kdPath).then((address) => {
-            this.setState({ items: { ...this.state.items, [kdPath]: { ...address, kdPath, n } } });
-            resolve(address);
-          })
-          /* eslint-disable no-console */
-          .fail(console.error);
+      .then(() => {
+        const { currentPage } = this.state;
+        return mapSeries(this.getPageItems(), ({ n, kdPath }) =>
+          new Promise((resolve, reject) => {
+            if (currentPage !== this.state.currentPage) { return reject(); }
+            if (this.state.items[kdPath]) { return resolve(this.state.items[kdPath]); }
+            return this.props.ethLedger.getAddress_async(kdPath).then((address) => {
+              this.setState({ items: { ...this.state.items, [kdPath]: { ...address, kdPath, n } } });
+              resolve(address);
+            })
+            /* eslint-disable no-console */
+              .fail(console.error);
           /* eslint-enable no-console */
-        }),
-      );
-    }).then(() => { this.setState({ loading: false }); });
+          }),
+        );
+      }).then(() => { this.setState({ loading: false }); });
   }
   handleNavigate(direction) {
     const currentPage = this.state.currentPage + direction;

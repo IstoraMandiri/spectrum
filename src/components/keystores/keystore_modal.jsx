@@ -54,10 +54,10 @@ class KeystoreModal extends Component {
             this.setState({ loading: false });
             resolve();
           })
-          .catch((error) => {
-            this.setState({ loading: false, error });
-            reject();
-          });
+            .catch((error) => {
+              this.setState({ loading: false, error });
+              reject();
+            });
         } else {
           // sync
           resolve();

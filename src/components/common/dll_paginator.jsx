@@ -62,37 +62,37 @@ export default class DllPaginator extends Component {
     const sa = searchAddress.toLowerCase();
     this.setState({ page: 0, loading: true, items: [] });
     return this.props.getNext(sa)
-    .then((nextItem) => {
-      if (!nextItem || nextItem.id === '0x0000000000000000000000000000000000000000' || nextItem.id === sa) {
+      .then((nextItem) => {
+        if (!nextItem || nextItem.id === '0x0000000000000000000000000000000000000000' || nextItem.id === sa) {
         // no good, try getting previous
-        return false;
-      }
-      // it is good, return this value
-      return this.props.getPrevious(nextItem.id);
-    })
-    .then((res) => {
-      if (res) { return res; }
-      // see if we're the fisrt in the collection
-      return this.props.getFirst().then(firstItem => (firstItem && firstItem.id === sa ? firstItem : false));
-    })
-    .then((res) => {
-      // finally try getting previous
-      if (res) { return res; }
-      return this.props.getPrevious(sa)
-      .then((previousItem) => {
-        if (!previousItem || previousItem.id === '0x0000000000000000000000000000000000000000' || previousItem.id === sa) {
           return false;
         }
-        // it's good, return this value
-        return this.props.getNext(previousItem.id);
+        // it is good, return this value
+        return this.props.getPrevious(nextItem.id);
+      })
+      .then((res) => {
+        if (res) { return res; }
+        // see if we're the fisrt in the collection
+        return this.props.getFirst().then(firstItem => (firstItem && firstItem.id === sa ? firstItem : false));
+      })
+      .then((res) => {
+      // finally try getting previous
+        if (res) { return res; }
+        return this.props.getPrevious(sa)
+          .then((previousItem) => {
+            if (!previousItem || previousItem.id === '0x0000000000000000000000000000000000000000' || previousItem.id === sa) {
+              return false;
+            }
+            // it's good, return this value
+            return this.props.getNext(previousItem.id);
+          });
+      })
+      .then((res) => {
+        if (!res || res.id !== sa) {
+          return this.setState({ loading: false });
+        }
+        return this.setState({ items: [res], loading: false });
       });
-    })
-    .then((res) => {
-      if (!res || res.id !== sa) {
-        return this.setState({ loading: false });
-      }
-      return this.setState({ items: [res], loading: false });
-    });
   }
   getItem(id, direction) {
     if (direction) {

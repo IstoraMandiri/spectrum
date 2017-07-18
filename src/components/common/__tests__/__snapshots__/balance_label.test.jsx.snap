@@ -1,0 +1,12 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<BalanceLabel /> renders correctly 1`] = `
+<Label
+  as="a"
+  className="padded"
+  color="blue"
+>
+  testing
+  <LabelDetail />
+</Label>
+`;

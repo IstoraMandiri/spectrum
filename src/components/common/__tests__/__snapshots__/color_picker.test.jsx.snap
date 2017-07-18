@@ -1,0 +1,191 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<ColorPicker /> renders correctly 1`] = `
+<FormField>
+  <label
+    htmlFor="Color"
+  >
+    Color
+  </label>
+  <Dropdown
+    additionLabel="Add "
+    additionPosition="top"
+    button={true}
+    className="icon black"
+    closeOnBlur={true}
+    floating={true}
+    fluid={true}
+    icon="dropdown"
+    labeled={true}
+    minCharacters={1}
+    noResultsMessage="No results found."
+    openOnFocus={true}
+    renderLabel={[Function]}
+    selectOnBlur={true}
+    text="Black"
+  >
+    <DropdownMenu>
+      <DropdownMenu
+        scrolling={true}
+      >
+        <DropdownItem
+          label={
+            Object {
+              "circular": true,
+              "color": "red",
+              "empty": true,
+            }
+          }
+          onClick={[Function]}
+          text="Red"
+          value="red"
+        />
+        <DropdownItem
+          label={
+            Object {
+              "circular": true,
+              "color": "orange",
+              "empty": true,
+            }
+          }
+          onClick={[Function]}
+          text="Orange"
+          value="orange"
+        />
+        <DropdownItem
+          label={
+            Object {
+              "circular": true,
+              "color": "yellow",
+              "empty": true,
+            }
+          }
+          onClick={[Function]}
+          text="Yellow"
+          value="yellow"
+        />
+        <DropdownItem
+          label={
+            Object {
+              "circular": true,
+              "color": "olive",
+              "empty": true,
+            }
+          }
+          onClick={[Function]}
+          text="Olive"
+          value="olive"
+        />
+        <DropdownItem
+          label={
+            Object {
+              "circular": true,
+              "color": "green",
+              "empty": true,
+            }
+          }
+          onClick={[Function]}
+          text="Green"
+          value="green"
+        />
+        <DropdownItem
+          label={
+            Object {
+              "circular": true,
+              "color": "teal",
+              "empty": true,
+            }
+          }
+          onClick={[Function]}
+          text="Teal"
+          value="teal"
+        />
+        <DropdownItem
+          label={
+            Object {
+              "circular": true,
+              "color": "blue",
+              "empty": true,
+            }
+          }
+          onClick={[Function]}
+          text="Blue"
+          value="blue"
+        />
+        <DropdownItem
+          label={
+            Object {
+              "circular": true,
+              "color": "violet",
+              "empty": true,
+            }
+          }
+          onClick={[Function]}
+          text="Violet"
+          value="violet"
+        />
+        <DropdownItem
+          label={
+            Object {
+              "circular": true,
+              "color": "purple",
+              "empty": true,
+            }
+          }
+          onClick={[Function]}
+          text="Purple"
+          value="purple"
+        />
+        <DropdownItem
+          label={
+            Object {
+              "circular": true,
+              "color": "pink",
+              "empty": true,
+            }
+          }
+          onClick={[Function]}
+          text="Pink"
+          value="pink"
+        />
+        <DropdownItem
+          label={
+            Object {
+              "circular": true,
+              "color": "brown",
+              "empty": true,
+            }
+          }
+          onClick={[Function]}
+          text="Brown"
+          value="brown"
+        />
+        <DropdownItem
+          label={
+            Object {
+              "circular": true,
+              "color": "grey",
+              "empty": true,
+            }
+          }
+          onClick={[Function]}
+          text="Grey"
+          value="grey"
+        />
+        <DropdownItem
+          label={
+            Object {
+              "circular": true,
+              "color": "black",
+              "empty": true,
+            }
+          }
+          onClick={[Function]}
+          text="Black"
+          value="black"
+        />
+      </DropdownMenu>
+    </DropdownMenu>
+  </Dropdown>
+</FormField>
+`;

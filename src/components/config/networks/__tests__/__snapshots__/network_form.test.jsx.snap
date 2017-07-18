@@ -1,0 +1,155 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<NetworkForm /> renders correctly 1`] = `
+<FormField>
+  <FormGroup
+    widths="equal"
+  >
+    <FormField
+      formChange={[Function]}
+      formData={
+        Object {
+          "enabled": true,
+        }
+      }
+      label="Name"
+      name="name"
+      placeholder="e.g. \`Ethereum\`"
+    />
+    <FormField
+      formChange={[Function]}
+      formData={
+        Object {
+          "enabled": true,
+        }
+      }
+      label="Symbol"
+      name="symbol"
+      placeholder="e.g. \`ETH\`"
+    />
+    <FormField
+      formChange={[Function]}
+      formData={
+        Object {
+          "enabled": true,
+        }
+      }
+      label="Description"
+      name="description"
+      placeholder="e.g. \`Main Chain\`"
+    />
+  </FormGroup>
+  <FormGroup
+    widths="equal"
+  >
+    <FormField
+      formChange={[Function]}
+      formData={
+        Object {
+          "enabled": true,
+        }
+      }
+      label="Provider"
+      name="provider"
+      placeholder="e.g. \`https://mainnet.infura.io\`"
+    />
+    <FormField
+      formChange={[Function]}
+      formData={
+        Object {
+          "enabled": true,
+        }
+      }
+      label="Chain ID (EIP 155)"
+      name="chainId"
+      placeholder="e.g. \`1\`"
+      type="number"
+    />
+    <FormField
+      disabled={false}
+      formChange={[Function]}
+      formData={
+        Object {
+          "enabled": true,
+        }
+      }
+      label="Unique Identifier"
+      name="id"
+      placeholder="e.g. \`eth-mainnet\`"
+      readOnly={false}
+    />
+  </FormGroup>
+  <FormGroup
+    widths="equal"
+  >
+    <ColorPicker
+      formChange={[Function]}
+      formData={
+        Object {
+          "enabled": true,
+        }
+      }
+      label="Color"
+    />
+    <FormField>
+      <label
+        htmlFor="enabled"
+      >
+        Enabled Status
+      </label>
+      <Button
+        as="button"
+        content="Enabled"
+        fluid={true}
+        icon="checkmark"
+        onClick={[Function]}
+        positive={true}
+      />
+    </FormField>
+  </FormGroup>
+  <Advanced
+    title="Advanced"
+  >
+    <p>
+      Optionaly set Block Explorer URL prefixes:
+    </p>
+    <FormGroup
+      widths="equal"
+    >
+      <FormField
+        formChange={[Function]}
+        formData={
+          Object {
+            "enabled": true,
+          }
+        }
+        label="Address Prefix"
+        name="explorerAddressPrefix"
+        placeholder="e.g. \`https://etherscan.io/address/\`"
+      />
+      <FormField
+        formChange={[Function]}
+        formData={
+          Object {
+            "enabled": true,
+          }
+        }
+        label="Block Prefix"
+        name="explorerBlockPrefix"
+        placeholder="e.g. \`https://etherscan.io/block/\`"
+      />
+      <FormField
+        formChange={[Function]}
+        formData={
+          Object {
+            "enabled": true,
+          }
+        }
+        label="Transaction Prefix"
+        name="explorerTransactionPrefix"
+        placeholder="e.g. \`https://etherscan.io/tx/\`"
+      />
+    </FormGroup>
+  </Advanced>
+</FormField>
+`;
