@@ -1,5 +1,7 @@
 # Spectrum (Developer Release)
 
+[![Greenkeeper badge](https://badges.greenkeeper.io/spectrum/spectrum.svg)](https://greenkeeper.io/)
+
 ### Full Gamut Ethereum Lightsuite
 
 [![Build Status](https://travis-ci.org/spectrum/spectrum.svg?branch=develop)](https://travis-ci.org/spectrum/spectrum?branch=develop)
