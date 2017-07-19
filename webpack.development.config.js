@@ -3,8 +3,6 @@
 const webpack = require('webpack');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
 
-const hostname = process.env.HOSTNAME || 'http://localhost:8080';
-
 module.exports = config => ({
   devtool: 'eval',
   devServer: {
