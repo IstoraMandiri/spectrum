@@ -6,7 +6,8 @@ export default class ErrorMessage extends Component {
     content: PropTypes.oneOfType([PropTypes.string, PropTypes.object]).isRequired,
   };
   render() {
-    const message = this.props.content.message || `${this.props.content}`;
+    const { content } = this.props;
+    const message = typeof content === 'string' ? content : (content.message || `${content}`);
     return (
       <Message
         negative
