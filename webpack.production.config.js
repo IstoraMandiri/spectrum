@@ -14,10 +14,6 @@ const WebpackPwaManifest = require('webpack-pwa-manifest');
 const OptimizeCssAssetsPlugin = require('optimize-css-assets-webpack-plugin');
 const StatsPlugin = require('stats-webpack-plugin');
 
-function hash(str) {
-  return crypto.createHash('md5').update(str).digest('hex').substr(0, 20)
-}
-
 module.exports = config => ({
   entry: ['babel-polyfill'].concat(config.entry),
   devtool: 'source-map',
