@@ -57,6 +57,7 @@ const baseConfig = {
         fs.realpathSync(`${__dirname}/node_modules/@digix/kyc-system`),
         fs.realpathSync(`${__dirname}/node_modules/ethereumjs-tx`),
         fs.realpathSync(`${__dirname}/node_modules/web3-provider-engine`),
+        fs.realpathSync(`${__dirname}/node_modules/sui-react-ezmodal`),
       ],
       use: [
         'cache-loader',
@@ -77,6 +78,7 @@ const baseConfig = {
     extensions: ['.js', '.jsx'],
     modules: [
       path.join(__dirname, 'node_modules'),
+      'node_modules', // temporary for linked modules
     ],
     alias: {
       '@digix/spectrum': path.resolve(__dirname),
