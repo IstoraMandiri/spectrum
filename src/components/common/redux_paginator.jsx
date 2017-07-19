@@ -1,5 +1,5 @@
 import React, { PropTypes, Component } from 'react';
-import { Dimmer, Menu, Loader, Table } from 'semantic-ui-react';
+import { Dropdown, Dimmer, Input, Loader, Table } from 'semantic-ui-react';
 
 import PaginationMenu from './pagination_menu';
 
@@ -19,21 +19,42 @@ export default class ReduxPaginator extends Component {
   componentDidMount() {
     this.props.actions.fetchData();
   }
+  renderDropdownMenu() {
+
+  }
   renderPagination() {
-    const { meta, loading } = this.props.data;
+    const { actions: { updateConfig }, data: { meta, loading } } = this.props;
     return (
       <PaginationMenu
         fluid
-        widths={3}
+        widths={5}
         currentPage={meta.page - 1}
         itemsPerPage={meta.perPage}
         total={meta.total}
-        handleNavigate={dir => this.props.actions.updateConfig({ page: meta.page + dir })}
+        handleWarp={page => updateConfig({ page })}
+        handleNavigate={dir => updateConfig({ page: meta.page + dir })}
         renderCenter={({ total, firstItem, lastItem }) => (
-          <Menu.Item>
-            {loading && <Dimmer inverted active><Loader size="mini" /></Dimmer>}
-            {firstItem} - {lastItem} of {total}
-          </Menu.Item>
+          <Dropdown
+            item
+            trigger={
+              <span>
+                {loading && <Dimmer inverted active><Loader size="mini" /></Dimmer>}
+                {firstItem} - {lastItem} of {total}
+              </span>
+            }
+          >
+            <Dropdown.Menu>
+              <Dropdown.Header icon="numbered list" content="Items per page" />
+              {[10, 25, 50, 100, 500, 1000].map(n => (
+                <Dropdown.Item
+                  active={n === meta.perPage}
+                  key={n}
+                  content={n}
+                  onClick={() => updateConfig({ per_page: n, page: 0 })}
+                />
+              ))}
+            </Dropdown.Menu>
+          </Dropdown>
         )}
       />
     );
@@ -70,7 +91,7 @@ export default class ReduxPaginator extends Component {
   }
   render() {
     const { data: { items, error, loading }, renderError, renderLoading } = this.props;
-    if (error) { return renderError(); }
+    if (error) { return renderError(error); }
     if (!items && loading) { return renderLoading(); }
     return (
       <div>
