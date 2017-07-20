@@ -1,5 +1,5 @@
 import React, { PropTypes, Component } from 'react';
-import { Dropdown, Dimmer, Input, Loader, Table } from 'semantic-ui-react';
+import { Dropdown, Dimmer, Loader, Table } from 'semantic-ui-react';
 
 import PaginationMenu from './pagination_menu';
 
