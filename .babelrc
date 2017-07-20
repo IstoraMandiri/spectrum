@@ -12,6 +12,7 @@
   ],
   "env": {
     "production": {
+      "plugins": "transform-class-properties",
       "presets": [
         "react-optimize",
         ["env", {
@@ -32,9 +33,9 @@
     "test": {
       "presets": ["env"],
       "plugins": [
+        "transform-class-properties",
         ["babel-root-import", { "rootPathSuffix": "src" }],
         "transform-object-rest-spread",
-        "transform-class-properties"
       ]
     }
   }
