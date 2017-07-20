@@ -5,10 +5,10 @@
   ],
   "compact" : false,
   "plugins": [
+    "transform-class-properties",
     ["babel-root-import", { "rootPathSuffix": "src" }],
     "react-hot-loader/babel",
     "transform-object-rest-spread",
-    "transform-class-properties"
   ],
   "env": {
     "production": {
