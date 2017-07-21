@@ -1,5 +1,5 @@
 import React, { PropTypes, Component } from 'react';
-import { Dropdown, Dimmer, Input, Loader, Table } from 'semantic-ui-react';
+import { Dropdown, Dimmer, Loader, Table } from 'semantic-ui-react';
 
 import PaginationMenu from './pagination_menu';
 
@@ -17,10 +17,14 @@ export default class ReduxPaginator extends Component {
     onRowClick: undefined,
   }
   componentDidMount() {
-    this.props.actions.fetchData();
-  }
-  renderDropdownMenu() {
-
+    const { actions: { updateConfig, fetchData } } = this.props;
+    fetchData().then(() => {
+      const { data: { meta: { total, page, perPage } } } = this.props;
+      const lastPage = Math.ceil(total / perPage);
+      if (page > lastPage) {
+        updateConfig({ page: lastPage });
+      }
+    });
   }
   renderPagination() {
     const { actions: { updateConfig }, data: { meta, loading } } = this.props;

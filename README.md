@@ -3,7 +3,7 @@
 ### Full Gamut Ethereum Lightsuite
 
 [![Build Status](https://travis-ci.org/spectrum/spectrum.svg?branch=develop)](https://travis-ci.org/spectrum/spectrum?branch=develop)
-[![Coverage Status](https://coveralls.io/repos/github/spectrum/spectrum/badge.svg?branch=ci)](https://coveralls.io/github/spectrum/spectrum?branch=ci)
+[![Coverage Status](https://coveralls.io/repos/github/spectrum/spectrum/badge.svg?branch=develop)](https://coveralls.io/github/spectrum/spectrum?branch=develop)
 
 Spectrum is an open source react-redux app for developing dapp UIs.
 
