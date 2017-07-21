@@ -7,7 +7,17 @@ exports[`<PaginationMenu /> renders correctly 1`] = `
 >
   <MenuItem
     as="a"
-    name="back"
+    name="fast backward"
+    onClick={[Function]}
+  >
+    <Icon
+      as="i"
+      name="fast backward"
+    />
+  </MenuItem>
+  <MenuItem
+    as="a"
+    name="warpback"
     onClick={[Function]}
   >
     <Icon
@@ -26,6 +36,16 @@ exports[`<PaginationMenu /> renders correctly 1`] = `
     <Icon
       as="i"
       name="step forward"
+    />
+  </MenuItem>
+  <MenuItem
+    as="a"
+    name="warpfroward"
+    onClick={[Function]}
+  >
+    <Icon
+      as="i"
+      name="fast forward"
     />
   </MenuItem>
 </Menu>
