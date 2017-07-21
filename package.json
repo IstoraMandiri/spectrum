@@ -12,6 +12,7 @@
     "test": "npm run build; npm run test:jest; npm run serve:pm2; npm run test:cucumber; npm run serve:stop-pm2;",
     "test:ci": "npm run test:jest:coverage; npm run test:cucumber:ci",
     "test:jest": "jest",
+    "test:jest:update": "jest --updateSnapshot",
     "test:jest:coverage": "jest --coverage && cat ./coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js",
     "test:watch": "jest --watchAll",
     "test:cucumber": "./node_modules/.bin/wdio wdio.development.config.js",
