@@ -24,7 +24,15 @@ export default class FormField extends Component {
     const value = formData[name] === undefined ? '' : formData[name];
     if (rest.type === 'select') {
       const mappedOptions = options.map(({ id, name: text }) => ({ key: id, value: id, text }));
-      return <Form.Select {...rest} options={mappedOptions} onChange={formChange} name={name} value={value} />;
+      return (
+        <Form.Select
+          {...rest}
+          options={mappedOptions}
+          onChange={(e, data) => formChange({ target: { name: data.name, value: data.value } })}
+          name={name}
+          value={value}
+        />
+      );
     }
     return <Form.Field {...rest} onChange={formChange} name={name} value={value} control="input" />;
   }
