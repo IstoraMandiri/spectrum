@@ -4,7 +4,8 @@ const path = require('path');
 const webpack = require('webpack');
 const OfflinePlugin = require('offline-plugin');
 // plugins
-const NameAllModulesPlugin = require('name-all-modules-plugin');
+// TODO enable when https://github.com/timse/name-all-modules-plugin/issues/1 is fixed
+// const NameAllModulesPlugin = require('name-all-modules-plugin');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
 // const SriPlugin = require('webpack-subresource-integrity');
@@ -15,13 +16,15 @@ const StatsPlugin = require('stats-webpack-plugin');
 
 module.exports = config => ({
   entry: ['babel-polyfill'].concat(config.entry),
-  devtool: false,
+  devtool: 'source-map',
   output: {
     path: path.join(__dirname, './docs'),
     filename: '[name].[chunkhash].js',
+    sourceMapFilename: '[name].[chunkhash].js.map',
+    publicPath: './',
   },
   plugins: config.plugins.concat([
-    new NameAllModulesPlugin(),
+    // new NameAllModulesPlugin(),
     new webpack.NamedChunksPlugin((chunk) => {
       if (chunk.name) {
         return chunk.name;
@@ -34,12 +37,10 @@ module.exports = config => ({
       name: 'vendor',
       minChunks: module => module.context && module.context.indexOf('node_modules') !== -1,
     }),
-    new webpack.optimize.CommonsChunkPlugin({
-      name: 'runtime',
-    }),
+    new webpack.optimize.CommonsChunkPlugin({ name: 'runtime' }),
     new ExtractTextPlugin('style.[contenthash].css'),
-    new UglifyJsPlugin({ mangle: true, sourceMap: false, comments: false }),
     new OptimizeCssAssetsPlugin(),
+    new UglifyJsPlugin({ mangle: true, sourceMap: true, comments: false }),
     // TODO fix compatability with SRI?
     // new SriPlugin({ hashFuncNames: ['sha256'] }),
     new WebpackPwaManifest({
@@ -62,7 +63,6 @@ module.exports = config => ({
       updateStrategy: 'changed',
       autoUpdate: 1000 * 60 * 2,
     }),
-    new webpack.optimize.ModuleConcatenationPlugin(),
   ]).concat(process.env.STATS ? (
     new StatsPlugin('../stats.json', { chunkModules: true })
   ) : []),
