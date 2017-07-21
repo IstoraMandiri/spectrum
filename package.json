@@ -10,7 +10,7 @@
   },
   "scripts": {
     "test": "npm run build; npm run test:jest; npm run serve:pm2; npm run test:cucumber; npm run serve:stop-pm2;",
-    "test:ci": "npm run test:jest:coverage; npm run test:cucumber:ci",
+    "test:ci": "npm run test:jest:coverage;",
     "test:jest": "jest",
     "test:jest:coverage": "jest --coverage && cat ./coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js",
     "test:watch": "jest --watchAll",
@@ -128,7 +128,7 @@
     "stats-webpack-plugin": "^0.6.1",
     "style-loader": "^0.18.2",
     "uglify-js": "git://github.com/mishoo/UglifyJS2.git#harmony-v2.8.22",
-    "uglifyjs-webpack-plugin": "0.4.1",
+    "uglifyjs-webpack-plugin": "^0.4.1",
     "url-loader": "^0.5.9",
     "wdio-cucumber-framework": "^0.3.1",
     "wdio-sauce-service": "^0.4.0",
