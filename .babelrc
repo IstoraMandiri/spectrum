@@ -1,17 +1,20 @@
 {
   "presets": [
+    "env",
     "react",
-    "env"
+    "stage-2",
+    "stage-0"
   ],
   "compact" : false,
   "plugins": [
+    "transform-class-properties",
     ["babel-root-import", { "rootPathSuffix": "src" }],
     "react-hot-loader/babel",
     "transform-object-rest-spread",
-    "transform-class-properties"
   ],
   "env": {
     "production": {
+      "plugins": "transform-class-properties",
       "presets": [
         "react-optimize",
         ["env", {
@@ -32,9 +35,9 @@
     "test": {
       "presets": ["env"],
       "plugins": [
+        "transform-class-properties",
         ["babel-root-import", { "rootPathSuffix": "src" }],
         "transform-object-rest-spread",
-        "transform-class-properties"
       ]
     }
   }
