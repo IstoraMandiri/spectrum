@@ -19,6 +19,11 @@ export default class FormField extends Component {
       formChange({ target: { name, value: defaultValue } });
     }
   }
+  shouldComponentUpdate(nextProps) {
+    if (nextProps.name !== this.props.name) { return true; }
+    if (this.props.formData[this.props.name] !== nextProps.formData[nextProps.name]) { return true; }
+    return false;
+  }
   render() {
     const { formChange, formData, name, options, ...rest } = this.props;
     const value = formData[name] === undefined ? '' : formData[name];
