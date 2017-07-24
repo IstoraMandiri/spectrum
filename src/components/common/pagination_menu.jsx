@@ -28,13 +28,14 @@ export default class PaginationMenu extends Component {
     } = this.props;
     const firstItem = currentPage * itemsPerPage;
     const lastPageItem = firstItem + itemsPerPage;
+    const hasTotal = total !== undefined;
     const lastItem = lastPageItem > total ? total : lastPageItem;
     const bDisabled = currentPage === 0 || (disabled && disabled()) || (backDisabled && backDisabled());
-    const fDisabled = (total && lastItem >= total) || (disabled && disabled()) || (forwardDisabled && forwardDisabled());
+    const fDisabled = !hasTotal || (hasTotal && lastItem >= total) || (disabled && disabled()) || (forwardDisabled && forwardDisabled());
     const totalPages = total && Math.ceil(total / itemsPerPage);
     return (
       <Menu {...rest} pagination size="small">
-        {total &&
+        {hasTotal &&
           <Menu.Item
             as="a"
             name="fast backward"
@@ -61,7 +62,7 @@ export default class PaginationMenu extends Component {
         {renderCenter ?
           renderCenter({ total, firstItem, lastItem, itemsPerPage })
           :
-          <Menu.Item content={`${firstItem} - ${lastItem} / ${total || '?'}`} />
+          <Menu.Item content={`${firstItem} - ${lastItem} ${hasTotal && `/ ${total}`}`} />
         }
         <Menu.Item
           as="a"
@@ -74,7 +75,7 @@ export default class PaginationMenu extends Component {
         >
           <Icon name="step forward" />
         </Menu.Item>
-        {total &&
+        {hasTotal &&
           <Menu.Item
             as="a"
             name="warpfroward"
