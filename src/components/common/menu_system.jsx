@@ -34,7 +34,18 @@ export default class MenuSystem extends Component {
   }
   render() {
     const { tab } = this.state;
-    const { props, usingRouter, parentRoute, className, fixed, tabs, marginTop, equalWidths, secondary, renderLastItem } = this.props;
+    const {
+      childProps,
+      usingRouter,
+      parentRoute,
+      className,
+      fixed,
+      tabs,
+      marginTop,
+      equalWidths,
+      secondary,
+      renderLastItem,
+    } = this.props;
     const mappedTabs = tabs.map(({ name, exact, icon, component, path }, i) => {
       const absolutePath = parentRoute && path[0] !== '/' ? `${parentRoute}/${path}` : path;
 
@@ -69,8 +80,8 @@ export default class MenuSystem extends Component {
                   {...{
                     key,
                     path,
-                    component: !props ? Comp : undefined,
-                    render: !props ? undefined : () => <Comp {...props} />,
+                    component: !childProps ? Comp : undefined,
+                    render: !childProps ? undefined : () => <Comp {...childProps} />,
                     exact,
                   }}
                 />
