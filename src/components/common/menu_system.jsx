@@ -14,6 +14,8 @@ export default class MenuSystem extends Component {
     equalWidths: PropTypes.bool,
     usingRouter: PropTypes.bool,
     parentRoute: PropTypes.string,
+    childProps: PropTypes.object,
+    menuProps: PropTypes.object,
   }
   static defaultProps = {
     className: undefined,
@@ -24,6 +26,8 @@ export default class MenuSystem extends Component {
     equalWidths: undefined,
     usingRouter: false,
     parentRoute: undefined,
+    childProps: undefined,
+    menuProps: undefined,
   }
   constructor(props) {
     super(props);
@@ -37,6 +41,7 @@ export default class MenuSystem extends Component {
     const {
       childProps,
       usingRouter,
+      menuProps,
       parentRoute,
       className,
       fixed,
@@ -46,13 +51,13 @@ export default class MenuSystem extends Component {
       secondary,
       renderLastItem,
     } = this.props;
-    const mappedTabs = tabs.map(({ name, exact, icon, component, path }, i) => {
+    const mappedTabs = tabs.map(({ name, exact, icon, component, path, props }, i) => {
       const absolutePath = parentRoute && path[0] !== '/' ? `${parentRoute}/${path}` : path;
-
       return {
         exact,
         icon,
         component,
+        props,
         path: absolutePath,
         key: absolutePath,
         content: name,
@@ -64,10 +69,10 @@ export default class MenuSystem extends Component {
     });
     return (
       <div className={className}>
-        <Menu borderless {...{ fixed, secondary }} widths={equalWidths ? tabs.length : undefined}>
+        <Menu borderless {...{ fixed, secondary }} widths={equalWidths ? tabs.length : undefined} {...menuProps}>
           <Container>
-            {mappedTabs.map(({ exact, icon, key, content, active, as, to, onClick }) => (
-              <Menu.Item {...{ exact, icon, key, content, active, as, to, onClick }} />
+            {mappedTabs.map(({ exact, icon, key, content, active, as, to, onClick, props }) => (
+              <Menu.Item {...{ exact, icon, key, content, active, as, to, onClick }} {...props} />
             ))}
             {renderLastItem && renderLastItem()}
           </Container>
@@ -75,13 +80,13 @@ export default class MenuSystem extends Component {
         <Container style={{ marginTop }}>
           {usingRouter ?
             <Switch>
-              {mappedTabs.map(({ key, path, component: Comp, exact }) => (
+              {mappedTabs.map(({ key, path, component: Comp, exact, props }) => (
                 <Route
                   {...{
                     key,
                     path,
                     component: !childProps ? Comp : undefined,
-                    render: !childProps ? undefined : () => <Comp {...childProps} />,
+                    render: !childProps ? undefined : () => <Comp {...childProps} {...props} />,
                     exact,
                   }}
                 />
