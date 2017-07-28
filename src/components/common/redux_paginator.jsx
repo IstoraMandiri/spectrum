@@ -83,7 +83,11 @@ export default class ReduxPaginator extends Component {
           renderMissing()
         :
           items.map(item => (
-            <Table.Row key={item.id} onClick={() => onRowClick(item)} style={onRowClick ? { cursor: 'pointer' } : undefined}>
+            <Table.Row
+              key={item.id}
+              onClick={() => onRowClick(item)}
+              style={onRowClick ? { cursor: 'pointer' } : undefined}
+            >
               {columns.map(({ key, renderCell, cellProps }) => (
                 <Table.Cell key={key} {...cellProps}>{renderCell ? renderCell(item) : item[key]}</Table.Cell>
               ))}
@@ -94,9 +98,9 @@ export default class ReduxPaginator extends Component {
     );
   }
   render() {
-    const { data: { items, error, loading }, renderError, renderLoading } = this.props;
+    const { data: { items, error }, renderError, renderLoading } = this.props;
     if (error) { return renderError(error); }
-    if (!items && loading) { return renderLoading(); }
+    if (!items) { return renderLoading(); }
     return (
       <div>
         {this.renderPagination()}
