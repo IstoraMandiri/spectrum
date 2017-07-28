@@ -16,7 +16,7 @@ export default class FormImagePreview extends Component {
         <FormImageField {...rest} />
         {preview &&
           <Segment>
-            <Image fluid rounded src={preview} alt="" />
+            <Image fluid src={preview} alt="" />
           </Segment>
         }
       </Form.Field>
