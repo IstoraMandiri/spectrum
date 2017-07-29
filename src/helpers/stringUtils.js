@@ -140,3 +140,18 @@ export function shortAddress(address, num = 4, showEnd = true) {
 export function camelToCapitalized(str) {
   return str.replace(/([A-Z])/g, ' $1').replace(/^./, s => s.toUpperCase());
 }
+
+export function formatQuery(obj) {
+  const queryStr = Object.keys(obj).reduce((a, k) => a.concat(`${k}=${encodeURIComponent(obj[k])}`), []).join('&');
+  return `?${queryStr}`;
+}
+
+export function parseQuery(qstr) {
+  const query = {};
+  const a = (qstr[0] === '?' ? qstr.substr(1) : qstr).split('&');
+  for (let i = 0; i < a.length; i += 1) {
+    const b = a[i].split('=');
+    query[decodeURIComponent(b[0])] = decodeURIComponent(b[1] || '');
+  }
+  return query;
+}
