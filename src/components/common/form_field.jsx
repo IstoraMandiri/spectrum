@@ -1,5 +1,5 @@
 import React, { PropTypes, Component } from 'react';
-import { Form } from 'semantic-ui-react';
+import { Input, Form } from 'semantic-ui-react';
 
 export default class FormField extends Component {
   static propTypes = {
@@ -8,10 +8,14 @@ export default class FormField extends Component {
     name: PropTypes.string.isRequired,
     defaultValue: PropTypes.any,
     options: PropTypes.array,
+    placeholder: PropTypes.string,
+    label: PropTypes.string,
   };
   static defaultProps = {
     defaultValue: undefined,
     options: undefined,
+    placeholder: undefined,
+    label: undefined,
     formData: {},
   }
   componentDidMount() {
@@ -26,7 +30,7 @@ export default class FormField extends Component {
     return false;
   }
   render() {
-    const { formChange, formData, name, options, ...rest } = this.props;
+    const { formChange, formData, name, options, placeholder, label, ...rest } = this.props;
     const value = formData[name] === undefined ? '' : formData[name];
     if (rest.type === 'select') {
       const mappedOptions = options.map(({ id, name: text }) => ({ key: id, value: id, text }));
@@ -35,19 +39,24 @@ export default class FormField extends Component {
           {...rest}
           options={mappedOptions}
           onChange={(e, data) => formChange({ target: { name: data.name, value: data.value } })}
+          label={label}
+          placeholder={placeholder}
           name={name}
           value={value}
         />
       );
     }
     return (
-      <Form.Field
-        {...rest}
-        onChange={e => formChange({ target: { name: e.target.name, value: e.target.value } })}
-        name={name}
-        value={value}
-        control="input"
-      />
+      <Form.Field>
+        {label && <label htmlFor={name}>{label}</label>}
+        <Input
+          {...rest}
+          placeholder={placeholder}
+          onChange={e => formChange({ target: { name: e.target.name, value: e.target.value } })}
+          name={name}
+          value={value}
+        />
+      </Form.Field>
     );
   }
 }
