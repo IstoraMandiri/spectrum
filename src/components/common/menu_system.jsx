@@ -16,6 +16,9 @@ export default class MenuSystem extends Component {
     parentRoute: PropTypes.string,
     childProps: PropTypes.object,
     menuProps: PropTypes.object,
+    renderFooter: PropTypes.func,
+    renderTab: PropTypes.func,
+    hidden: PropTypes.bool,
   }
   static defaultProps = {
     className: undefined,
@@ -28,6 +31,9 @@ export default class MenuSystem extends Component {
     parentRoute: undefined,
     childProps: undefined,
     menuProps: undefined,
+    renderFooter: undefined,
+    renderTab: undefined,
+    hidden: false,
   }
   constructor(props) {
     super(props);
@@ -49,14 +55,17 @@ export default class MenuSystem extends Component {
       marginTop,
       equalWidths,
       secondary,
+      renderFooter,
       renderLastItem,
+      renderTab,
     } = this.props;
-    const mappedTabs = tabs.map(({ name, exact, icon, component, path, props }, i) => {
+    const mappedTabs = tabs.map(({ name, hidden, exact, icon, component, path, props }, i) => {
       const absolutePath = parentRoute && path[0] !== '/' ? `${parentRoute}/${path}` : path;
       return {
         exact,
         icon,
         component,
+        hidden,
         props,
         path: absolutePath,
         key: absolutePath,
@@ -64,20 +73,29 @@ export default class MenuSystem extends Component {
         active: !usingRouter ? tab === i : undefined,
         as: usingRouter ? ActiveLink : undefined,
         to: usingRouter ? absolutePath : undefined,
-        onClick: !usingRouter ? () => this.handleClick(i) : undefined,
+        onClick: () => this.handleClick(i),
       };
     });
     return (
       <div className={className}>
-        <Menu borderless {...{ fixed, secondary }} widths={equalWidths ? tabs.length : undefined} {...menuProps}>
-          <Container>
-            {mappedTabs.map(({ exact, icon, key, content, active, as, to, onClick, props }) => (
-              <Menu.Item {...{ exact, icon, key, content, active, as, to, onClick }} {...props} />
-            ))}
-            {renderLastItem && renderLastItem()}
-          </Container>
-        </Menu>
-        <Container style={{ marginTop }}>
+        {!this.props.hidden &&
+          <Menu
+            borderless
+            {...{ fixed, secondary }}
+            widths={equalWidths ? tabs.filter(t => !t.hidden).length : undefined}
+            {...menuProps}
+          >
+            <Container>
+              {mappedTabs.map(({ hidden, exact, icon, key, content, active, as, to, onClick, disabled, props }) => {
+                if (hidden) { return null; }
+                if (renderTab) { return renderTab({ exact, icon, key, content, active, as, to, onClick, disabled, ...props }); }
+                return <Menu.Item {...{ exact, icon, key, content, active, as, to, onClick, disabled, ...props }} />;
+              })}
+              {renderLastItem && renderLastItem()}
+            </Container>
+          </Menu>
+        }
+        <Container style={{ marginTop: !this.props.hidden ? marginTop : undefined }}>
           {usingRouter ?
             <Switch>
               {mappedTabs.map(({ key, path, component: Comp, exact, props }) => (
@@ -96,6 +114,7 @@ export default class MenuSystem extends Component {
             :
             tabs[tab].component
           }
+          {renderFooter && renderFooter(tab)}
         </Container>
       </div>
     );
