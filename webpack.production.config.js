@@ -18,10 +18,10 @@ module.exports = config => ({
   entry: ['babel-polyfill'].concat(config.entry),
   devtool: 'source-map',
   output: {
-    path: path.join(__dirname, './docs'),
+    path: path.join(__dirname, `./dist/${process.env.ENVIRONMENT}`),
     filename: '[name].[chunkhash].js',
     sourceMapFilename: '[name].[chunkhash].js.map',
-    publicPath: './',
+    publicPath: process.env.PUBLIC_PATH || './',
   },
   plugins: config.plugins.concat([
     // new NameAllModulesPlugin(),

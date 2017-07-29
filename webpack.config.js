@@ -8,8 +8,9 @@ const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
 
-const nodeEnv = process.env.NODE_ENV;
-const production = nodeEnv === 'production';
+// if process.env.ENVIRONMENT is set, always use `production` flag, but pass the ENVIRONMENT, too.
+const environment = process.env.ENVIRONMENT;
+const production = !!environment; // if this is truthy (i.e. set, then we're good)
 const envConfig = production ? require('./webpack.production.config.js') : require('./webpack.development.config');
 
 const date = new Date();
@@ -68,7 +69,8 @@ const baseConfig = {
     new CopyWebpackPlugin([{ from: './src/assets/icon.png', to: 'favicon.ico' }]),
     new webpack.DefinePlugin({
       'process.env': {
-        NODE_ENV: JSON.stringify(nodeEnv),
+        ENVIRONMENT: JSON.stringify(environment || 'development'), // staging / production / development
+        NODE_ENV: JSON.stringify(production ? 'production' : 'development'), // for react
       },
     }),
   ],
