@@ -20,7 +20,7 @@ const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 
 // Below is a WIP HACK before implementing temporary persistence layer for dev mode
 // toggle `persist` to disable
-const persist = true;
+const persist = false;
 
 const enhancers = persist ?
   composeEnhancers(autoRehydrate(), applyMiddleware(thunk)) :
