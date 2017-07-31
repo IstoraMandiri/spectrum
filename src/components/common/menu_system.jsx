@@ -1,7 +1,9 @@
 import React, { PropTypes, Component } from 'react';
-import { Menu, Container } from 'semantic-ui-react';
+import { Menu, Dropdown, Container } from 'semantic-ui-react';
 import { Redirect, Switch, Route } from 'react-router-dom';
 import ActiveLink from '~/components/common/active_link';
+
+import MenuSystemDropdown from './menu_system_dropdown';
 
 export default class MenuSystem extends Component {
   static propTypes = {
@@ -19,6 +21,7 @@ export default class MenuSystem extends Component {
     renderFooter: PropTypes.func,
     renderTab: PropTypes.func,
     hidden: PropTypes.bool,
+    dropdown: PropTypes.ptb,
   }
   static defaultProps = {
     className: undefined,
@@ -33,6 +36,7 @@ export default class MenuSystem extends Component {
     menuProps: undefined,
     renderFooter: undefined,
     renderTab: undefined,
+    dropdown: false,
     hidden: false,
   }
   constructor(props) {
@@ -41,6 +45,15 @@ export default class MenuSystem extends Component {
   }
   handleClick(tab) {
     this.setState({ tab });
+  }
+  renderItems(mappedTabs) {
+    const { renderTab, dropdown } = this.props;
+    const ItemComp = dropdown ? Dropdown.Item : Menu.Item;
+    return mappedTabs.map(({ hidden, exact, icon, key, content, active, as, to, onClick, disabled, props }) => {
+      if (hidden) { return null; }
+      if (renderTab) { return renderTab({ exact, icon, key, content, active, as, to, onClick, disabled, ...props }); }
+      return <ItemComp {...{ exact, icon, key, content, active, as, to, onClick, disabled, ...props }} />;
+    });
   }
   render() {
     const { tab } = this.state;
@@ -57,8 +70,9 @@ export default class MenuSystem extends Component {
       secondary,
       renderFooter,
       renderLastItem,
-      renderTab,
+      dropdown,
     } = this.props;
+    const MenuComp = dropdown ? MenuSystemDropdown : Menu;
     const mappedTabs = tabs.map(({ name, hidden, exact, icon, component, path, props }, i) => {
       const absolutePath = parentRoute && path[0] !== '/' ? `${parentRoute}/${path}` : path;
       return {
@@ -79,21 +93,20 @@ export default class MenuSystem extends Component {
     return (
       <div className={className}>
         {!this.props.hidden &&
-          <Menu
-            borderless
-            {...{ fixed, secondary }}
+          <MenuComp
             widths={equalWidths ? tabs.filter(t => !t.hidden).length : undefined}
+            {...{ fixed, secondary }}
             {...menuProps}
           >
-            <Container>
-              {mappedTabs.map(({ hidden, exact, icon, key, content, active, as, to, onClick, disabled, props }) => {
-                if (hidden) { return null; }
-                if (renderTab) { return renderTab({ exact, icon, key, content, active, as, to, onClick, disabled, ...props }); }
-                return <Menu.Item {...{ exact, icon, key, content, active, as, to, onClick, disabled, ...props }} />;
-              })}
-              {renderLastItem && renderLastItem()}
-            </Container>
-          </Menu>
+            {dropdown ?
+              this.renderItems(mappedTabs).concat((renderLastItem && renderLastItem()) || [])
+            :
+              <Container>
+                {this.renderItems(mappedTabs)}
+                {renderLastItem && renderLastItem()}
+              </Container>
+            }
+          </MenuComp>
         }
         <Container style={{ marginTop: !this.props.hidden ? marginTop : undefined }}>
           {usingRouter ?
