@@ -31,11 +31,11 @@
       "type": "image/png"
     }
   ],
-  "name": "Spectrum",
+  "name": "Digix KYC",
   "orientation": "portrait",
   "display": "standalone",
   "start_url": "/identity/",
-  "short_name": "Spectrum",
+  "short_name": "Digix KYC",
   "description": "Full Gamut Ethereum Lightsuite",
   "background_color": "#111111",
   "theme_color": "#111111"
