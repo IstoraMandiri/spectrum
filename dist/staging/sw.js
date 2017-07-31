@@ -11,12 +11,12 @@ var __wpo = {
       "./digix_logo_minimal_blue_mini.png?550f5065652c4fd14ed7189763875643",
       "./webcam_approval.png?ad30ac0ae235942bddcfffcce8442e97",
       "./main.7e3c46942798a0f16204.js",
-      "./runtime.cb4af77eff2e4deb8c67.js",
+      "./runtime.e903c7b6de94ac9d87a1.js",
       "./vendor.c4064e269e41f9a47a38.js",
-      "./style.f03dddee998a091d18a012efa2d68b81.css",
+      "./style.89cc3f351365733c27708dc913ecae9b.css",
       "./",
       "./favicon.ico",
-      "./manifest.818859d7543b28ea3afa4d7f8a6d0de2.json",
+      "./manifest.e791d18b39dbe0f567c4284877cc3538.json",
       "./icon_512x512.4237ff215d625915fe2d1fb0fded2f95.png",
       "./icon_256x256.79d468a5711b83b803881b496a31c5ac.png",
       "./icon_192x192.98dfe72f30ec52720db8b2ef49e85259.png",
@@ -39,12 +39,12 @@ var __wpo = {
     "41cdcc80017a97693b4a811c8bc614dcb43f373d": "./digix_logo_minimal_blue_mini.png?550f5065652c4fd14ed7189763875643",
     "c584e01ab1a9d216eddbef496c037c084792ca10": "./webcam_approval.png?ad30ac0ae235942bddcfffcce8442e97",
     "62b8578214545cbc2be7dbb77b2e147ea08fd95e": "./main.7e3c46942798a0f16204.js",
-    "f81719f4b7bbd8f2a0313b251d292957493bfd45": "./runtime.cb4af77eff2e4deb8c67.js",
+    "e45d0748229af7e9d94d86c6e4550023bc611748": "./runtime.e903c7b6de94ac9d87a1.js",
     "44427a79a6f66a55b533e35aa003de38b4e25740": "./vendor.c4064e269e41f9a47a38.js",
-    "6a6f7a38a8ea7315acbbe84fbdf561f9b9d7730e": "./style.f03dddee998a091d18a012efa2d68b81.css",
-    "fae88fd424a57e67580555cef950214dff66137c": "./",
+    "60c4ff3024eae44d83751449e57d32310eecb0b8": "./style.89cc3f351365733c27708dc913ecae9b.css",
+    "5670f86ff1bfb36a02fb6e73dad0dace6744e8d7": "./",
     "c774a5dd5eeb329ec379325ba9f5c2e909dceecb": "./favicon.ico",
-    "a941a095f1fc57ccfb55d2cc82d11d231bd150d0": "./manifest.818859d7543b28ea3afa4d7f8a6d0de2.json",
+    "973da669f2bc60080b970f7cd98d43c45c699c5c": "./manifest.e791d18b39dbe0f567c4284877cc3538.json",
     "5769606e5e998fc8649481b73a64bfb1b42caa10": "./icon_512x512.4237ff215d625915fe2d1fb0fded2f95.png",
     "b6e12086aa680b15610afb7734d7c3006069fc38": "./icon_256x256.79d468a5711b83b803881b496a31c5ac.png",
     "33f0a1aa9a12a30d580a6c99ea12f17efdad9f64": "./icon_192x192.98dfe72f30ec52720db8b2ef49e85259.png",
@@ -54,7 +54,7 @@ var __wpo = {
   },
   "strategy": "changed",
   "responseStrategy": "cache-first",
-  "version": "2017-7-31 13:40:50",
+  "version": "2017-7-31 13:50:47",
   "name": "webpack-offline",
   "pluginVersion": "4.8.1",
   "relativePaths": true
@@ -119,7 +119,7 @@ var __wpo = {
 /******/ 	__webpack_require__.o = function(object, property) { return Object.prototype.hasOwnProperty.call(object, property); };
 /******/
 /******/ 	// __webpack_public_path__
-/******/ 	__webpack_require__.p = "/identity";
+/******/ 	__webpack_require__.p = "/identity/";
 /******/
 /******/ 	// Load entry module and return exports
 /******/ 	return __webpack_require__(__webpack_require__.s = 0);
