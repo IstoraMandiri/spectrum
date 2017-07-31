@@ -8,7 +8,6 @@ module.exports = config => ({
   devServer: {
     hot: true,
     publicPath: '/',
-    host: '0.0.0.0',
     port: 3000,
     watchOptions: {
       aggregateTimeout: 300,
