@@ -44,8 +44,8 @@ module.exports = config => ({
     // TODO fix compatability with SRI?
     // new SriPlugin({ hashFuncNames: ['sha256'] }),
     new WebpackPwaManifest({
-      name: 'Spectrum',
-      short_name: 'Spectrum',
+      name: process.env.APP_TITLE || 'spectrum',
+      short_name: process.env.APP_TITLE || 'spectrum',
       display: 'standalone',
       start_url: process.env.PUBLIC_PATH || '.',
       description: 'Full Gamut Ethereum Lightsuite',
