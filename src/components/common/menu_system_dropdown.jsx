@@ -1,5 +1,5 @@
 import React, { PropTypes, Component } from 'react';
-import { Menu, Dropdown, Container } from 'semantic-ui-react';
+import { Dropdown, Container } from 'semantic-ui-react';
 
 export default class MenuSystemDropdown extends Component {
   static propTypes = {

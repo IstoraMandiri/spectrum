@@ -47,7 +47,7 @@ module.exports = config => ({
       name: 'Spectrum',
       short_name: 'Spectrum',
       display: 'standalone',
-      start_url: '.',
+      start_url: process.env.PUBLIC_PATH || '.',
       description: 'Full Gamut Ethereum Lightsuite',
       background_color: '#111111',
       theme_color: '#111111',
