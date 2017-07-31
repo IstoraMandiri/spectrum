@@ -31,7 +31,7 @@ export default class App extends Component {
             renderLastItem={() => <ConnectionStatus />}
             tabs={[
               { path: '/kyc', name: 'Digix KYC', icon: 'id card', component: KycSystem },
-              { exact: true, path: '/', name: 'Keystores', icon: 'key', component: Keystores },
+              { exact: true, path: '/keystores', name: 'Keystores', icon: 'key', component: Keystores },
               { path: '/config', name: 'Config', icon: 'wrench', component: Config },
               // { path: '/dapplets', name: 'Dapplets', icon: 'code', component: Dapplets },
             ]}
