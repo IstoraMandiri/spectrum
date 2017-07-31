@@ -18,6 +18,7 @@ const ymd = [date.getUTCFullYear(), date.getUTCMonth() + 1, date.getUTCDate()].j
 const hms = [date.getUTCHours(), date.getUTCMinutes(), date.getUTCSeconds()].join(':');
 
 const buildName = `v${version} ${ymd} ${hms}`;
+const title = process.env.APP_TITLE || `${(!production && '[DEV] ') || ''}Spectrum`;
 
 console.log('Building Spectrum', buildName);
 
@@ -28,7 +29,7 @@ const baseConfig = {
   module: {
     loaders: [{
       test: /\.html$/,
-      loader: 'html-loader',
+      loader: 'underscore-template-loader',
     }, {
       test: /manifest.json$/,
       loader: 'file-loader?name=manifest.json!web-app-manifest-loader',
@@ -67,7 +68,11 @@ const baseConfig = {
     }],
   },
   plugins: [
-    new HtmlWebpackPlugin({ template: './src/index.html', chunksSortMode: 'dependency' }),
+    new HtmlWebpackPlugin({
+      title,
+      template: './src/index.html',
+      chunksSortMode: 'dependency',
+    }),
     new CopyWebpackPlugin([{ from: './src/assets/icon.png', to: 'favicon.ico' }]),
     new webpack.DefinePlugin({
       'process.env': {
