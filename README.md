@@ -80,3 +80,5 @@ See `package.json` for scripts:
 ## License
 
 BSD-3-clause, 2017
+
+Distributions must include the "Powered by Spectrum" link in the Main Menu or Footer.
