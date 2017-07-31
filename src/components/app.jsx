@@ -4,8 +4,6 @@ import KycSystem from '@digix/kyc-system';
 
 import { Dropdown } from 'semantic-ui-react';
 
-import { Dropdown } from 'semantic-ui-react';
-
 import TransactionSigningOverlay from '~/components/transactions/transaction_signing_overlay';
 import MenuSystem from '~/components/common/menu_system';
 import StartupOverlay from '~/components/common/startup_overlay';
