@@ -141,6 +141,6 @@
     "webpack": "^3.2.0",
     "webpack-bundle-analyzer": "^2.8.2",
     "webpack-dev-server": "^2.5.0",
-    "webpack-pwa-manifest": "^3.0.0"
+    "webpack-pwa-manifest": "^3.1.6"
   }
 }
