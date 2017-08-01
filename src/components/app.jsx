@@ -72,7 +72,7 @@ export default class App extends Component {
             />
           </HashRouter>
         }
-        { config.menuStyle !== 'default' && <Footer /> }
+        { config.menuStyle === 'default' && <Footer /> }
       </div>
     );
   }
