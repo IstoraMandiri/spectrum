@@ -7,7 +7,6 @@ import { reducer as cryptoPrices } from '@digix/redux-crypto-prices/src';
 import { reducer as web3Redux } from 'web3-redux';
 import kycSystem from '@digix/kyc-system/spectrum/reducer';
 
-import config from '~/config';
 import { reducer as orm } from '~/models';
 import { init as initWeb3 } from '~/helpers/web3';
 import { createDefaultSession } from '~/actions/session';
@@ -21,7 +20,7 @@ const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 
 // Below is a WIP HACK before implementing temporary persistence layer for dev mode
 // toggle `persist` to disable
-const persist = config.localStorage;
+const persist = false;
 
 const enhancers = persist ?
   composeEnhancers(autoRehydrate(), applyMiddleware(thunk)) :
