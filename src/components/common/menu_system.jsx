@@ -95,7 +95,6 @@ export default class MenuSystem extends Component {
         {!this.props.hidden &&
           <MenuComp
             widths={equalWidths ? tabs.filter(t => !t.hidden).length : undefined}
-            {...{ fixed, secondary }}
             {...menuProps}
           >
             {dropdown ?

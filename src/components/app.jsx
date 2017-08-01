@@ -41,20 +41,19 @@ export default class App extends Component {
                 dropdown: true,
                 marginTop: '4em',
                 renderLastItem: () => [
-                  <Dropdown.Divider />,
+                  <Dropdown.Divider key="divider1" />,
                   <Dropdown.Header
+                    key="header"
                     content="Powered by Spectrum"
                     as="a"
                     target="_blank"
                     rel="noopener"
                     href="https://github.com/spectrum"
                   />,
-                  <Dropdown.Divider />,
+                  <Dropdown.Divider key="divider2" />,
                 ],
                 menuProps: {
-                  watermark: 'Powered by Spectrum',
                   icon: 'content',
-                  labelPosition: 'right',
                   floating: true,
                   button: true,
                   className: 'icon',
@@ -65,7 +64,7 @@ export default class App extends Component {
               }
               :
               {
-                fixed: 'top',
+                menuProps: { fixed: 'top' },
                 marginTop: '5em',
               }
               )}
