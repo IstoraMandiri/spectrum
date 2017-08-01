@@ -21,7 +21,7 @@ export default class MenuSystem extends Component {
     renderFooter: PropTypes.func,
     renderTab: PropTypes.func,
     hidden: PropTypes.bool,
-    dropdown: PropTypes.ptb,
+    dropdown: PropTypes.bool,
   }
   static defaultProps = {
     className: undefined,
