@@ -23,54 +23,51 @@ const menu = ((config.dapplet && [config.dapplet]) || []).concat([
 
 export default class App extends Component {
   render() {
+    if (config.menuStyle === 'hidden') { return <config.dapplet.component />; }
     return (
       <div className="pusher">
         <TransactionSigningOverlay />
         {config.showOverlay && <StartupOverlay />}
-        {config.menuStyle === 'hidden' ?
-          <config.dapplet.component />
-        :
-          <HashRouter>
-            <MenuSystem
-              usingRouter
-              className="content"
-              renderLastItem={() => <ConnectionStatus />}
-              tabs={menu}
-              {...(config.menuStyle === 'hamburger' ?
-              {
-                dropdown: true,
-                marginTop: '4em',
-                renderLastItem: () => [
-                  <Dropdown.Divider key="divider1" />,
-                  <Dropdown.Header
-                    key="header"
-                    content="Powered by Spectrum"
-                    as="a"
-                    target="_blank"
-                    rel="noopener"
-                    href="https://github.com/spectrum"
-                  />,
-                  <Dropdown.Divider key="divider2" />,
-                ],
-                menuProps: {
-                  icon: 'content',
-                  floating: true,
-                  button: true,
-                  className: 'icon',
-                  pointing: 'right',
-                  size: 'small',
-                  style: { right: '0.5em', top: '0.5em', position: 'fixed', zIndex: 3 },
-                },
-              }
-              :
-              {
-                menuProps: { fixed: 'top' },
-                marginTop: '5em',
-              }
-              )}
-            />
-          </HashRouter>
-        }
+        <HashRouter>
+          <MenuSystem
+            usingRouter
+            className="content"
+            renderLastItem={() => <ConnectionStatus />}
+            tabs={menu}
+            {...(config.menuStyle === 'hamburger' ?
+            {
+              dropdown: true,
+              marginTop: '4em',
+              renderLastItem: () => [
+                <Dropdown.Divider key="divider1" />,
+                <Dropdown.Header
+                  key="header"
+                  content="Powered by Spectrum"
+                  as="a"
+                  target="_blank"
+                  rel="noopener"
+                  href="https://github.com/spectrum"
+                />,
+                <Dropdown.Divider key="divider2" />,
+              ],
+              menuProps: {
+                icon: 'content',
+                floating: true,
+                button: true,
+                className: 'icon',
+                pointing: 'right',
+                size: 'small',
+                style: { right: '0.5em', top: '0.5em', position: 'fixed', zIndex: 3 },
+              },
+            }
+            :
+            {
+              menuProps: { fixed: 'top' },
+              marginTop: '5em',
+            }
+            )}
+          />
+        </HashRouter>
         { config.menuStyle === 'default' && <Footer /> }
       </div>
     );

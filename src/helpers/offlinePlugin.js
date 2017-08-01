@@ -1,9 +1,9 @@
 /* eslint-disable no-alert, global-require */
 
-import config from '~/config';
+const enabled = process.env.NODE_ENV === 'production';
 
 // TODO start a timer and auto-refresh if we're not
-if (config.webWorker) {
+if (enabled) {
   let autoReload = true;
   setTimeout(() => { autoReload = false; }, 10 * 1000); // 10 secs
   const OfflinePluginRuntime = require('offline-plugin/runtime');
