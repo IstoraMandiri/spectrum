@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import EZModal from 'sui-react-ezmodal';
 import { Icon, Label, Message, Button } from 'semantic-ui-react';
 
+import config from '~/config';
 
 export default class StartupOverlay extends Component {
   constructor(props) {
@@ -9,20 +10,19 @@ export default class StartupOverlay extends Component {
     this.state = { hidden: false };
   }
   render() {
+    if (this.state.hidden) { return null; }
     return (
       <div>
-        {!this.state.hidden &&
-          <Label
-            pointing
-            icon="warning sign"
-            content="Beware of phishing! Always check the URL!"
-            color="purple"
-            style={{ position: 'fixed', top: 0, left: 10, maxWidth: '100%', zIndex: 1002 }}
-          />
-        }
+        <Label
+          pointing
+          icon="warning sign"
+          content="Beware of phishing! Always check the URL!"
+          color="purple"
+          style={{ position: 'fixed', top: 0, left: 10, maxWidth: '100%', zIndex: 1002 }}
+        />
         <EZModal
           initiallyOpen
-          header="Digix KYC Process (Early Access)"
+          header={config.overlay.header}
           onClose={() => this.setState({ hidden: true })}
           content={
             <div>
@@ -30,27 +30,7 @@ export default class StartupOverlay extends Component {
                 <Icon name="warning sign" />
                 <Message.Content>
                   <Message.Header content="Imprtant Big Red Warning Message (Please Read)" />
-                  <ul>
-                    <li>This version of Spectrum has <b>localStorage disabled</b>, as a security enhancement</li>
-                    <li>
-                      Spectrum has not been audited for security vulnerabilities -
-                      as such, <b>do not use keystores that have any more than $10 value</b>
-                    </li>
-                    <li>By using this app your accpet that the developer cannot take responsibility for any losses</li>
-                    <li>Ensure you are not using any dodgy chrome extensions</li>
-                    <li>Tested on Chrome OSX & Android</li>
-                  </ul>
-                  <p>
-                    * For more infromation, and to report issues please visit the
-                    {' '}
-                    <a
-                      href="https://digix.io"
-                      rel="noopener noreferrer"
-                      target="_blank"
-                    >
-                        Digix Slack
-                    </a>.
-                  </p>
+                  {config.overlay.content}
                 </Message.Content>
               </Message>
             </div>
