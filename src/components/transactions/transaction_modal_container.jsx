@@ -18,11 +18,13 @@ class TransactionModalContainer extends Component {
     size: PropTypes.string,
     closeButtonText: PropTypes.string.isRequired,
     noSubmitButton: PropTypes.bool.isRequired,
+    submitButtonText: PropTypes.string,
   }
   static defaultProps = {
     network: undefined,
     onClose: undefined,
     size: undefined,
+    submitButtonText: undefined,
   }
   constructor(props) {
     super(props);
@@ -48,6 +50,7 @@ class TransactionModalContainer extends Component {
           onClose: this.props.onClose,
           closeButtonText: this.props.closeButtonText,
           noSubmitButton: this.props.noSubmitButton,
+          submitButtonText: this.props.submitButtonText,
           handleSubmit: this.handleSubmit,
           content: props => this.props.content({ ...props, web3 }),
         }}
