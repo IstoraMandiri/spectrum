@@ -1,6 +1,7 @@
 import React from 'react';
 
 export default {
+  showOverlay: process.env.NODE_ENV === 'production',
   menuStyle: 'default', // default, hamburger, hidden
   overlay: {
     header: 'Spectrum Developer Edition',
