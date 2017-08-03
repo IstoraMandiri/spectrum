@@ -51,7 +51,7 @@ export function parseBigNumber(_bigNumber, shift = 0, format) {
   const str = num.toFormat();
   const decimals = str.split('.')[1];
   const decimalCount = decimals && decimals.length;
-  const maxDecimals = 5;
+  const maxDecimals = format || 5;
   if (decimalCount > maxDecimals) {
     return `${num.toFormat(maxDecimals)}...`;
   }
