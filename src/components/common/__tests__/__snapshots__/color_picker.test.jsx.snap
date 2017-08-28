@@ -21,6 +21,7 @@ exports[`<ColorPicker /> renders correctly 1`] = `
     noResultsMessage="No results found."
     openOnFocus={true}
     renderLabel={[Function]}
+    searchInput="text"
     selectOnBlur={true}
     text="Black"
   >

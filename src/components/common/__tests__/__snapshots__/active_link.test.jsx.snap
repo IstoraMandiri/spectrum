@@ -3,6 +3,7 @@
 exports[`<ActiveLink /> renders correctly 1`] = `
 <NavLink
   activeClassName="active"
+  ariaCurrent="true"
   testProp="test"
   to="/"
 />

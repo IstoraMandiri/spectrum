@@ -3,7 +3,7 @@
 exports[`<ErrorMessage /> renders correctly 1`] = `
 <Message
   content="Test Error message"
-  header="Oops, something went wrong..."
+  header="Error"
   icon="warning sign"
   negative={true}
 />

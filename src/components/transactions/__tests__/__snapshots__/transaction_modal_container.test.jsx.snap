@@ -3,6 +3,7 @@
 exports[`<TransactionModalContainer /> renders correctly 1`] = `
 <EZModal
   closeButtonText="test close button text"
+  closeOnDimmerClick={true}
   content={[Function]}
   data={Object {}}
   error="test error"

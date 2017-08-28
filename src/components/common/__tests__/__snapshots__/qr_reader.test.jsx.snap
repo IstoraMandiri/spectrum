@@ -10,7 +10,6 @@ exports[`<QrReader /> renders correctly 1`] = `
     maxImageSize={1000}
     onError={[Function]}
     onScan={[Function]}
-    style={Object {}}
   />
 </div>
 `;

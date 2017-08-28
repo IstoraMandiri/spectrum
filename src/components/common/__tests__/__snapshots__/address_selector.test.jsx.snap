@@ -6,41 +6,41 @@ exports[`<AddressSelector /> renders correctly 1`] = `
     Array [
       Object {
         "address": "address test 1",
-        "color": "white",
         "id": "address test 1",
         "keystore": Object {
           "type": Object {
             "color": "white",
           },
         },
-        "name": "addres... address 1",
+        "name": "address 1",
       },
       Object {
         "address": "address test 2",
-        "color": "black",
         "id": "address test 2",
         "keystore": Object {
           "type": Object {
             "color": "black",
           },
         },
-        "name": "addres... address 2",
+        "name": "address 2",
       },
       Object {
         "address": "address test 4",
-        "color": "orange",
         "id": "address test 4",
         "keystore": Object {
           "type": Object {
             "color": "orange",
           },
         },
-        "name": "addres... address 3",
+        "name": "address 3",
       },
     ]
   }
   onChange={null}
   preText={null}
   props={Object {}}
+  renderBottom={[Function]}
+  renderItem={[Function]}
+  renderTrigger={[Function]}
 />
 `;

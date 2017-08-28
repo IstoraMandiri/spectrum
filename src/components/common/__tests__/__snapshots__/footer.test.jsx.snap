@@ -48,8 +48,7 @@ exports[`<Footer /> renders correctly 1`] = `
       >
         Spectrum Dev Edition
         <br />
-        v
-        0.0.1
+        Built 
       </GridColumn>
     </Grid>
   </Container>

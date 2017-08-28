@@ -4,7 +4,6 @@ exports[`<DropdownSelector /> renders correctly 1`] = `
 <Dropdown
   additionLabel="Add "
   additionPosition="top"
-  button={true}
   className="icon  "
   closeOnBlur={true}
   floating={true}
@@ -15,7 +14,9 @@ exports[`<DropdownSelector /> renders correctly 1`] = `
   noResultsMessage="No results found."
   openOnFocus={true}
   renderLabel={[Function]}
+  searchInput="text"
   selectOnBlur={true}
+  selection={true}
   text="Select "
 >
   <DropdownMenu>

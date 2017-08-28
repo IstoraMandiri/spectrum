@@ -2,10 +2,7 @@
 
 exports[`<MenuSystem /> renders correctly 1`] = `
 <div>
-  <Menu
-    borderless={true}
-    secondary={false}
-  >
+  <Menu>
     <Container>
       <MenuItem
         active={true}

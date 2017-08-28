@@ -3,7 +3,7 @@
 exports[`<Keystores /> renders correctly 1`] = `
 <Grid>
   <GridColumn
-    width={7}
+    width={6}
   >
     <Header>
       Keystores
@@ -14,11 +14,12 @@ exports[`<Keystores /> renders correctly 1`] = `
   </GridColumn>
   <GridColumn
     textAlign="right"
-    width={9}
+    width={10}
   >
     <KeystoreButtons
       createKeystore={[Function]}
       deleteKeystore={[Function]}
+      inverted={false}
       keystoreTypes={Array []}
       keystores={
         Array [
@@ -58,6 +59,7 @@ exports[`<Keystores /> renders correctly 1`] = `
           },
         ]
       }
+      skipImportConfirmation={false}
       updateKeystore={[Function]}
     />
   </GridColumn>
@@ -136,6 +138,7 @@ exports[`<Keystores /> renders correctly 1`] = `
             ]
           }
           removeFunc={[Function]}
+          skipConfirmation={false}
           submitFunc={[Function]}
           trigger={
             <Label
@@ -375,6 +378,7 @@ exports[`<Keystores /> renders correctly 1`] = `
             ]
           }
           removeFunc={[Function]}
+          skipConfirmation={false}
           submitFunc={[Function]}
           trigger={
             <Label

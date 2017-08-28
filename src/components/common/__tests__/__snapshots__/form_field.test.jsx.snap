@@ -1,10 +1,12 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`<FormField /> renders correctly 1`] = `
-<FormField
-  control="input"
-  name="TestField"
-  onChange={[Function]}
-  value="test value"
-/>
+<FormField>
+  <Input
+    name="TestField"
+    onChange={[Function]}
+    type="text"
+    value="test value"
+  />
+</FormField>
 `;
