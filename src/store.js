@@ -5,7 +5,6 @@ import { persistStore, autoRehydrate } from 'redux-persist';
 import { createFilter } from 'redux-persist-transform-filter';
 import { reducer as cryptoPrices } from '@digix/redux-crypto-prices/src';
 import { reducer as web3Redux } from 'web3-redux';
-import kycSystem from '@digix/kyc-system/spectrum/reducer';
 
 import config from '~/../spectrum.config';
 import { reducer as orm } from '~/models';
