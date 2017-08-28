@@ -12,7 +12,9 @@ config = { // for webpack & app
   publicPath: '/marketplace/', // or '', '/'' for root; ignored in development
   appTitle: 'Digix Marketplace [Alpha]', // or null
   menuStyle: 'hidden', // or null, 'hamburger', 'hidden'
-  defaultNetworks: ['eth', 'eth-kovan'], // default enabled networks
+  defaultNetworks: ['eth-mainnet', 'eth-kovan'], auto-selected networks
+  enabledNetworks: ['eth-mainnet', 'eth-kovan'], auto-connected networks
+  availableNetworks: ['eth-mainnet', 'eth-kovan'], prepopulated networks
   persistCore: false, // or true to persist accounts / token / network config
   themeFolder: '@digix/sui-theme/semantic-ui',
   // dappletName: 'Digix KYC System',
