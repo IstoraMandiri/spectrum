@@ -14,6 +14,8 @@ export default class TransactionModal extends Component {
     onMined: PropTypes.func,
     onBroadcast: PropTypes.func,
     renderConfirmation: PropTypes.func,
+    renderFailure: PropTypes.func,
+    handleValidation: PropTypes.func,
     onClose: PropTypes.func,
     size: PropTypes.string,
     network: PropTypes.object,
@@ -25,6 +27,8 @@ export default class TransactionModal extends Component {
     onClose: undefined,
     size: undefined,
     network: undefined,
+    renderFailure: undefined,
+    handleValidation: undefined,
     data: {},
   }
   constructor(props) {
@@ -33,10 +37,15 @@ export default class TransactionModal extends Component {
     this.handleSubmit = this.handleSubmit.bind(this);
     this.handleClose = this.handleClose.bind(this);
     this.handleMined = this.handleMined.bind(this);
+    this.handleValidation = this.handleValidation.bind(this);
   }
   handleClose() {
+    if (this.state.failure) {
+      this.setState({ txHash: false, failure: false });
+      return false; // keep the window open
+    }
     if (this.props.onClose) { this.props.onClose(this.state); }
-    this.setState(defaultState);
+    return this.setState(defaultState);
   }
   handleMined(txData, web3) {
     const { onMined } = this.props;
@@ -44,6 +53,17 @@ export default class TransactionModal extends Component {
       const { formData } = this.state;
       onMined({ txData, formData }, web3);
     }
+  }
+  handleValidation(txData, web3) {
+    const { handleValidation } = this.props;
+    if (handleValidation) {
+      const { formData } = this.state;
+      return handleValidation({ txData, formData }, web3).catch(() => {
+        this.setState({ failure: true });
+        throw new Error('Failure');
+      });
+    }
+    return null;
   }
   handleSubmit(formData, web3) {
     // set the networkId
@@ -56,7 +76,7 @@ export default class TransactionModal extends Component {
       throw new Error('Network ID mismatch');
     }
     // set the network ID, in case web3 was not passed
-    this.setState({ loading: true, error: false, txHash: null });
+    this.setState({ loading: true, error: false, txHash: null, networkId: web3.networkId });
     // only pass the nonce if it's an integer
     const { nonce, ...sanitizedData } = formData;
     if (Number.isInteger(parseInt(nonce, 10))) {
@@ -66,24 +86,39 @@ export default class TransactionModal extends Component {
       .then(() => handleTransaction(sanitizedData, web3))
       .then((txHash) => {
         if (!txHash) { throw Error('Transaction was not published!'); }
-        this.setState({ formData, networkId: web3.networkId, txHash, loading: false, broadcast: new Date() });
+        this.setState({ formData, txHash, loading: false, broadcast: new Date() });
         if (onBroadcast) { onBroadcast({ formData, txHash }); }
       })
       .catch(error => this.setState({ error, loading: false }));
     return false; // don't close on submit
   }
   renderTracker() {
-    const { renderConfirmation } = this.props;
-    const { txHash, networkId, broadcast } = this.state;
-    const { handleMined: onMined } = this;
-    return <TransactionTracker {...{ broadcast, txHash, onMined, networkId, renderConfirmation }} />;
+    const { renderConfirmation, renderFailure } = this.props;
+    const { failure, txHash, networkId, broadcast, formData } = this.state;
+    const { handleMined: onMined, handleValidation, handleGoBack } = this;
+    return (
+      <TransactionTracker
+        {...{
+          broadcast,
+          txHash,
+          onMined,
+          failure,
+          formData,
+          networkId,
+          renderConfirmation,
+          renderFailure,
+          handleValidation,
+          handleGoBack,
+        }}
+      />
+    );
   }
   renderForm(props) {
     return <TransactionModalForm {...this.props} {...props} />;
   }
   render() {
     const { data, trigger, size, network } = this.props;
-    const { txHash, open } = this.state;
+    const { txHash, open, failure } = this.state;
     const networkId = data.networkId || (network && network.id) || undefined;
     if (!open) {
       return <span tabIndex={0} role="button" onClick={() => this.setState({ open: true })}>{trigger}</span>;
@@ -98,7 +133,7 @@ export default class TransactionModal extends Component {
           size: (txHash && 'small') || size || undefined,
           onClose: this.handleClose,
           handleSubmit: this.handleSubmit,
-          closeButtonText: !txHash ? 'Cancel' : 'Done',
+          closeButtonText: (txHash && failure && 'Back') || (!txHash && 'Cancel') || 'Done',
           noSubmitButton: !!txHash,
           content: (props) => {
             if (txHash) { return this.renderTracker(props); }

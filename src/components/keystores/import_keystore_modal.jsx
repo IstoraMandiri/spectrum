@@ -9,6 +9,10 @@ export default class ImportKeystore extends Component {
   static propTypes = {
     trigger: PropTypes.node.isRequired,
     createKeystore: PropTypes.func.isRequired,
+    skipConfirmation: PropTypes.bool,
+  }
+  static defaultProps = {
+    skipConfirmation: false,
   }
   constructor(props) {
     super(props);
@@ -20,14 +24,16 @@ export default class ImportKeystore extends Component {
     this.setState({ privateKey, password, name });
   }
   handleReset() {
-    this.setState({ privateKey: false });
+    this.setState({ privateKey: false, password: null });
   }
   renderUnlocked() {
     const { privateKey, password, name } = this.state;
     return (
       <KeystoreModal
         initiallyOpen
+        size={this.props.skipConfirmation ? 'small' : undefined}
         hideMenu
+        skipConfirmation={this.props.skipConfirmation}
         header="Import Unlocked Keystore"
         data={{ type: 'v3', privateKey, password, confirmPassword: password, name }}
         onClose={this.handleReset}
@@ -41,6 +47,7 @@ export default class ImportKeystore extends Component {
     return (
       <EZModal
         header="Import Keystore"
+        size="small"
         noSubmitButton
         trigger={this.props.trigger}
         onClose={this.handleReset}

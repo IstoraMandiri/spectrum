@@ -1,7 +1,8 @@
 import React, { PropTypes, Component } from 'react';
 import { connect } from 'react-redux';
+import { Divider } from 'semantic-ui-react';
 
-import { getKeystoreTypes } from '~/selectors';
+import { getKeystoreTypes, getNetworksWithTokens, getDefaultNetworks } from '~/selectors';
 
 import EZModal from 'sui-react-ezmodal';
 
@@ -17,14 +18,20 @@ class KeystoreModal extends Component {
     data: PropTypes.object,
     keystoreTypes: PropTypes.array.isRequired,
     onClose: PropTypes.func,
+    networks: PropTypes.array.isRequired,
+    skipConfirmation: PropTypes.bool,
+    defaultNetworks: PropTypes.array.isRequired,
+    size: PropTypes.string,
   };
   static defaultProps = {
+    size: undefined,
     initiallyOpen: undefined,
     header: undefined,
     removeFunc: undefined,
     hideMenu: undefined,
     data: undefined,
     onClose: undefined,
+    skipConfirmation: false,
   }
   constructor(props) {
     super(props);
@@ -33,6 +40,23 @@ class KeystoreModal extends Component {
     this.resetState = this.resetState.bind(this);
     this.handleClose = this.handleClose.bind(this);
     this.state = { loading: false, error: false };
+  }
+  componentDidMount() {
+    if (this.props.skipConfirmation) {
+      // populate the name autoamtically
+      this.handleSubmit({ ...this.getDefaultData(), name: 'Imported Keystore' });
+    }
+  }
+  getDefaultData() {
+    const { data = {}, networks, defaultNetworks } = this.props;
+    // set the default network if it's not defined (can be blank array if no networks set)
+    return {
+      ...data,
+      networks: data.networks || defaultNetworks,
+      tokens: data.tokens || networks.reduce((o, network) => (
+        o.concat((network.tokens || []).map(token => token.default && token.id).filter(a => a))
+      ), []),
+    };
   }
   handleSubmit(newFormData) {
     this.setState({ error: false });
@@ -83,8 +107,9 @@ class KeystoreModal extends Component {
     return (
       <EZModal
         initiallyOpen={this.props.initiallyOpen}
+        size={this.props.size}
         header={({ formData }) => this.props.header || (!formData.type && 'Select Keystore Type') || 'Create Keystore'}
-        data={this.props.data || {}}
+        data={this.getDefaultData()}
         loading={this.state.loading}
         error={this.state.error}
         trigger={this.props.trigger}
@@ -93,12 +118,21 @@ class KeystoreModal extends Component {
         onClose={this.handleClose}
         onReset={this.resetState}
         noSubmitButton={({ formData }) => !formData.type}
-        content={props => <KeystoreForm {...props} {...{ keystoreTypes, hideMenu }} />}
+        content={props => (
+          (this.props.skipConfirmation && !this.state.error) ?
+            <Divider hidden /> :
+            <KeystoreForm {...props} {...{ keystoreTypes, hideMenu }} />
+        )}
       />
     );
   }
 }
 
-const mapStateToProps = state => ({ keystoreTypes: getKeystoreTypes(state) });
+const mapStateToProps = state => ({
+  keystoreTypes: getKeystoreTypes(state),
+  networks: getNetworksWithTokens(state),
+  defaultNetworks: getDefaultNetworks(state),
+  // default networks
+});
 
 export default connect(mapStateToProps)(KeystoreModal);

@@ -30,7 +30,7 @@ export default class ImportKeystoreForm extends Component {
       try {
         const wallet = Wallet.fromV3(fileContent, password, true);
         const privateKey = wallet.getPrivateKey().toString('hex');
-        onGetPrivateKey({ privateKey, password, name: keystore.name });
+        onGetPrivateKey({ privateKey, password, name: keystore.name }, this.props);
       } catch (error) {
         this.props.setError(error);
         setLoading(false);

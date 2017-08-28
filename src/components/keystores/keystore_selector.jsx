@@ -24,6 +24,7 @@ export default class KeystoreSelector extends Component {
           defaultText="Select Keystore Type"
           name="type"
           items={keystoreTypes}
+          button
           {...{ formChange, formData, resetFormData }}
         />
         <KeystoreTypeMessage keystoreType={keystoreType} />

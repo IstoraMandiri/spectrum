@@ -47,13 +47,13 @@ class Keystores extends Component {
   render() {
     return (
       <Grid>
-        <Grid.Column width={7}>
+        <Grid.Column width={6}>
           <Header>
             Keystores
             <Header.Subheader>Manage your Accounts</Header.Subheader>
           </Header>
         </Grid.Column>
-        <Grid.Column width={9} textAlign="right">
+        <Grid.Column width={10} textAlign="right">
           <KeystoreButtons {...this.props} />
         </Grid.Column>
         <Grid.Column width={16}>

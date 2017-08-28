@@ -13,11 +13,15 @@ import GenericTransaction from './generic_transaction';
 class KeystoreButtons extends Component {
   static propTypes = {
     createKeystore: PropTypes.func.isRequired,
+    inverted: PropTypes.bool,
     keystores: PropTypes.array,
+    skipImportConfirmation: PropTypes.bool,
   }
   static defaultProps = {
     size: undefined,
     keystores: [],
+    inverted: false,
+    skipImportConfirmation: false,
   }
   render() {
     return (
@@ -28,13 +32,14 @@ class KeystoreButtons extends Component {
           submitFunc={this.props.createKeystore}
           form={KeystoreCreationForm}
           trigger={
-            <Button onClick={e => e.preventDefault()} basic icon="plus" content="Create" />
+            <Button inverted={this.props.inverted} onClick={e => e.preventDefault()} basic icon="plus" content="Create" />
           }
         />
         <ImportKeystoreModal
           {...this.props}
+          skipConfirmation={this.props.skipImportConfirmation}
           trigger={
-            <Button onClick={e => e.preventDefault()} basic icon="upload" content="Import" />
+            <Button inverted={this.props.inverted} onClick={e => e.preventDefault()} basic icon="upload" content="Import" />
           }
         />
       </span>

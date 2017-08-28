@@ -19,12 +19,20 @@ class TransactionModalContainer extends Component {
     closeButtonText: PropTypes.string.isRequired,
     noSubmitButton: PropTypes.bool.isRequired,
     submitButtonText: PropTypes.string,
+    actions: PropTypes.oneOfType([PropTypes.node, PropTypes.func, PropTypes.bool]),
+    txHash: PropTypes.string,
+    closeOnDimmerClick: PropTypes.bool,
+    failure: PropTypes.bool,
   }
   static defaultProps = {
     network: undefined,
     onClose: undefined,
     size: undefined,
     submitButtonText: undefined,
+    actions: undefined,
+    txHash: undefined,
+    failure: false,
+    closeOnDimmerClick: true,
   }
   constructor(props) {
     super(props);
@@ -37,6 +45,7 @@ class TransactionModalContainer extends Component {
   render() {
     // pass web3 to the form if the network is set
     const web3 = this.props.network && this.props.web3Redux.web3(this.props.network.id);
+    const { txHash, failure } = this.props;
     return (
       <EZModal
         {...{
@@ -46,13 +55,15 @@ class TransactionModalContainer extends Component {
           trigger: this.props.trigger,
           data: this.props.data,
           size: this.props.size,
+          closeOnDimmerClick: this.props.closeOnDimmerClick,
           error: this.props.error,
           onClose: this.props.onClose,
           closeButtonText: this.props.closeButtonText,
           noSubmitButton: this.props.noSubmitButton,
           submitButtonText: this.props.submitButtonText,
+          actions: this.props.actions && (props => this.props.actions({ ...props, web3, txHash, failure })),
           handleSubmit: this.handleSubmit,
-          content: props => this.props.content({ ...props, web3 }),
+          content: props => this.props.content({ ...props, web3, failure }),
         }}
       />
     );
