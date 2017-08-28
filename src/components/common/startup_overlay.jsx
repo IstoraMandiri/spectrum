@@ -1,16 +1,32 @@
-import React, { Component } from 'react';
+import React, { PropTypes, Component, cloneElement } from 'react';
 import EZModal from 'sui-react-ezmodal';
-import { Icon, Label, Message, Button } from 'semantic-ui-react';
-
-import config from '~/config';
+import { Label, Button } from 'semantic-ui-react';
 
 export default class StartupOverlay extends Component {
+  static propTypes = {
+    initiallyOpen: PropTypes.bool,
+    trigger: PropTypes.node.isRequired,
+    title: PropTypes.string,
+    content: PropTypes.node,
+  }
+  static defaultProps = {
+    initiallyOpen: true,
+    trigger: undefined,
+    title: undefined,
+    content: undefined,
+  }
   constructor(props) {
     super(props);
-    this.state = { hidden: false };
+    this.state = { hidden: !this.props.initiallyOpen };
+    this.handleTriggerClick = this.handleTriggerClick.bind(this);
+  }
+  handleTriggerClick() {
+    this.setState({ hidden: false });
   }
   render() {
-    if (this.state.hidden) { return null; }
+    const { trigger, content, title } = this.props;
+    const wrappedTrigger = cloneElement(trigger, { onClick: this.handleTriggerClick });
+    if (this.state.hidden) { return wrappedTrigger; }
     return (
       <div>
         <Label
@@ -22,25 +38,29 @@ export default class StartupOverlay extends Component {
         />
         <EZModal
           initiallyOpen
-          header={config.overlay.header}
-          onClose={() => this.setState({ hidden: true })}
+          trigger={wrappedTrigger}
+          closeOnDimmerClick={false}
+          header={title || 'Spectrum'}
+          onClose={() => { this.setState({ hidden: true }); }}
           content={
-            <div>
-              <Message error icon>
-                <Icon name="warning sign" />
-                <Message.Content>
-                  <Message.Header content="Imprtant Big Red Warning Message (Please Read)" />
-                  {config.overlay.content}
-                </Message.Content>
-              </Message>
+            <div
+              style={{
+                maxHeight: '50vh',
+                overflowY: 'scroll',
+                background: 'rgba(0,0,0,.05)',
+                padding: '1em',
+              }}
+            >
+              {content || <p>TODO: Default TOS</p>}
             </div>
           }
           actions={({ hide }) => (
             <Button
               onClick={hide}
-              content="I have read the above"
               color="green"
               icon="checkmark"
+              content="I have read and agree"
+              labelPosition="right"
             />
           )}
         />

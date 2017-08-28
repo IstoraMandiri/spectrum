@@ -11,8 +11,9 @@ const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
 // const SriPlugin = require('webpack-subresource-integrity');
 // TODO enable when https://bugs.chromium.org/p/chromium/issues/detail?id=573269 is fixed
 const WebpackPwaManifest = require('webpack-pwa-manifest');
-const OptimizeCssAssetsPlugin = require('optimize-css-assets-webpack-plugin');
 const StatsPlugin = require('stats-webpack-plugin');
+
+const spectrumConfig = require('./spectrum.config.js');
 
 module.exports = config => ({
   entry: ['babel-polyfill'].concat(config.entry),
@@ -39,15 +40,14 @@ module.exports = config => ({
     }),
     new webpack.optimize.CommonsChunkPlugin({ name: 'runtime' }),
     new ExtractTextPlugin('style.[contenthash].css'),
-    new OptimizeCssAssetsPlugin(),
     new UglifyJsPlugin({ mangle: true, sourceMap: true, comments: false }),
     // TODO fix compatability with SRI?
     // new SriPlugin({ hashFuncNames: ['sha256'] }),
     new WebpackPwaManifest({
-      name: process.env.APP_TITLE || 'spectrum',
-      short_name: process.env.APP_TITLE || 'spectrum',
+      name: spectrumConfig.appTitle || 'Spectrum',
+      short_name: spectrumConfig.appTitle || 'Spectrum',
       display: 'standalone',
-      start_url: process.env.PUBLIC_PATH || '.',
+      start_url: spectrumConfig.publicPath || '.',
       description: 'Full Gamut Ethereum Lightsuite',
       background_color: '#111111',
       theme_color: '#111111',

@@ -15,7 +15,7 @@ export const getNetworksWithTokens = createSelector(
     session.Network.all().toModelArray().map(network => ({
       ...network.ref, tokens: network.tokens.all().toRefArray(),
     }),
-    )),
+  )),
 );
 
 export const getDefaultNetworks = createSelector(
@@ -67,7 +67,7 @@ export const getTokens = createSelector(
       ...token.ref,
       network: token.network.ref,
     }),
-    )),
+  )),
 );
 
 export const getAddresses = createSelector(

@@ -1,5 +1,4 @@
 /* eslint-disable max-len */
-
 export const JSON_BACKUP_VERSION = '0.0.1';
 export const REDUX_PREFIX = 'SPECTRUM';
 export const LEDGER_ETH_KD_PATH = "44'/60'/0'/";
@@ -119,9 +118,10 @@ export const DEFAULT_KEYSTORE_TYPES = [
 
 export const DEFAULT_TOKENS = [
   {
-    address: '0x7a1767df4bad56ba284ac2a07b55d0825abab91c',
+    address: '0xae887dc96ea2724c0eacdd58bf071e7ce718d46f',
     symbol: 'DGX-test',
     decimals: 9,
+    default: true,
     // type: 'default',
     network: 'eth-kovan',
     name: 'DGX Kovan',

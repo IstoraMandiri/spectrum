@@ -10,7 +10,7 @@
     "transform-class-properties",
     ["babel-root-import", { "rootPathSuffix": "src" }],
     "react-hot-loader/babel",
-    "transform-object-rest-spread",
+    "transform-object-rest-spread"
   ],
   "env": {
     "production": {
@@ -37,7 +37,7 @@
       "plugins": [
         "transform-class-properties",
         ["babel-root-import", { "rootPathSuffix": "src" }],
-        "transform-object-rest-spread",
+        "transform-object-rest-spread"
       ]
     }
   }

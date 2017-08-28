@@ -1,4 +1,5 @@
-// TODO refactor into proper theme
+// TODO refactor as much as possible into react
+
 html {
   background: #CCC;
 }
@@ -29,6 +30,11 @@ body {
 .pusher > .content {
   flex: 1;
 }
+
+.pusher > .content > :not(.container) {
+  min-width: 100%;
+}
+
 .pusher > .footer {
   height: auto;
   margin-top: 2em;
@@ -96,4 +102,11 @@ span.padded {
 .wrapping {
   max-width: 100%;
   word-break: break-all;
+}
+
+.ui.dropdown .menu > .non-selectable.item {
+  cursor: auto;
+  &:hover {
+    background: none;
+  }
 }

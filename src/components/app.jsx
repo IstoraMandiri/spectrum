@@ -1,9 +1,10 @@
-import React, { Component } from 'react';
+import React, { Component, PropTypes } from 'react';
 import { HashRouter } from 'react-router-dom';
+import { connect } from 'react-redux';
 
-import { Dropdown } from 'semantic-ui-react';
+import { Dropdown, Loader } from 'semantic-ui-react';
 
-import config from '~/config';
+import config from '~/../spectrum.config';
 
 import TransactionSigningOverlay from '~/components/transactions/transaction_signing_overlay';
 import MenuSystem from '~/components/common/menu_system';
@@ -15,15 +16,26 @@ import Config from '~/components/config';
 import Footer from '~/components/common/footer';
 // TODO import Dapplets from '~/components/dapplets';
 
-const menu = ((config.dapplet && [config.dapplet]) || []).concat([
-  { path: '/keystores', name: 'Keystores', icon: 'key', component: Keystores },
-  { path: '/config', name: 'Config', icon: 'wrench', component: Config },
-  // TODO { path: '/dapplets', name: 'Dapplets', icon: 'code', component: Dapplets },
-]);
+const menu = config.menuStyle !== 'hidden' &&
+  (config.dapplet ? [{
+    component: config.dapplet,
+    name: config.dappletName || 'Dapplet',
+    icon: config.dappletIcon,
+    path: config.dappletPath || '/',
+  }] : [])
+  .concat([
+    { path: '/keystores', name: 'Keystores', icon: 'key', component: Keystores },
+    { path: '/config', name: 'Config', icon: 'wrench', component: Config },
+    // TODO { path: '/dapplets', name: 'Dapplets', icon: 'code', component: Dapplets },
+  ]);
 
-export default class App extends Component {
+class App extends Component {
+  static propTypes = {
+    ready: PropTypes.bool.isRequired,
+  }
   render() {
-    if (config.menuStyle === 'hidden') { return <config.dapplet.component />; }
+    if (!this.props.ready) { return <Loader active />; }
+    if (config.menuStyle === 'hidden') { return <config.dapplet />; }
     return (
       <div className="pusher">
         <TransactionSigningOverlay />
@@ -33,6 +45,7 @@ export default class App extends Component {
             usingRouter
             className="content"
             renderLastItem={() => <ConnectionStatus />}
+            parentRoute="/"
             tabs={menu}
             {...(config.menuStyle === 'hamburger' ?
             {
@@ -68,8 +81,11 @@ export default class App extends Component {
             )}
           />
         </HashRouter>
-        { config.menuStyle === 'default' && <Footer /> }
+        { config.menuStyle !== 'hamburger' && <Footer /> }
       </div>
     );
   }
 }
+
+// only render when the redux state is ready; TODO use a flag after rehydrating
+export default connect(({ orm: { Session: { itemsById: { main } } } }) => ({ ready: !!main }))(App);

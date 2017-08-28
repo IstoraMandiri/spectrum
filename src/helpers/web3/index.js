@@ -21,7 +21,6 @@ export default function generateWeb3(store, network) {
   return new Web3(providerEngine);
 }
 
-
 export function sync(store, network) {
   const web3 = network.enabled && generateWeb3(store, network);
   return store.dispatch(setNetwork({
