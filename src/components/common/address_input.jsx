@@ -16,10 +16,12 @@ export default class AddressInput extends Component {
     formChange: PropTypes.func,
     label: PropTypes.string,
     hideDropdown: PropTypes.bool,
+    disabled: PropTypes.bool,
     showQrScanner: PropTypes.bool,
   };
   static defaultProps = {
     placeholder: undefined,
+    disabled: undefined,
     name: undefined,
     onChange: undefined,
     value: undefined,
@@ -75,6 +77,7 @@ export default class AddressInput extends Component {
           key={0}
           className="labeled"
           placeholder={this.props.placeholder || 'Enter Address'}
+          disabled={this.props.disabled}
           value={value}
           name={this.props.name}
           onChange={this.handleChange}

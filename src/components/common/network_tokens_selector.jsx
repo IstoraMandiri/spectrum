@@ -14,7 +14,6 @@ class NetworkTokensSelector extends Component {
     modal: PropTypes.bool,
     modalButtonSize: PropTypes.string,
     networks: PropTypes.array.isRequired,
-    defaultNetworks: PropTypes.array.isRequired,
     disabled: PropTypes.bool,
     noTokens: PropTypes.bool,
     label: PropTypes.string,
@@ -33,22 +32,6 @@ class NetworkTokensSelector extends Component {
   constructor(props) {
     super(props);
     this.renderTokenGroup = this.renderTokenGroup.bind(this);
-  }
-  componentDidMount() {
-    const { networks, singleSelection, defaultNetworks, formChange, formData } = this.props;
-    // set the default network if it's not defined (can be blank array if no networks set)
-    if (singleSelection) { return null; }
-    if (!formData.networks) {
-      formChange({ target: { value: defaultNetworks, name: 'networks' } });
-    }
-    // get default tokens
-    if (!formData.tokens) {
-      const defaultTokens = networks.reduce((o, network) => (
-        o.concat(network.tokens.map(token => token.default && token.id).filter(a => a))
-      ), []);
-      setTimeout(() => formChange({ target: { value: defaultTokens, name: 'tokens' } }), 1);
-    }
-    return null;
   }
   getSelectedNetworks() {
     const { networks, formData } = this.props;
@@ -85,7 +68,7 @@ class NetworkTokensSelector extends Component {
       </Form.Field>
     );
   }
-  renderLabel() {
+  renderTrigger() {
     const selectedNetworks = this.getSelectedNetworks().length;
     return (
       <Label as="a" color={selectedNetworks ? 'orange' : undefined} size={this.props.modalButtonSize}>
@@ -96,13 +79,13 @@ class NetworkTokensSelector extends Component {
   }
   renderModalButton() {
     const { formData } = this.props;
-    if (this.props.disabled) { return this.renderLabel(); }
+    if (this.props.disabled) { return this.renderTrigger(); }
     return (
       <EZModal
         noCloseButton
         header={`Edit Networks for: ${formData.name || 'New Account'}`}
         content={<Form onSubmit={e => e.preventDefault()}>{this.renderContent()}</Form>}
-        trigger={this.renderLabel()}
+        trigger={this.renderTrigger()}
       />
     );
   }

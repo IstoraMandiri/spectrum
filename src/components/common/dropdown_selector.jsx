@@ -13,8 +13,9 @@ export default class DropdownSelector extends Component {
     name: PropTypes.string,
     renderItem: PropTypes.func,
     resetFormData: PropTypes.func,
-    renderLabel: PropTypes.func,
+    renderTrigger: PropTypes.func,
     preText: PropTypes.string,
+    button: PropTypes.bool,
   }
   static defaultProps = {
     defaultText: undefined,
@@ -26,8 +27,9 @@ export default class DropdownSelector extends Component {
     name: undefined,
     renderItem: undefined,
     resetFormData: undefined,
-    renderLabel: undefined,
+    renderTrigger: undefined,
     preText: undefined,
+    button: undefined,
   }
   constructor(props) {
     super(props);
@@ -54,14 +56,14 @@ export default class DropdownSelector extends Component {
       text: item.name,
       onClick: () => {
         this.setState({ selected: item });
-        onClick();
+        if (onClick) { onClick(); }
       },
     };
     if (renderItem) { return renderItem({ props, item }); }
     return <Dropdown.Item {...props} />;
   }
   render() {
-    const { defaultText, preText, items, props = {}, name, formData, renderLabel } = this.props;
+    const { defaultText, button, preText, items, props = {}, name, formData, renderTrigger, renderBottom } = this.props;
     const { selected } = this.state;
     const selectedItem = (formData && items.find(item => item.id === formData[name])) || selected;
     const labelText = (selectedItem && selectedItem.name) || defaultText || 'Select';
@@ -70,17 +72,19 @@ export default class DropdownSelector extends Component {
     return (
       <Dropdown
         labeled
-        button
         fluid
         floating
+        selection={!button}
+        button={button}
         {...props}
         text={labelPrefixed}
-        renderLabel={renderLabel && (text => renderLabel({ text, selected }))}
+        trigger={renderTrigger && renderTrigger({ selectedItem, color })}
         className={`icon ${props.className || ''} ${!props.color ? color : ''}`}
       >
         <Dropdown.Menu>
           <Dropdown.Menu scrolling>
             {items.map(this.renderItem)}
+            {renderBottom && renderBottom()}
           </Dropdown.Menu>
         </Dropdown.Menu>
       </Dropdown>

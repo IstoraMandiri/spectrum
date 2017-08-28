@@ -1,5 +1,13 @@
 import React, { PropTypes, Component } from 'react';
+import { Label, Image, Dropdown } from 'semantic-ui-react';
+import { shortAddress } from '~/helpers/stringUtils';
+
+import KeystoreButtons from '~/components/keystores/keystore_buttons';
+
+import blockie from '~/helpers/blockie';
+
 import DropdownSelector from './dropdown_selector';
+
 
 export default class AddressSelector extends Component {
   static propTypes = {
@@ -13,13 +21,38 @@ export default class AddressSelector extends Component {
     onChange: null,
     preText: null,
   }
+  renderItem({ name, address, keystore }) {
+    return (
+      <span>
+        <Image
+          src={blockie(address)}
+          avatar
+          style={{
+            margin: '-1.3em 1em -1.2em -1em',
+            height: '2.6em',
+            width: '2.6em',
+            borderRadius: '0',
+          }}
+        />
+        {' '}
+        {/* {shortAddress(address, 10)} */}
+        {address}
+        {' '}- {name}
+        <Label
+          color={keystore.type.color}
+          content={keystore.type.name}
+          style={{ float: 'right', margin: '-0.42em' }}
+        />
+      </span>
+    );
+  }
   render() {
     const { initialAddress, onChange, addresses, preText, ...rest } = this.props;
     const items = addresses.map(a => ({
       ...a,
-      name: `${a.address.slice(0, 6)}... ${a.name}`,
+      name: a.name,
       id: a.address,
-      color: a.keystore.type.color,
+      // color: a.keystore.type.color,
     }));
     const initiallySelected = items.find(a => a.address === initialAddress);
     return (
@@ -29,8 +62,19 @@ export default class AddressSelector extends Component {
         items={items}
         preText={preText}
         initiallySelected={initiallySelected}
-        renderItem={this.renderItem}
-        renderLable={this.renderLabel}
+        renderTrigger={({ selectedItem }) => (
+          this.renderItem(selectedItem)
+        )}
+        renderItem={({ item, props: { onClick } }) => (
+          <Dropdown.Item onClick={onClick}>
+            {this.renderItem(item)}
+          </Dropdown.Item>
+        )}
+        renderBottom={() => (
+          <Dropdown.Item className="non-selectable">
+            New Address: <KeystoreButtons skipImportConfirmation />
+          </Dropdown.Item>
+        )}
       />
     );
   }
