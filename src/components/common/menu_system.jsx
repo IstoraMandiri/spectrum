@@ -7,10 +7,8 @@ import MenuSystemDropdown from './menu_system_dropdown';
 
 export default class MenuSystem extends Component {
   static propTypes = {
-    secondary: PropTypes.bool,
     tabs: PropTypes.array.isRequired,
     className: PropTypes.string,
-    fixed: PropTypes.string,
     renderLastItem: PropTypes.func,
     marginTop: PropTypes.string,
     equalWidths: PropTypes.bool,
@@ -25,8 +23,6 @@ export default class MenuSystem extends Component {
   }
   static defaultProps = {
     className: undefined,
-    secondary: false,
-    fixed: undefined,
     renderLastItem: undefined,
     marginTop: '1.5em',
     equalWidths: undefined,
@@ -38,6 +34,9 @@ export default class MenuSystem extends Component {
     renderTab: undefined,
     dropdown: false,
     hidden: false,
+  }
+  static contextTypes = {
+    router: PropTypes.object.isRequired,
   }
   constructor(props) {
     super(props);
@@ -63,11 +62,9 @@ export default class MenuSystem extends Component {
       menuProps,
       parentRoute,
       className,
-      fixed,
       tabs,
       marginTop,
       equalWidths,
-      secondary,
       renderFooter,
       renderLastItem,
       dropdown,
@@ -121,7 +118,7 @@ export default class MenuSystem extends Component {
                   }}
                 />
               ))}
-              <Redirect from={parentRoute} to={mappedTabs[0].path} />
+              {parentRoute && <Redirect from={parentRoute} to={mappedTabs[0].path} />}
             </Switch>
             :
             tabs[tab].component

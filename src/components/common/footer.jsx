@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Segment, Container, Grid, Button } from 'semantic-ui-react';
 
-import { version } from '~/../package.json';
+const buildTime = window.spectrumBuildTime && new Date(window.spectrumBuildTime).toLocaleString();
 
 export default class Footer extends Component {
   render() {
@@ -37,7 +37,7 @@ export default class Footer extends Component {
             <Grid.Column textAlign="right">
               Spectrum Dev Edition
               <br />
-              v{version}
+              Built {buildTime}
             </Grid.Column>
           </Grid>
         </Container>

@@ -10,16 +10,19 @@ export default class ValueInput extends Component {
     color: PropTypes.string.isRequired,
     name: PropTypes.string.isRequired,
     symbol: PropTypes.string.isRequired,
-    sendAll: PropTypes.object,
+    sendAll: PropTypes.oneOfType([PropTypes.object, PropTypes.number]),
     label: PropTypes.string,
+    sendAllText: PropTypes.string,
   }
   static defaultProps = {
     sendAll: false,
     label: undefined,
+    sendAllText: undefined,
   }
   render() {
-    const { label: labelText, formData, name, formChange, color, symbol, sendAll } = this.props;
-    const showSendAll = sendAll && sendAll.toNumber() > 0;
+    const { label: labelText, formData, name, formChange, color, symbol, sendAll, sendAllText } = this.props;
+    const sendAllNumber = sendAll && sendAll.toNumber ? sendAll.toNumber() : sendAll;
+    const showSendAll = sendAllNumber && sendAllNumber > 0;
     const value = formData[name] || '';
     return (
       <Form.Field>
@@ -41,7 +44,7 @@ export default class ValueInput extends Component {
             <Button
               basic
               icon="plus"
-              content={`Send All ${parseBigNumber(sendAll)}`}
+              content={sendAllText || `Send All ${parseBigNumber(sendAll)}`}
               onClick={(e) => {
                 e.preventDefault();
                 formChange({ name, value: sendAll });

@@ -21,7 +21,7 @@ export default class ErrorMessage extends Component {
     return (
       <Message
         negative
-        header="Oops, something went wrong..."
+        header="Error"
         icon="warning sign"
         content={children || parseContent(content)}
       />
