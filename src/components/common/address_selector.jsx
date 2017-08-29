@@ -27,9 +27,9 @@ export default class AddressSelector extends Component {
           src={blockie(address)}
           avatar
           style={{
-            margin: '-1.3em 1em -1.2em -1em',
-            height: '2.6em',
-            width: '2.6em',
+            margin: '-1.5em 1em -1.2em -1em',
+            height: '2.8em',
+            width: '2.8em',
             borderRadius: '0',
           }}
         />

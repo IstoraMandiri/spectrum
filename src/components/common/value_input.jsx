@@ -12,15 +12,17 @@ export default class ValueInput extends Component {
     symbol: PropTypes.string.isRequired,
     sendAll: PropTypes.oneOfType([PropTypes.object, PropTypes.number]),
     label: PropTypes.string,
+    symbolText: PropTypes.string,
     sendAllText: PropTypes.string,
   }
   static defaultProps = {
     sendAll: false,
     label: undefined,
     sendAllText: undefined,
+    symbolText: undefined,
   }
   render() {
-    const { label: labelText, formData, name, formChange, color, symbol, sendAll, sendAllText } = this.props;
+    const { label: labelText, symbolText, formData, name, formChange, color, symbol, sendAll, sendAllText } = this.props;
     const sendAllNumber = sendAll && sendAll.toNumber ? sendAll.toNumber() : sendAll;
     const showSendAll = sendAllNumber && sendAllNumber > 0;
     const value = formData[name] || '';
@@ -38,7 +40,7 @@ export default class ValueInput extends Component {
           action={showSendAll}
           value={value}
         >
-          <Label content={symbol} color={color} />
+          <Label content={symbolText || symbol} color={color} />
           <input />
           {showSendAll &&
             <Button
