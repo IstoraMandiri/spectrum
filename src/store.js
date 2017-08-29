@@ -24,7 +24,7 @@ const persistanceConfig = {
   debounce: 300,
   keyPrefix: `${REDUX_PREFIX}${keySuffix}`,
   whitelist: (
-    config.persistCore ? ['orm'] : [].concat((
+    (config.persistCore ? ['orm'] : []).concat((
       Object.keys(reducerConfig).map(k => reducerConfig[k].persist && k).filter(r => r)
     ))
   ),
