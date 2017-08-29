@@ -20,7 +20,7 @@ class TransactionModalContainer extends Component {
     noSubmitButton: PropTypes.bool.isRequired,
     submitButtonText: PropTypes.string,
     actions: PropTypes.oneOfType([PropTypes.node, PropTypes.func, PropTypes.bool]),
-    txHash: PropTypes.string,
+    txHash: PropTypes.oneOfType([PropTypes.string, PropTypes.bool]),
     closeOnDimmerClick: PropTypes.bool,
     failure: PropTypes.bool,
   }
