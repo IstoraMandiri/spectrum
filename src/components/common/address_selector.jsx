@@ -1,6 +1,5 @@
 import React, { PropTypes, Component } from 'react';
 import { Label, Image, Dropdown } from 'semantic-ui-react';
-import { shortAddress } from '~/helpers/stringUtils';
 
 import KeystoreButtons from '~/components/keystores/keystore_buttons';
 
@@ -35,7 +34,6 @@ export default class AddressSelector extends Component {
           }}
         />
         {' '}
-        {/* {shortAddress(address, 10)} */}
         {address}
         {' '}- {name}
         <Label
