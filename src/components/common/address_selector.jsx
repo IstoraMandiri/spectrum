@@ -34,8 +34,14 @@ export default class AddressSelector extends Component {
           }}
         />
         {' '}
-        {address}
-        {' '}- {name}
+        <span style={{ maxWidth: '40%' }} className="truncated">
+          {address.substr(0, address.length - 4)}
+        </span>
+        <span className="truncated">{address.substr(-4)}</span>
+        {' '}-{' '}
+        <span style={{ maxWidth: '20%' }} className="truncated">
+          {name}
+        </span>
         <Label
           color={keystore.type.color}
           content={keystore.type.name}

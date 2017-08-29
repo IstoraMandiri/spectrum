@@ -44,7 +44,9 @@ class KeystoreModal extends Component {
   componentDidMount() {
     if (this.props.skipConfirmation) {
       // populate the name autoamtically
-      this.handleSubmit({ ...this.getDefaultData(), name: 'Imported Keystore' });
+      this.handleSubmit({ ...this.getDefaultData(), name: 'Imported Keystore' }).then(() => {
+        this.handleClose();
+      });
     }
   }
   getDefaultData() {

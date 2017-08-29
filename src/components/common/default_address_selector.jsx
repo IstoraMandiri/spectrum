@@ -27,7 +27,7 @@ class DefaultAddressSelector extends Component {
   render() {
     const { updateSession: ignoreMe, renderNoAccounts, addresses, ...rest } = this.props;
     if (!addresses.length) {
-      return renderNoAccounts ? renderNoAccounts() : <span>No keystores:{' '}{' '}{' '}<KeystoreButtons /></span>;
+      return renderNoAccounts ? renderNoAccounts() : <span>No keystores:{' '}{' '}{' '}<KeystoreButtons skipImportConfirmation /></span>;
     }
     const initialAddress = (addresses.find(a => a.isDefault) || {}).address;
     return (
