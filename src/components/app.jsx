@@ -16,9 +16,11 @@ import Config from '~/components/config';
 import Footer from '~/components/common/footer';
 // TODO import Dapplets from '~/components/dapplets';
 
+const Dapplet = config.dapplet && config.dapplet();
+
 const menu = config.menuStyle !== 'hidden' &&
-  (config.dapplet ? [{
-    component: config.dapplet(),
+  (Dapplet ? [{
+    component: Dapplet,
     name: config.dappletName || 'Dapplet',
     icon: config.dappletIcon,
     path: config.dappletPath || '/',
@@ -35,7 +37,7 @@ class App extends Component {
   }
   render() {
     if (!this.props.ready) { return <Loader active />; }
-    if (config.menuStyle === 'hidden') { return <config.dapplet />; }
+    if (config.menuStyle === 'hidden') { return <Dapplet />; }
     return (
       <div className="pusher">
         <TransactionSigningOverlay />
