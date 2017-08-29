@@ -117,7 +117,7 @@ export const DEFAULT_KEYSTORE_TYPES = [
 
 export const DEFAULT_TOKENS = [
   {
-    address: '0xae887dc96ea2724c0eacdd58bf071e7ce718d46f',
+    address: '0x711c43c390263ff5444984f5a9a413ff473a6861',
     symbol: 'DGX-test',
     defualt: true,
     decimals: 9,
