@@ -18,7 +18,7 @@ import Footer from '~/components/common/footer';
 
 const menu = config.menuStyle !== 'hidden' &&
   (config.dapplet ? [{
-    component: config.dapplet,
+    component: config.dapplet(),
     name: config.dappletName || 'Dapplet',
     icon: config.dappletIcon,
     path: config.dappletPath || '/',
