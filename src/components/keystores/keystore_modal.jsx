@@ -4,6 +4,8 @@ import { Divider } from 'semantic-ui-react';
 
 import { getKeystoreTypes, getNetworksWithTokens, getDefaultNetworks } from '~/selectors';
 
+import config from '~/../spectrum.config';
+
 import EZModal from 'sui-react-ezmodal';
 
 class KeystoreModal extends Component {
@@ -105,7 +107,9 @@ class KeystoreModal extends Component {
   render() {
     const KeystoreForm = this.props.form;
     const handleRemove = this.props.removeFunc && this.handleRemove;
-    const { keystoreTypes, hideMenu } = this.props;
+    const { keystoreTypes: rawKeystores, hideMenu } = this.props;
+    const keystoreTypes = !config.keystoreTypes ?
+            rawKeystores : rawKeystores.filter(({ id }) => config.keystoreTypes.indexOf(id) > -1);
     return (
       <EZModal
         initiallyOpen={this.props.initiallyOpen}

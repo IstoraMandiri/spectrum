@@ -20,11 +20,14 @@ const store = createStore(reducers, {}, enhancers);
 
 const keySuffix = config.publicPath ? config.publicPath.replace(/\//g, '_').toUpperCase() : '';
 
+// persit in development (or override in config)
+const persist = config.persistCore === undefined ? process.env.ENVIRONMENT !== 'production' : config.persistCore;
+
 const persistanceConfig = {
   debounce: 300,
   keyPrefix: `${REDUX_PREFIX}${keySuffix}`,
   whitelist: (
-    (config.persistCore ? ['orm'] : []).concat((
+    (persist ? ['orm'] : []).concat((
       Object.keys(reducerConfig).map(k => reducerConfig[k].persist && k).filter(r => r)
     ))
   ),

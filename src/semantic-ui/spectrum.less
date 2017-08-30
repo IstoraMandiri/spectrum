@@ -1,8 +1,15 @@
-// TODO refactor as much as possible into react
+// TODO refactor into theme overrides
 
 html {
   background: #CCC;
 }
+
+button, [role="button"] {
+  &:focus {
+    outline:0;
+  }
+}
+
 body {
   background-image: linear-gradient(180deg, #EEE 0%, #CCC 100%);
   background-repeat: no-repeat;

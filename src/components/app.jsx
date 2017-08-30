@@ -77,7 +77,7 @@ class App extends Component {
             }
             :
             {
-              menuProps: { fixed: 'top' },
+              menuProps: { fixed: 'top', borderless: true },
               marginTop: '5em',
             }
             )}
