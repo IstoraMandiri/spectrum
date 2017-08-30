@@ -119,7 +119,7 @@ export const DEFAULT_TOKENS = [
   {
     address: '0x711c43c390263ff5444984f5a9a413ff473a6861',
     symbol: 'DGX-test',
-    defualt: true,
+    default: true,
     decimals: 9,
     network: 'eth-kovan',
     name: 'DGX Kovan',
