@@ -42,7 +42,7 @@ export default class ValueInput extends Component {
         >
           <Label content={symbolText || symbol} color={color} />
           <input />
-          {showSendAll &&
+          {!!showSendAll &&
             <Button
               basic
               icon="plus"
@@ -54,7 +54,7 @@ export default class ValueInput extends Component {
             />
           }
         </Input>
-        {value && <CryptoPrice symbol={symbol} amount={parseFloat(value)} />}
+        {!!value && <CryptoPrice symbol={symbol} amount={parseFloat(value)} />}
       </Form.Field>
     );
   }
