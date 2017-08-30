@@ -31,7 +31,7 @@ export default class PaginationMenu extends Component {
     const hasTotal = total !== undefined;
     const lastItem = lastPageItem > total ? total : lastPageItem;
     const bDisabled = currentPage === 0 || (disabled && disabled()) || (backDisabled && backDisabled());
-    const fDisabled = !hasTotal || (hasTotal && lastItem >= total) || (disabled && disabled()) || (forwardDisabled && forwardDisabled());
+    const fDisabled = (hasTotal && lastItem >= total) || (disabled && disabled()) || (forwardDisabled && forwardDisabled());
     const totalPages = total && Math.ceil(total / itemsPerPage);
     return (
       <Menu {...rest} pagination size="small">
@@ -62,7 +62,7 @@ export default class PaginationMenu extends Component {
         {renderCenter ?
           renderCenter({ total, firstItem, lastItem, itemsPerPage })
           :
-          <Menu.Item content={`${firstItem} - ${lastItem} ${hasTotal && `/ ${total}`}`} />
+          <Menu.Item content={`${firstItem} - ${lastItem} ${hasTotal ? `/ ${total}` : ''}`} />
         }
         <Menu.Item
           as="a"

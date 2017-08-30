@@ -29,7 +29,7 @@ export default class ColdKeystoreCreationForm extends Component {
     const addresses = (this.props.formData || {}).addresses || {};
     const update = {
       networks: (addresses[itemId] || {}).networks || this.props.formData.networks,
-      tokens: (addresses[itemId] || {}).networks || this.props.formData.tokens,
+      tokens: (addresses[itemId] || {}).tokens || this.props.formData.tokens,
       [e.target.name]: e.target.value,
     };
     this.props.formChange({ name: 'addresses', value: { ...addresses, [itemId]: { ...addresses[itemId], ...update } } });

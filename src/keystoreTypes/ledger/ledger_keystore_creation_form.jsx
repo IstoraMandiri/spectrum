@@ -15,7 +15,12 @@ export default class LedgerKeystoreCreationForm extends Component {
   handleItemChange(e) {
     const { name, value } = e;
     const addresses = (this.props.formData || {}).addresses || {};
-    this.props.formChange({ name: 'addresses', value: { ...addresses, [name]: { ...addresses[name], ...value } } });
+    const update = {
+      networks: (addresses[name] || {}).networks || this.props.formData.networks,
+      tokens: (addresses[name] || {}).tokens || this.props.formData.tokens,
+      ...value,
+    };
+    this.props.formChange({ name: 'addresses', value: { ...addresses, [name]: { ...addresses[name], ...update } } });
   }
   renderContainer({ renderItems }) {
     const count = Object.values(this.props.formData.addresses || {}).filter(a => a.enabled).length;

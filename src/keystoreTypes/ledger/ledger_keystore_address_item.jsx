@@ -1,9 +1,8 @@
 import React, { PropTypes, Component } from 'react';
-import { Table, Checkbox, Input } from 'semantic-ui-react';
+import { Image, Table, Checkbox, Input } from 'semantic-ui-react';
 
+import blockie from '~/helpers/blockie';
 import NetworkTokensSelector from '~/components/common/network_tokens_selector';
-import { removeHexPrefix } from '~/helpers/stringUtils';
-
 
 export default class LedgerKeystoreAddressItem extends Component {
   static propTypes = {
@@ -23,6 +22,7 @@ export default class LedgerKeystoreAddressItem extends Component {
     if (!this.props.data.address) {
       value.address = this.props.address;
       value.kdPath = this.props.kdPath;
+      value.name = value.kdPath; // set default name to the kdpath
     }
     this.props.onChange({ name: this.props.kdPath, value });
   }
@@ -37,7 +37,12 @@ export default class LedgerKeystoreAddressItem extends Component {
           <Checkbox
             name="enabled"
             tabIndex="-1"
-            label={removeHexPrefix(address)}
+            label={
+              <label htmlFor={address}>
+                <Image src={blockie(address)} avatar style={{ marginTop: '-0.4em' }} />
+                {' '}{address}
+              </label>
+            }
             checked={data.enabled}
             onChange={this.handleToggle}
           />
