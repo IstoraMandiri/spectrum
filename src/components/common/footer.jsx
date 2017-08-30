@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Segment, Container, Grid, Button } from 'semantic-ui-react';
 
-const buildTime = window.spectrumBuildTime && new Date(window.spectrumBuildTime).toLocaleString();
+import SpectrumWatermark from '~/components/common/spectrum_watermark';
 
 export default class Footer extends Component {
   render() {
@@ -35,9 +35,7 @@ export default class Footer extends Component {
               </Button.Group>
             </Grid.Column>
             <Grid.Column textAlign="right">
-              Spectrum Dev Edition
-              <br />
-              Built {buildTime}
+              <SpectrumWatermark />
             </Grid.Column>
           </Grid>
         </Container>

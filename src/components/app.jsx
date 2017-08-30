@@ -14,6 +14,7 @@ import ConnectionStatus from '~/components/common/connection_status';
 import Keystores from '~/components/keystores';
 import Config from '~/components/config';
 import Footer from '~/components/common/footer';
+import SpectrumWatermark from '~/components/common/spectrum_watermark';
 // TODO import Dapplets from '~/components/dapplets';
 
 const Dapplet = config.dapplet && config.dapplet();
@@ -57,7 +58,8 @@ class App extends Component {
                 <Dropdown.Divider key="divider1" />,
                 <Dropdown.Header
                   key="header"
-                  content="Powered by Spectrum"
+                  className="item"
+                  content={<SpectrumWatermark />}
                   as="a"
                   target="_blank"
                   rel="noopener"
