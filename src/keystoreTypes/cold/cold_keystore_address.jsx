@@ -2,6 +2,7 @@ import React, { PropTypes, Component } from 'react';
 import { Table, Input, Label, Checkbox } from 'semantic-ui-react';
 
 import NetworkTokensSelector from '~/components/common/network_tokens_selector';
+import AddressInput from '~/components/common/address_input';
 
 export default class ColdKeystoreAddress extends Component {
   static propTypes = {
@@ -44,9 +45,10 @@ export default class ColdKeystoreAddress extends Component {
           {oldItem ?
             data.address
             :
-            <Input
+            <AddressInput
               error={removing}
               fluid
+              hideDropdown
               size="small"
               placeholder="Enter Address"
               name="address"

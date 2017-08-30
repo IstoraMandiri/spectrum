@@ -27,7 +27,11 @@ export default class ColdKeystoreCreationForm extends Component {
   }
   handleItemChange(itemId, e) {
     const addresses = (this.props.formData || {}).addresses || {};
-    const update = { [e.target.name]: e.target.value };
+    const update = {
+      networks: (addresses[itemId] || {}).networks || this.props.formData.networks,
+      tokens: (addresses[itemId] || {}).networks || this.props.formData.tokens,
+      [e.target.name]: e.target.value,
+    };
     this.props.formChange({ name: 'addresses', value: { ...addresses, [itemId]: { ...addresses[itemId], ...update } } });
   }
   handleScan(address) {
@@ -42,16 +46,19 @@ export default class ColdKeystoreCreationForm extends Component {
     return checkSummed;
   }
   renderItems() {
-    const { formData, editing } = this.props;
+    const { formData, formData: { networks, tokens }, editing } = this.props;
     const addresses = Object.values(formData.addresses || {});
     const lastId = this.getNewId();
-    const items = addresses.map((data = {}, itemId) =>
-      <Address key={itemId.toString()} {...{ editing, itemId, data, onChange: this.handleItemChange }} />,
-    );
+    const defaultData = { networks, tokens };
+    const items = addresses.map((data = {}, itemId) => (
+      <Address
+        {...{ key: itemId.toString(), editing, itemId, data: { ...defaultData, ...data }, onChange: this.handleItemChange }}
+      />
+    ));
     // add an additional row is there are no free rows
     if (!addresses.find(a => !a.address)) {
       return items.concat([
-        <Address key={lastId} {...{ editing, itemId: lastId, data: {}, onChange: this.handleItemChange }} />,
+        <Address key={lastId} {...{ editing, itemId: lastId, data: defaultData, onChange: this.handleItemChange }} />,
       ]);
     }
     return items;
