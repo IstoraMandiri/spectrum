@@ -15,9 +15,8 @@ import Keystores from '~/components/keystores';
 import Config from '~/components/config';
 import Footer from '~/components/common/footer';
 import SpectrumWatermark from '~/components/common/spectrum_watermark';
-// TODO import Dapplets from '~/components/dapplets';
 
-const Dapplet = config.dapplet && config.dapplet();
+const { Dapplet } = require('~/../spectrum.imports');
 
 const menu = config.menuStyle !== 'hidden' &&
   (Dapplet ? [{

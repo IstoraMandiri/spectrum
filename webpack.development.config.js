@@ -6,7 +6,8 @@ const ExtractTextPlugin = require('extract-text-webpack-plugin');
 module.exports = config => ({
   devtool: 'cheap-module-eval-source-map',
   devServer: {
-    hot: true,
+    hotOnly: true,
+    inline: true,
     publicPath: '/',
     port: 3000,
     watchOptions: {
