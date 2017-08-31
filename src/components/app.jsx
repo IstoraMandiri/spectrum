@@ -5,6 +5,7 @@ import { connect } from 'react-redux';
 import { Dropdown, Loader } from 'semantic-ui-react';
 
 import config from '~/../spectrum.config';
+import Dapplet from '~/../spectrum.dapplet';
 
 import TransactionSigningOverlay from '~/components/transactions/transaction_signing_overlay';
 import MenuSystem from '~/components/common/menu_system';
@@ -15,8 +16,6 @@ import Keystores from '~/components/keystores';
 import Config from '~/components/config';
 import Footer from '~/components/common/footer';
 import SpectrumWatermark from '~/components/common/spectrum_watermark';
-
-const { Dapplet } = require('~/../spectrum.imports');
 
 const menu = config.menuStyle !== 'hidden' &&
   (Dapplet ? [{
