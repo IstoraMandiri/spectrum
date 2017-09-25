@@ -6,7 +6,6 @@ const webpack = require('webpack');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
-const OptimizeCssAssetsPlugin = require('optimize-css-assets-webpack-plugin');
 // config
 const spectrumConfig = require('./spectrum.config.js');
 // if process.env.ENVIRONMENT is set, always use `production` flag, but pass the ENVIRONMENT, too.
@@ -90,7 +89,6 @@ const baseConfig = {
       chunksSortMode: 'dependency',
       buildTime: JSON.stringify(new Date()),
     }),
-    new OptimizeCssAssetsPlugin(),
     new CopyWebpackPlugin([{ from: './src/assets/icon.png', to: 'favicon.ico' }]),
     new webpack.DefinePlugin({
       'process.env': {

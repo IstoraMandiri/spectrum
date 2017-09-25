@@ -3,6 +3,8 @@ const crypto = require('crypto');
 const path = require('path');
 const webpack = require('webpack');
 const OfflinePlugin = require('offline-plugin');
+const OptimizeCssAssetsPlugin = require('optimize-css-assets-webpack-plugin');
+
 // plugins
 // TODO enable when https://github.com/timse/name-all-modules-plugin/issues/1 is fixed
 // const NameAllModulesPlugin = require('name-all-modules-plugin');
@@ -39,6 +41,7 @@ module.exports = config => ({
       minChunks: module => module.context && module.context.indexOf('node_modules') !== -1,
     }),
     new webpack.optimize.CommonsChunkPlugin({ name: 'runtime' }),
+    new OptimizeCssAssetsPlugin(),
     new ExtractTextPlugin('style.[contenthash].css'),
     new UglifyJsPlugin({ mangle: true, sourceMap: true, comments: false }),
     // TODO fix compatability with SRI?
