@@ -27,7 +27,7 @@ export default class StartupOverlay extends Component {
   render() {
     const { trigger, content, title } = this.props;
     const wrappedTrigger = trigger && cloneElement(trigger, { onClick: this.handleTriggerClick });
-    if (this.state.hidden) { return wrappedTrigger; }
+    if (this.state.hidden) { return wrappedTrigger || null; }
     return (
       <div>
         <Label
@@ -41,7 +41,7 @@ export default class StartupOverlay extends Component {
           initiallyOpen
           trigger={wrappedTrigger}
           closeOnDimmerClick={false}
-          header={title || 'Spectrum'}
+          header={title || 'Welcome to Spectrum'}
           onClose={() => { this.setState({ hidden: true }); }}
           content={
             <div
@@ -52,7 +52,7 @@ export default class StartupOverlay extends Component {
                 padding: '1em',
               }}
             >
-              {content || <p>TODO: Default TOS</p>}
+              {content || <p>DEVELOPER RELEASE, DO NOT USE WITH REAL ASSETS</p>}
             </div>
           }
           actions={({ hide }) => (

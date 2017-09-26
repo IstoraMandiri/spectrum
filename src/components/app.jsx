@@ -18,6 +18,8 @@ import Config from '~/components/config';
 import Footer from '~/components/common/footer';
 import SpectrumWatermark from '~/components/common/spectrum_watermark';
 
+const isProduction = process.env.NODE_ENV === 'production';
+
 const menu = config.menuStyle !== 'hidden' &&
   (Dapplet ? [{
     component: Dapplet,
@@ -41,7 +43,7 @@ class App extends Component {
     return (
       <div className="pusher">
         <TransactionSigningOverlay />
-        {config.showOverlay && <StartupOverlay />}
+        {config.showOverlay !== false && isProduction && <StartupOverlay />}
         <HashRouter>
           <MenuSystem
             usingRouter

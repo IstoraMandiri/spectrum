@@ -1,5 +1,3 @@
-/* eslint-disable */
-
 exports.config = {
     //
     // ==================
@@ -11,13 +9,13 @@ exports.config = {
     // then the current working directory is where your package.json resides, so
     // `wdio` will be called from there.
     //
-    specs: [
-        './test/cucumber/features/**/*.feature',
-    ],
+  specs: [
+    './test/cucumber/features/**/*.feature',
+  ],
     // Patterns to exclude.
-    exclude: [
+  exclude: [
         // 'path/to/excluded/files'
-    ],
+  ],
     //
     // ============
     // Capabilities
@@ -36,20 +34,20 @@ exports.config = {
     // spawned. The property handles how many capabilities from the same test
     // should run tests.
     //
-    maxInstances: 5,
+  maxInstances: 5,
     //
     // If you have trouble getting all important capabilities together, check
     // out the Sauce Labs platform configurator - a great tool to configure your
     // capabilities: https://docs.saucelabs.com/reference/platforms-configurator
     //
-    capabilities: [{
+  capabilities: [{
         // maxInstances can get overwritten per capability. So if you have an
         // in-house Selenium grid with only 5 firefox instance available you can
         // make sure that not more than 5 instance gets started at a time.
-        maxInstances: 5,
+    maxInstances: 5,
         //
-        browserName: 'chrome',
-    }],
+    browserName: 'chrome',
+  }],
     //
     // ===================
     // Test Configurations
@@ -59,31 +57,31 @@ exports.config = {
     // By default WebdriverIO commands are executed in a synchronous way using
     // the wdio-sync package. If you still want to run your tests in an async
     // way e.g. using promises you can set the sync option to false.
-    sync: true,
+  sync: true,
     //
     // Level of logging verbosity: silent | verbose | command | data | result |
     // error
-    logLevel: 'error',
+  logLevel: 'error',
     //
     // Enables colors for log output.
-    coloredLogs: true,
+  coloredLogs: true,
     //
     // Saves a screenshot to a given path if a command fails.
-    screenshotPath: './errorShots/',
+  screenshotPath: './errorShots/',
     //
     // Set a base URL in order to shorten url command calls. If your url
     // parameter starts with "/", then the base url gets prepended.
-    baseUrl: 'http://localhost:8080',
+  baseUrl: 'http://localhost:8080',
     //
     // Default timeout for all waitFor* commands.
-    waitforTimeout: 10000,
+  waitforTimeout: 10000,
     //
     // Default timeout in milliseconds for request
     // if Selenium Grid doesn't send response
-    connectionRetryTimeout: 90000,
+  connectionRetryTimeout: 90000,
     //
     // Default request retries count
-    connectionRetryCount: 3,
+  connectionRetryCount: 3,
     //
     // Initialize the browser instance with a WebdriverIO plugin. The object
     // should have the plugin name as key and the desired plugin options as
@@ -107,7 +105,7 @@ exports.config = {
     // Services take over a specific job you don't want to take care of. They
     // enhance your test setup with almost no effort. Unlike plugins, they don't
     // add new commands. Instead, they hook themselves up into the test process.
-    services: ['selenium-standalone'],
+  services: ['selenium-standalone'],
     //
     // Framework you want to run your specs with.
     // The following are supported: Mocha, Jasmine, and Cucumber
@@ -115,46 +113,59 @@ exports.config = {
     //
     // Make sure you have the wdio adapter package for the specific framework
     // installed before running any tests.
-    framework: 'cucumber',
+  framework: 'cucumber',
     //
     // Test reporter for stdout.
     // The only one supported by default is 'dot'
     // see also: http://webdriver.io/guide/testrunner/reporters.html
-    reporters: ['spec'],
+  reporters: ['spec'],
     //
     // If you are using Cucumber you need to specify the location of your step
     // definitions.
-    cucumberOpts: {
-        require: [
-            './test/cucumber/steps/given.js',
-            './test/cucumber/steps/then.js',
-            './test/cucumber/steps/when.js',
-        ], // <string[]> (file/dir) require files before executing features
-        backtrace: false, // <boolean> show full backtrace for errors
-        compiler: [
-            'js:babel-register',
-        ], // <string[]> ("extension:module") require files with the given
-           // EXTENSION after requiring MODULE (repeatable)
-        dryRun: false, // <boolean> invoke formatters without executing steps
-        failFast: false, // <boolean> abort the run on first failure
-        format: ['pretty'], // <string[]> (type[:path]) specify the output
-                            // format, optionally supply PATH to redirect
-                            // formatter output (repeatable)
-        colors: true, // <boolean> disable colors in formatter output
-        snippets: true, // <boolean> hide step definition snippets for pending
-                        // steps
-        source: true, // <boolean> hide source uris
-        profile: [], // <string[]> (name) specify the profile to use
-        strict: true, // <boolean> fail if there are any undefined or pending
-                       // steps
-        tags: require('./test/cucumber/tagProcessor')(process.argv),
-        // <string[]> (expression) only execute the features or scenarios with
-        // tags matching the expression
-        timeout: 20000,     // <number> timeout for step definitions
-        ignoreUndefinedDefinitions: false, // <boolean> Enable this config to
-                                           // treat undefined definitions as
-                                           // warnings.
-    },
+  cucumberOpts: {
+        // <boolean> show full backtrace for errors
+    backtrace: false,
+        // <string[]> filetype:compiler used for processing required features
+    compiler: [
+      'js:babel-register',
+    ],
+        // <boolean< Treat ambiguous definitions as errors
+    failAmbiguousDefinitions: true,
+        // <boolean> invoke formatters without executing steps
+        // dryRun: false,
+        // <boolean> abort the run on first failure
+    failFast: false,
+        // <boolean> Enable this config to treat undefined definitions as
+        // warnings
+    ignoreUndefinedDefinitions: false,
+        // <string[]> ("extension:module") require files with the given
+        // EXTENSION after requiring MODULE (repeatable)
+    name: [],
+        // <boolean> hide step definition snippets for pending steps
+    snippets: true,
+        // <boolean> hide source uris
+    source: true,
+        // <string[]> (name) specify the profile to use
+    profile: [],
+        // <string[]> (file/dir) require files before executing features
+    require: [
+      './test/cucumber/steps/given.js',
+      './test/cucumber/steps/then.js',
+      './test/cucumber/steps/when.js',
+    ],
+        // <string> specify a custom snippet syntax
+    snippetSyntax: undefined,
+        // <boolean> fail if there are any undefined or pending steps
+    strict: true,
+        // <string> (expression) only execute the features or scenarios with
+        // tags matching the expression, see
+        // https://docs.cucumber.io/tag-expressions/
+    tagExpression: 'not @Pending',
+        // <boolean> add cucumber tags to feature or scenario name
+    tagsInTitle: false,
+        // <number> timeout for step definitions
+    timeout: 20000,
+  },
 
     //
     // =====
@@ -173,16 +184,16 @@ exports.config = {
     // Gets executed before test execution begins. At this point you can access
     // all global variables, such as `browser`. It is the perfect place to
     // define custom commands.
-    before: function before() {
+  before: function before() {
         /**
          * Setup the Chai assertion framework
          */
-        const chai = require('chai');
+    const chai = require('chai');
 
-        global.expect = chai.expect;
-        global.assert = chai.assert;
-        global.should = chai.should();
-    },
+    global.expect = chai.expect;
+    global.assert = chai.assert;
+    global.should = chai.should();
+  },
     //
     // Hook that gets executed before the suite starts
     // beforeSuite: function beforeSuite(suite) {
