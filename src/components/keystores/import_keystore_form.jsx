@@ -1,4 +1,5 @@
-import React, { PropTypes, Component } from 'react';
+import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import { Header, Form, Input } from 'semantic-ui-react';
 import Dropzone from 'react-dropzone';
 import Wallet from 'ethereumjs-wallet';

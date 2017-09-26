@@ -23,6 +23,7 @@ exports[`<ColorPicker /> renders correctly 1`] = `
     renderLabel={[Function]}
     searchInput="text"
     selectOnBlur={true}
+    selectOnNavigation={true}
     text="Black"
   >
     <DropdownMenu>
@@ -30,6 +31,7 @@ exports[`<ColorPicker /> renders correctly 1`] = `
         scrolling={true}
       >
         <DropdownItem
+          key="red"
           label={
             Object {
               "circular": true,
@@ -42,6 +44,7 @@ exports[`<ColorPicker /> renders correctly 1`] = `
           value="red"
         />
         <DropdownItem
+          key="orange"
           label={
             Object {
               "circular": true,
@@ -54,6 +57,7 @@ exports[`<ColorPicker /> renders correctly 1`] = `
           value="orange"
         />
         <DropdownItem
+          key="yellow"
           label={
             Object {
               "circular": true,
@@ -66,6 +70,7 @@ exports[`<ColorPicker /> renders correctly 1`] = `
           value="yellow"
         />
         <DropdownItem
+          key="olive"
           label={
             Object {
               "circular": true,
@@ -78,6 +83,7 @@ exports[`<ColorPicker /> renders correctly 1`] = `
           value="olive"
         />
         <DropdownItem
+          key="green"
           label={
             Object {
               "circular": true,
@@ -90,6 +96,7 @@ exports[`<ColorPicker /> renders correctly 1`] = `
           value="green"
         />
         <DropdownItem
+          key="teal"
           label={
             Object {
               "circular": true,
@@ -102,6 +109,7 @@ exports[`<ColorPicker /> renders correctly 1`] = `
           value="teal"
         />
         <DropdownItem
+          key="blue"
           label={
             Object {
               "circular": true,
@@ -114,6 +122,7 @@ exports[`<ColorPicker /> renders correctly 1`] = `
           value="blue"
         />
         <DropdownItem
+          key="violet"
           label={
             Object {
               "circular": true,
@@ -126,6 +135,7 @@ exports[`<ColorPicker /> renders correctly 1`] = `
           value="violet"
         />
         <DropdownItem
+          key="purple"
           label={
             Object {
               "circular": true,
@@ -138,6 +148,7 @@ exports[`<ColorPicker /> renders correctly 1`] = `
           value="purple"
         />
         <DropdownItem
+          key="pink"
           label={
             Object {
               "circular": true,
@@ -150,6 +161,7 @@ exports[`<ColorPicker /> renders correctly 1`] = `
           value="pink"
         />
         <DropdownItem
+          key="brown"
           label={
             Object {
               "circular": true,
@@ -162,6 +174,7 @@ exports[`<ColorPicker /> renders correctly 1`] = `
           value="brown"
         />
         <DropdownItem
+          key="grey"
           label={
             Object {
               "circular": true,
@@ -174,6 +187,7 @@ exports[`<ColorPicker /> renders correctly 1`] = `
           value="grey"
         />
         <DropdownItem
+          key="black"
           label={
             Object {
               "circular": true,

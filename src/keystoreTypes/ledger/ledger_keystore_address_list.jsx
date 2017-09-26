@@ -1,4 +1,5 @@
-import React, { PropTypes, Component } from 'react';
+import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import mapSeries from 'promise-map-series';
 
 import { LEDGER_ETH_KD_PATH } from '~/helpers/constants';

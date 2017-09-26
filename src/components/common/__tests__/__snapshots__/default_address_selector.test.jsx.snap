@@ -9,7 +9,7 @@ exports[`<DefaultAddressSelector /> renders correctly 1`] = `
   <KeystoreButtons
     inverted={false}
     keystores={Array []}
-    skipImportConfirmation={false}
+    skipImportConfirmation={true}
   />
 </span>
 `;

@@ -1,4 +1,5 @@
-import React, { PropTypes, Component } from 'react';
+import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import { Table, Input, Label, Checkbox } from 'semantic-ui-react';
 
 import NetworkTokensSelector from '~/components/common/network_tokens_selector';

@@ -73,7 +73,9 @@ exports[`<Keystores /> renders correctly 1`] = `
         }
       }
     >
-      <Segment>
+      <Segment
+        key="1"
+      >
         <KeystoreModal
           createKeystore={[Function]}
           data={
@@ -182,6 +184,7 @@ exports[`<Keystores /> renders correctly 1`] = `
               }
               createKeystore={[Function]}
               deleteKeystore={[Function]}
+              key="0x12345"
               keystore={
                 Object {
                   "addresses": Array [
@@ -250,6 +253,7 @@ exports[`<Keystores /> renders correctly 1`] = `
               }
               createKeystore={[Function]}
               deleteKeystore={[Function]}
+              key="0x1234567"
               keystore={
                 Object {
                   "addresses": Array [
@@ -313,7 +317,9 @@ exports[`<Keystores /> renders correctly 1`] = `
           </TableBody>
         </Table>
       </Segment>
-      <Segment>
+      <Segment
+        key="2"
+      >
         <KeystoreModal
           createKeystore={[Function]}
           data={
@@ -422,6 +428,7 @@ exports[`<Keystores /> renders correctly 1`] = `
               }
               createKeystore={[Function]}
               deleteKeystore={[Function]}
+              key="0x54321"
               keystore={
                 Object {
                   "addresses": Array [
@@ -490,6 +497,7 @@ exports[`<Keystores /> renders correctly 1`] = `
               }
               createKeystore={[Function]}
               deleteKeystore={[Function]}
+              key="0x543210123"
               keystore={
                 Object {
                   "addresses": Array [

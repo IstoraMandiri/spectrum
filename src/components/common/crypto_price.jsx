@@ -1,4 +1,5 @@
-import React, { PropTypes, Component } from 'react';
+import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { actions } from '@digix/redux-crypto-prices/src';
 import { Label, Dropdown } from 'semantic-ui-react';

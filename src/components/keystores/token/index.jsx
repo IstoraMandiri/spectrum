@@ -1,4 +1,5 @@
-import React, { PropTypes, Component } from 'react';
+import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 
 import { ERC20_ABI } from '~/helpers/constants';
 import { registerUIs } from '~/helpers/uiRegistry';

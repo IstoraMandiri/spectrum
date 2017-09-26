@@ -1,4 +1,5 @@
-import React, { PropTypes, Component } from 'react';
+import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 
 const buildTime = window.spectrumBuildTime && new Date(window.spectrumBuildTime).toLocaleString();
 

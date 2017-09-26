@@ -1,4 +1,5 @@
-import React, { PropTypes, Component } from 'react';
+import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import PaginationMenu from '~/components/common/pagination_menu';
 
 import AddressInput from '~/components/common/address_input';

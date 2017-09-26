@@ -6,6 +6,7 @@ exports[`<AddressInput /> renders correctly 1`] = `
     action={true}
     className="labeled"
     fluid={true}
+    key="0"
     onChange={[Function]}
     placeholder="Enter Address"
     type="text"

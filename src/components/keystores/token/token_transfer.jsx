@@ -1,4 +1,5 @@
-import React, { PropTypes, Component } from 'react';
+import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import TransactionModal from '~/components/transactions/transaction_modal';
 
 import { toBigNumber } from '~/helpers/stringUtils';

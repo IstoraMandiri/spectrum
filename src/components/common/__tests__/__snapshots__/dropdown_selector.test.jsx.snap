@@ -16,6 +16,7 @@ exports[`<DropdownSelector /> renders correctly 1`] = `
   renderLabel={[Function]}
   searchInput="text"
   selectOnBlur={true}
+  selectOnNavigation={true}
   selection={true}
   text="Select "
 >

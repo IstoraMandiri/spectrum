@@ -1,7 +1,9 @@
-import React, { PropTypes, Component } from 'react';
+import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import { Progress, Divider, Input, Form, Button } from 'semantic-ui-react';
-import BigNumber from 'bignumber.js';
 import EZModal from 'sui-react-ezmodal';
+
+import BigNumber from 'bignumber.js';
 
 import DropdownSelector from './dropdown_selector';
 

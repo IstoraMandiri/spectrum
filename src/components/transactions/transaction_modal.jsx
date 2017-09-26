@@ -1,4 +1,5 @@
-import React, { PropTypes, Component } from 'react';
+import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 
 import TransactionTracker from './transaction_tracker';
 import TransactionModalForm from './transaction_modal_form';

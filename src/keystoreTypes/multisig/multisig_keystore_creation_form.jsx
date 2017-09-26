@@ -1,4 +1,5 @@
-import React, { PropTypes, Component } from 'react';
+import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import { Button, Grid, Icon, Header } from 'semantic-ui-react';
 import { abi, unlinked_binary as binary } from '@digix/truffle-gnosis-multisig/build/contracts/MultiSig.json';
 

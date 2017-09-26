@@ -29,6 +29,7 @@ exports[`<CryptoPrice /> renders correctly 1`] = `
     scrolling={true}
     searchInput="text"
     selectOnBlur={true}
+    selectOnNavigation={true}
     text="About 0 GBP"
     value="GBP"
   />

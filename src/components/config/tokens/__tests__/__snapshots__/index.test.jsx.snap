@@ -47,6 +47,7 @@ exports[`<Tokens /> renders correctly 1`] = `
       >
         <Token
           deleteToken={[Function]}
+          key="1"
           token={
             Object {
               "id": 1,
@@ -56,6 +57,7 @@ exports[`<Tokens /> renders correctly 1`] = `
         />
         <Token
           deleteToken={[Function]}
+          key="2"
           token={
             Object {
               "id": 2,

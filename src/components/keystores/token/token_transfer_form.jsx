@@ -1,4 +1,5 @@
-import React, { PropTypes, Component } from 'react';
+import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import { Form } from 'semantic-ui-react';
 
 import AddressInput from '~/components/common/address_input';

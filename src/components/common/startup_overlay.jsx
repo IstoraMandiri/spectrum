@@ -1,4 +1,5 @@
-import React, { PropTypes, Component, cloneElement } from 'react';
+import React, { Component, cloneElement } from 'react';
+import PropTypes from 'prop-types';
 import EZModal from 'sui-react-ezmodal';
 import { Label, Button } from 'semantic-ui-react';
 
@@ -25,7 +26,7 @@ export default class StartupOverlay extends Component {
   }
   render() {
     const { trigger, content, title } = this.props;
-    const wrappedTrigger = cloneElement(trigger, { onClick: this.handleTriggerClick });
+    const wrappedTrigger = trigger && cloneElement(trigger, { onClick: this.handleTriggerClick });
     if (this.state.hidden) { return wrappedTrigger; }
     return (
       <div>

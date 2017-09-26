@@ -1,4 +1,5 @@
-import React, { PropTypes, Component } from 'react';
+import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import { Table, Button } from 'semantic-ui-react';
 
 import { parseBigNumber, camelToCapitalized } from '~/helpers/stringUtils';

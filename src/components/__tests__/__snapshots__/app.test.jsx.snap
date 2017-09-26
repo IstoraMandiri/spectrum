@@ -4,34 +4,34 @@ exports[`<App /> renders correctly 1`] = `
 <div
   className="pusher"
 >
-  <Connect(TransactionSigningOverlay) />
+  <TransactionSigningOverlay />
   <HashRouter>
     <MenuSystem
       className="content"
-      fixed="top"
+      dropdown={false}
+      hidden={false}
       marginTop="5em"
+      menuProps={
+        Object {
+          "borderless": true,
+          "fixed": "top",
+        }
+      }
+      parentRoute="/"
       renderLastItem={[Function]}
-      secondary={false}
       tabs={
         Array [
           Object {
             "component": [Function],
-            "exact": true,
             "icon": "key",
             "name": "Keystores",
-            "path": "/",
+            "path": "/keystores",
           },
           Object {
             "component": [Function],
             "icon": "wrench",
             "name": "Config",
             "path": "/config",
-          },
-          Object {
-            "component": [Function],
-            "icon": "code",
-            "name": "Dapplets",
-            "path": "/dapplets",
           },
         ]
       }

@@ -1,4 +1,5 @@
-import React, { PropTypes, Component } from 'react';
+import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import { Button, Message } from 'semantic-ui-react';
 import EZModal from 'sui-react-ezmodal';
 

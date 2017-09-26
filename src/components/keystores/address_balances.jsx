@@ -1,4 +1,5 @@
-import React, { PropTypes, Component } from 'react';
+import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import { Table } from 'semantic-ui-react';
 
 import web3Connect from '~/helpers/web3/connect';

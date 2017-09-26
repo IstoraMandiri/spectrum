@@ -1,4 +1,5 @@
-import React, { PropTypes, Component } from 'react';
+import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import { Menu, Dropdown, Container } from 'semantic-ui-react';
 import { Redirect, Switch, Route } from 'react-router-dom';
 import ActiveLink from '~/components/common/active_link';

@@ -1,4 +1,5 @@
-import React, { PropTypes, Component } from 'react';
+import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { Divider } from 'semantic-ui-react';
 
@@ -57,7 +58,7 @@ class KeystoreModal extends Component {
     return {
       ...data,
       networks: data.networks || defaultNetworks,
-      tokens: data.tokens || networks.reduce((o, network) => (
+      tokens: data.tokens || (networks || []).reduce((o, network) => (
         o.concat((network.tokens || []).map(token => token.default && token.id).filter(a => a))
       ), []),
     };

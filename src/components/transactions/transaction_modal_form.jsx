@@ -1,4 +1,5 @@
-import React, { PropTypes, Component } from 'react';
+import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import FormField from '~/components/common/form_field';
 import Advanced from '~/components/common/advanced';
 import { Form } from 'semantic-ui-react';

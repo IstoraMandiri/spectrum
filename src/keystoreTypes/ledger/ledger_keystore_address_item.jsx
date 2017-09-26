@@ -1,4 +1,5 @@
-import React, { PropTypes, Component } from 'react';
+import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import { Image, Table, Checkbox, Input } from 'semantic-ui-react';
 
 import blockie from '~/helpers/blockie';

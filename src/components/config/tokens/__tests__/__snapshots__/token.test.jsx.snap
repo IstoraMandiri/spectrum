@@ -15,6 +15,7 @@ exports[`<Token /> renders correctly 1`] = `
   handleRemove={[Function]}
   handleSubmit={[Function]}
   header="Edit Token: Test token"
+  key="1"
   trigger={
     <TableRow
       as="tr"

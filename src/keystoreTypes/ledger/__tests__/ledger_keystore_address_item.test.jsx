@@ -4,6 +4,8 @@ import toJson from 'enzyme-to-json';
 
 import LedgerKeystoreAddressItem from '../ledger_keystore_address_item';
 
+jest.mock('../../../helpers/blockie');
+
 const data = {
   name: 'test name',
   enabled: true,

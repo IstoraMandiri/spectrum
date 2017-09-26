@@ -7,6 +7,7 @@ exports[`<TxVisualisation /> renders correctly 1`] = `
   verticalAlign="middle"
 >
   <GridColumn
+    key="0"
     textAlign="center"
   >
     <Header
@@ -47,6 +48,7 @@ exports[`<TxVisualisation /> renders correctly 1`] = `
     </Header>
   </GridColumn>
   <GridColumn
+    key="1"
     textAlign="center"
   >
     <Header

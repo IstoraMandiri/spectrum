@@ -1,4 +1,5 @@
-import React, { PropTypes, Component } from 'react';
+import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import { Segment, Image, Form } from 'semantic-ui-react';
 import FormImageField from './form_image_field';
 

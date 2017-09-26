@@ -9,6 +9,7 @@ exports[`<MenuSystem /> renders correctly 1`] = `
         content="Tab 1"
         exact={true}
         icon="tabIcon1"
+        key="/tab-1"
         onClick={[Function]}
       />
       <MenuItem
@@ -16,6 +17,7 @@ exports[`<MenuSystem /> renders correctly 1`] = `
         content="Tab 2"
         exact={true}
         icon="tabIcon2"
+        key="/tab-2"
         onClick={[Function]}
       />
     </Container>
