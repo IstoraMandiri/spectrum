@@ -26,6 +26,7 @@
     "serve": "./node_modules/.bin/http-server ./dist/production",
     "serve:pm2": "./node_modules/.bin/pm2 start ./node_modules/.bin/http-server --name spectrum-test-server -- ./dist/production",
     "serve:stop-pm2": "./node_modules/.bin/pm2 stop spectrum-test-server",
+    "deploy:github": "rm -rf ../spectrum.github.io/* && cp ./dist/production/* ../spectrum.github.io && cd ../spectrum.github.io && git commit -a -m 'redeploy spectrum' && git push origin master && cd ../spectrum",
     "lint": "eslint './src/**/*.{js,jsx}'"
   },
   "jest": {
