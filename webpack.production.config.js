@@ -24,7 +24,7 @@ module.exports = config => ({
     path: path.join(__dirname, `./dist/${process.env.ENVIRONMENT}`),
     filename: '[name].[chunkhash].js',
     sourceMapFilename: '[name].[chunkhash].js.map',
-    publicPath: process.env.PUBLIC_PATH || './',
+    publicPath: spectrumConfig.publicPath || './',
   },
   plugins: config.plugins.concat([
     // new NameAllModulesPlugin(),
