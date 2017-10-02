@@ -71,7 +71,7 @@ export default class MenuSystem extends Component {
       dropdown,
     } = this.props;
     const MenuComp = dropdown ? MenuSystemDropdown : Menu;
-    const mappedTabs = tabs.map(({ name, hidden, exact, icon, component, path, props }, i) => {
+    const mappedTabs = tabs.map(({ name, hidden, exact, icon, component, path, render, props }, i) => {
       const absolutePath = parentRoute && path[0] !== '/' ? `${parentRoute}/${path}` : path;
       return {
         exact,
@@ -79,6 +79,7 @@ export default class MenuSystem extends Component {
         component,
         hidden,
         props,
+        render,
         path: absolutePath,
         key: absolutePath,
         content: name,
@@ -108,13 +109,12 @@ export default class MenuSystem extends Component {
         <Container style={{ marginTop: !this.props.hidden ? marginTop : undefined }}>
           {usingRouter ?
             <Switch>
-              {mappedTabs.map(({ key, path, component: Comp, exact, props }) => (
+              {mappedTabs.map(({ key, path, component: Comp, exact, render }) => (
                 <Route
                   {...{
                     key,
                     path,
-                    component: !childProps ? Comp : undefined,
-                    render: !childProps ? undefined : () => <Comp {...childProps} {...props} />,
+                    render: render || (() => <Comp {...childProps} />),
                     exact,
                   }}
                 />
